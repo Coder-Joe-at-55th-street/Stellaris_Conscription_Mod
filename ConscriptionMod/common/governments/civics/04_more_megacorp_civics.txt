@@ -1,0 +1,307 @@
+
+civic_involution_society = {
+	modification = no
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 0 }
+	modifier = {
+		planet_jobs_slave_produces_mult = 0.025
+		pop_demotion_time_mult = 1.00
+	}
+}
+
+civic_real_estate_megacorp = {
+	modification = no
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	modifier = {
+		pop_housing_usage_mult =0.15
+		planet_districts_city_cost_mult = -2.00
+		pop_cat_ruler_happiness = 0.10
+		pop_cat_ruler_political_power = 3.00
+		pop_cat_specialist_happiness = -0.05
+		pop_cat_worker_happiness = -0.10
+		planet_districts_cost_mult = -0.20
+	}
+}
+
+
+civic_primitive_terraformer = {
+	
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	modifier = {
+		ship_colonizer_cost_mult = 0.50
+		planet_colony_development_speed_mult = -0.50
+	}
+}
+
+civic_deindustrialized = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		civics = {
+			NOT = {value = civic_what_is_environment}
+		}
+	}
+	modifier = {
+		country_minerals_produces_mult = -0.20
+		country_alloys_produces_mult = -0.20
+		trade_value_mult = 0.30
+		branch_office_value_mult = 0.20
+		planet_branch_offices_cost_mult = -0.20
+	}
+}
+
+civic_what_is_environment = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		civics = {
+			NOT = {value = civic_deindustrialized}
+		}
+	}
+	modifier = {
+		country_food_produces_mult = -0.20
+		country_minerals_produces_mult = 0.15
+		country_alloys_produces_mult = 0.15
+		pop_growth_speed = -0.05
+	}
+}
+
+civic_agricultural_syndicate = {
+	modification = no
+	potential = { 
+		authority = { value = auth_corporate } 
+		NOT = {is_lithoid_empire = yes}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		planet_farmers_food_produces_add = 1
+	}
+}
+
+
+civic_drug_dealer = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		civic = {
+			OR = {
+				value = civic_criminal_heritage
+			}
+		}
+	}
+
+	random_weight = { base = 5 }
+	modifier = {
+		trade_value_mult = 0.10
+		planet_jobs_produces_mult = -0.10
+		planet_pops_upkeep_mult = -0.20
+		pop_happiness = 0.05
+	}
+}
+
+civic_university_league = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		ethics = {
+			OR = {
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+	}
+	modifier = {
+		all_technology_research_speed = -0.05
+		planet_researchers_produces_mult = 0.10
+		planet_researchers_upkeep_mult = -0.10
+	}
+}
+
+civic_gene_experiments = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	modifier = {
+		modify_species_cost_mult = -0.10
+	}
+}
+
+
+civic_tourism_syndicate = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		origin = {
+			OR = {
+				value = origin_shattered_ring 
+				value = origin_life_seeded
+				value = origin_remnants
+				value = origin_shoulders_of_giants
+			}
+		}
+		ethics = {
+			NOR = {
+				value = ethic_xenophobe
+				value = ethic_fanatic_xenophobe
+			}
+		}
+		
+		civics = {
+			NOT = {value = civic_what_is_environment}
+		}
+	}
+	modifier = {
+		trade_value_mult = 0.10
+		planet_amenities_mult = 0.15
+	}
+}
+
+civic_merchant_marines = {
+	modification = no
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		OR = {
+			origin = {
+				value = origin_void_dwellers
+			}
+			civic = {value = civic_gliders}
+		}
+		civics = {
+			NOT = {value = civic_deindustrialized}
+		}
+	}
+	modifier = {
+		country_naval_cap_mult = 0.05
+		ship_hull_mult = 0.15
+	}
+}
+
+civic_mining_megacorp = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		civics = {
+			NOT = {value = civic_deindustrialized}
+		}
+	}
+	modifier = {
+		planet_miners_minerals_produces_add = 1
+	}
+}
+
+
+
+
+civic_board_of_admirals = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		OR = {
+			ethics = {
+				OR = {
+					text = civic_tooltip_militarist
+					value = ethic_militarist
+					value = ethic_fanatic_militarist
+				}
+			}
+			civics = {
+				OR = {
+					value = merchant_marines
+					value = naval_contractors
+				}
+			}
+		}
+		
+		civics = {
+			NOT = {value = civic_deindustrialized}
+		}
+	}
+	modifier = {
+		ship_fire_rate_mult = 0.10
+		admiral_skill_levels = 1
+		ships_upkeep_mult = -0.10
+	}
+}
+
+civic_bureau_of_pop_planning = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		ethics = {
+			NOR = {
+				text = civic_tooltip_not_egalitarian
+				value = ethic_egalitarian
+				value = ethic_fanatic_egalitarian
+			}
+		}
+	}
+	modifier = {
+		pop_growth_from_immigration = 0.15
+		pop_resettlement_cost_mult = -0.25
+	}
+}
+
+
+civic_flexible_tenets = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		ethics = {
+			value = ethic_authoritarian
+			OR = {
+				text = civic_tooltip_spiritualist
+				value = ethic_spiritualist
+				value = ethic_fanatic_spiritualist
+			}
+		}
+	}
+	modifier = {
+		country_edict_cap_add = 1
+		edicts_cost_mult = -0.15
+	}
+}
+
+civic_legacy = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		ethics = {
+			NOR = {
+				text = civic_tooltip_not_egalitarian
+				value = ethic_egalitarian
+				value = ethic_fanatic_egalitarian
+			}
+		}
+	}
+	modifier = {
+		country_election_influence_cost_mult = -0.90
+		planet_jobs_ruler_produces_mult = 0.05
+		ruler_skill_levels = -1
+		pop_ethic_egalitarian_attraction_mult = 0.10
+	}
+}
+
+
+civic_weapon_dealers = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		ethics = {
+			NOR = {
+				text = civic_tooltip_militarist
+				value = ethic_militarist
+				value = ethic_fanatic_militarist
+			}
+		}
+		civics = {
+			NOT = {value = civic_corporate_catalytic_processing}
+		}
+	}
+
+	#Foundry produce 2 trade value!
+	modifier = {
+		planet_metallurgists_minerals_upkeep_add = 1
+	}
+}

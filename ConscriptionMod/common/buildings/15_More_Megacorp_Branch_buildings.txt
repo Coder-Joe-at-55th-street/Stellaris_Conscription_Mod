@@ -1,0 +1,73 @@
+building_sweatshop = {
+	base_buildtime = @b1_time
+	base_cap_amount = 2
+
+	branch_office_building = yes
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_criminal_syndicate = no
+			NOT = { is_ai = yes }
+		}
+		habitable_structure = no
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_city
+		}
+	}
+
+	planet_modifier = {
+		job_laborer_add = 4
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 400
+		}
+		produces = {
+			consumer_goods = 2
+			energy = 4
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+
+building_private_university = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	branch_office_building = yes
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	planet_modifier = {
+		job_clerk_add = 2
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			physics_research = 3
+			engineering_research = 3
+			society_research = 3
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 8
+	}
+}

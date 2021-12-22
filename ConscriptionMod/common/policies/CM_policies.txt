@@ -1,0 +1,168 @@
+##########################################################################
+# Empire Policies
+#
+# #####
+#
+# AI:
+# Base AI-weight is 100, if unchanged
+# AI will grab whatever policy-option has the highest weight
+#
+# #####
+#
+##########################################################################
+
+Military_Makeup = {
+
+		
+	potential = {
+		is_country_type = default
+		has_event_chain = mobilization_chain
+		has_tradition = tr_unyielding_finish
+	}
+
+	allow = {
+		is_at_war = no # Not allowed to change policies in this group while at war
+	}
+
+	option = {
+		name = "Elite_Regiments"
+
+		valid = {
+			NOR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_civic = civic_fanatic_purifiers
+			}
+		}
+
+
+		policy_flags = {
+			Conscription_Outlawed
+		}
+
+		modifier = {
+			#Conscriptions no longer enacted
+			#Add naval capacity, happiness, ship damage, and ship upkeep.
+			country_naval_cap_mult = 0.30
+			ship_fire_rate_mult = 0.15
+			pop_cat_specialist_happiness = 0.05 		
+			pop_cat_worker_happiness = 0.05
+			starbase_shipyard_build_speed_mult = 0.25			
+		}
+
+		AI_weight = {
+			factor = 0 #Hell AI won't abolish conscriptions.
+		}
+	}
+
+	option = {
+		name = "Volunteer_Only"
+
+		policy_flags = {
+			Conscription_Volunteer_Only
+		}
+		
+		modifier = {
+			# -3 Conscription Rate
+			country_naval_cap_mult = 0.05
+			ship_fire_rate_mult = 0.10
+			pop_cat_specialist_happiness = 0.05 	
+			starbase_shipyard_build_cost_mult = -0.10
+		}
+
+
+
+
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "Regular_Army"
+
+		policy_flags = {
+			Conscription_Regular_Army
+		}
+		modifier = {
+			#Just nothing
+			ship_weapon_range_mult = 0.05
+			starbase_defensive_war_ship_build_speed_mult = 0.10
+		}
+
+		AI_weight = {
+			factor = 15
+		}
+	}
+
+	option = {
+		name = "Extensive_Conscription"
+
+
+		policy_flags = {
+			Conscription_Extensive_Conscription
+		}
+		modifier = {
+			#Add 3 Conscription Rate
+			#Lowers war exhausion and ship upkeep
+			country_naval_cap_mult = -.05
+			ships_upkeep_mult = -0.15
+			country_war_exhaustion_mult = -0.20
+			ship_fire_rate_mult = -0.10	
+			pop_cat_worker_happiness = 0.05
+		}
+
+		AI_weight = {
+			factor = 10
+		}
+	}
+
+	option = {
+		name = "Levee_en_Masse"
+		
+		valid = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_civic = civic_fanatic_purifiers
+			}
+		}
+
+		policy_flags = {
+			Conscription_Levee_en_Masse
+		}
+		modifier = {
+			#Add 6 conscription rate
+			country_naval_cap_mult = -.10
+			ships_upkeep_mult = -0.30
+			country_war_exhaustion_mult = -0.40
+			ship_fire_rate_mult = -0.20
+			pop_cat_specialist_happiness = 0.05 		
+			pop_cat_worker_happiness = 0.05
+		}
+
+
+
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOR = {
+					has_ai_personality = honorbound_warriors
+					has_ai_personality = devouring_swarm
+				}
+			}
+		}
+	}
+}

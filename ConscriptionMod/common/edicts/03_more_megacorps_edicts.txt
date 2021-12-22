@@ -1,0 +1,206 @@
+##########################################################################
+# Empire edicts
+##########################################################################
+
+@Edict1Cost = 100
+@Edict2Cost = 200
+@Edict3Cost = 300
+
+@EdictPerpetual = -1
+
+#################
+# Toggle Edicts
+#################
+begin_mobilization_process = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		has_event_chain = mobilization_chain
+		is_at_war = yes		
+		NOT = {has_country_flag = mobilized}
+		NOT = {has_modifier = aftermath_of_great_war}
+	}
+
+	allow = {
+		is_at_war = yes
+		NOT = {has_policy_flag = Conscription_Outlawed}
+	}
+
+	effect = {
+		country_event = {
+			id = mobilize.200
+		}
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}
+
+
+draft_1_percent= {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		has_event_chain = mobilization_chain
+		check_variable = {which = mobilizable_percentage value >= 1}
+		is_at_war = yes
+		has_country_flag = mobilized
+		NOT = {has_modifier = recently_mobilized}
+	}
+
+	effect = {
+		country_event = {
+			id = mobilize.210
+		}
+	}
+	
+	ai_weight = {
+		weight = 2000
+	}
+}
+
+
+draft_2_percent = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		has_event_chain = mobilization_chain
+		is_at_war = yes
+		check_variable = {which = mobilizable_percentage value >= 2}
+		has_country_flag = mobilized
+		NOT = {has_modifier = recently_mobilized}
+	}
+
+	effect = {
+		country_event = {
+			id = mobilize.220
+		}
+	}
+	
+	ai_weight = {
+		weight = 4000
+	}
+}
+
+draft_5_percent = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		has_event_chain = mobilization_chain
+		is_at_war = yes
+		check_variable = {which = mobilizable_percentage value >= 5}
+		has_country_flag = mobilized
+		NOT = {has_modifier = recently_mobilized}
+	}
+
+	effect = {
+		country_event = {
+			id = mobilize.250
+		}
+	}
+	
+	ai_weight = {
+		weight = 4000
+	}
+}
+
+
+draft_10_percent = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		has_event_chain = mobilization_chain
+		is_at_war = yes
+		check_variable = {which = mobilizable_percentage value >= 10}
+		has_country_flag = mobilized
+		NOT = {has_modifier = recently_mobilized}
+	}
+
+	effect = {
+		country_event = {
+			id = mobilize.280
+		}
+	}
+	
+	ai_weight = {
+		weight = 200
+	}
+}
+
+demobilize = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		has_event_chain = mobilization_chain
+		is_at_war = no
+		has_country_flag = mobilized
+	}
+
+	effect = {
+		country_event = {
+			id = mobilize.400
+		}
+	}
+	
+	ai_weight = {
+		weight = 8000
+	}
+}
+
+
+

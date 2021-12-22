@@ -1,0 +1,913 @@
+##############
+# NAME PARTS #
+##############
+
+### GENERIC
+
+###
+
+#More Oligarchic Corp
+empire_name_parts_list = {
+	key = "oligarchic_corp"
+	parts = {
+		"Conglomerate" = 2
+		"Corporation" = 4
+		"Corporate Union" = 1
+		"Zaibatsu" = 2
+		"Industrial Group" = 1
+		"Enterprises" = 2
+		"Manufactory" = 1
+		"Stellar Industries" = 1
+		"Company" = 2
+		"Consumer Products" = 1
+		"Synergetics" = 1
+		"Incorporated" = 1
+		"Colonial Group" = 1
+		"Manufacturing" = 1
+		"Systems" = 1
+		"Multistellar" = 1
+		"Concern" = 1
+		"TransStellar" = 1
+		"Industries" = 1
+		"Dynamics" = 1
+		"Intersolar" = 1
+		"Financial Clique" = 1
+	}
+}
+
+
+
+# More Megacorp New Default
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_megacorporation"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.olig_corp.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <oligarchic_corp>"
+	# Human Empire
+}
+
+
+#More Megacorp Colonial Contractor/Developer
+empire_name_parts_list = {
+	key = "megacorp_colonial"
+	parts = {
+		"Colonial Industries" = 1
+		"Real Estate Development" = 1
+		"Colonial Contractor" = 2
+		"Colony Fleet" = 2
+		"Development Group" = 2
+		"Expansion Solutions" = 2
+		"Colonial Solutions" = 1
+		"Migratory Developer" = 1
+		"Colonial Company" = 3
+		"Colonial Infrastructure" = 1
+		"Planetary Infrastructure" = 1
+	}
+}
+
+# Colonial Contractor 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			OR = {
+				has_government = "gov_nw_developer"
+				has_government = "gov_colonial_contractor"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.System.GetName] <megacorp_colonial>"
+	prefix_format = "[This.Capital.System.GetName] <megacorp_colonial>"
+	noun = "[This.Capital.System.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			OR = {
+				has_government = "gov_nw_developer"
+				has_government = "gov_colonial_contractor"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_colonial> of [This.Capital.GetName] "
+	prefix_format = "<megacorp_colonial> of [This.Capital.GetName] "
+	noun = "[This.Capital.GetName]"
+	# Empire of Earth
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			OR = {
+				has_government = "gov_nw_developer"
+				has_government = "gov_colonial_contractor"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_colonial>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_colonial>"
+	# Human Empire
+}
+
+
+#More Megacorp Terraformer
+empire_name_parts_list = {
+	key = "megacorp_terraformer"
+	parts = {
+		"Terraformer" = 1
+		"Terraforming Project" = 1
+		"Planetary Engineering" = 1
+		"Colonial Infrastructure" = 1
+		"Terraforming Fleet" = 1
+		"Terraforming Contractor" = 1
+		"Planetary Augmentation Solution" = 1
+		"Mega-Infrastructure" = 1
+		"Colonial Constructions" = 1
+		"Advanced Colonial Industries" = 1
+	}
+}
+
+# Colonial Contractor 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_terraformer"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.System.GetName] <megacorp_terraformer>"
+	prefix_format = "[This.Capital.System.GetName] <megacorp_terraformer>"
+	noun = "[This.Capital.System.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_terraformer"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_terraformer> of [This.Capital.GetName] "
+	prefix_format = "<megacorp_terraformer> of [This.Capital.GetName] "
+	noun = "[This.Capital.GetName]"
+	# Empire of Earth
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_terraformer"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_terraformer>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_terraformer>"
+	# Human Empire
+}
+
+
+#More Megacorp Thalassocracy
+empire_name_parts_list = {
+	key = "megacorp_thalas"
+	parts = {
+		"Thalassocracy" = 1
+		"Naval Government" = 1
+		"Admiral Junta" = 1
+		"Battle Fleet" = 1
+		"Memorial Fleet" = 1
+		"Armed Merchant Guild" = 1
+		"Privateers" = 1
+		"Privateers' Guild" = 1
+		"Trade Protection Fleet" = 1
+		"Marine Governorship" = 1
+		"Mercenary Fleet" = 1
+		"Naval Supremacy" = 1
+		"Mariner Guild" = 1
+	}
+}
+
+# Colonial Contractor 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_thalassocracy"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.System.GetName] <megacorp_thalas>"
+	prefix_format = "[This.Capital.System.GetName] <megacorp_thalas>"
+	noun = "[This.Capital.System.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_thalassocracy"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_thalas> of [This.Capital.System.GetName] "
+	prefix_format = "<megacorp_thalas> of [This.Capital.System.GetName] "
+	noun = "[This.Capital.GetName]"
+	# Empire of Earth
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_thalassocracy"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_thalas>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_thalas>"
+	# Human Empire
+}
+
+
+#More Megacorp Capital Empire
+empire_name_parts_list = {
+	key = "megacorp_CE_Adj"
+	parts = {
+		"Imperialistic" = 1
+		"Monopolistic" = 1
+		"Capitalistic" = 1
+		"Great" = 1
+	}
+}
+
+empire_name_parts_list = {
+	key = "megacorp_CE_Noun"
+	parts = {
+		"State" = 1
+		"Corporation" = 1
+		"Conglomerate" = 1
+		"Mandate" = 1
+		"Trust" = 1
+		"Syndicate" = 1
+		"Bank Alliance" = 1
+		"Zaibatsu" = 1
+		"Financial Clique" = 1
+	}
+}
+
+empire_name_parts_list = {
+	key = "megacorp_CE_standalone"
+	parts = {
+		"United Colonies" = 1
+		"Monopoly" = 1
+		"Bank Alliance" = 1
+		"Financial Monopoly" = 1
+		"Capital Empire" = 1
+		"Market Openers" = 1
+	}
+}
+
+# Colonial Contractor 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_capital_empire"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.GetName] <megacorp_CE_Adj> <megacorp_CE_Noun>"
+	prefix_format = "[This.Capital.GetName] <megacorp_CE_Adj> <megacorp_CE_Noun>"
+	noun = "[This.Capital.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_capital_empire"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_CE_Adj> <megacorp_CE_Noun> of [This.GetSpeciesName] "
+	prefix_format = "<megacorp_CE_Adj> <megacorp_CE_Noun> of [This.GetSpeciesName] "
+	noun = "[This.GetSpeciesName]"
+	# Empire of Sol
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_capital_empire"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_CE_Adj> <megacorp_CE_Noun>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_CE_Adj> <megacorp_CE_Noun>"
+	# Human Empire
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 30
+			has_government = "gov_capital_empire"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.GetName] <megacorp_CE_standalone>"
+	prefix_format = "[This.Capital.GetName] <megacorp_CE_standalone>"
+	noun = "[This.Capital.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 30
+			has_government = "gov_capital_empire"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_CE_standalone> of [This.GetSpeciesName] "
+	prefix_format = "<megacorp_CE_standalone> of [This.GetSpeciesName] "
+	noun = "[This.GetSpeciesName]"
+	# Empire of Sol
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 30
+			has_government = "gov_capital_empire"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_CE_standalone>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_CE_standalone>"
+	# Human Empire
+}
+
+
+#More Megacorp Peaceful Fleet
+empire_name_parts_list = {
+	key = "megacorp_merchant_marine"
+	parts = {
+		"Trade Guild" = 1
+		"Trade Protection Union" = 1
+		"Merchant Guild" = 1
+		"Marine Junta" = 1
+		"Transportation Service" = 1
+		"Board of Captains" = 1
+		"Traders' Federation" = 1
+		"Merchant Fleet" = 1
+		"Trading Fleet" = 1
+		"Commercial Fleet" = 1
+		"Naval Governorship" = 1
+	}
+}
+
+# Colonial Contractor 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_merchant_fleet"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.System.GetName] <megacorp_merchant_marine>"
+	prefix_format = "[This.Capital.System.GetName] <megacorp_merchant_marine>"
+	noun = "[This.Capital.System.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_merchant_fleet"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_merchant_marine> of [This.Capital.System.GetName] "
+	prefix_format = "<megacorp_merchant_marine> of [This.Capital.System.GetName] "
+	noun = "[This.Capital.GetName]"
+	# Empire of Earth
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_merchant_fleet"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_merchant_marine>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_merchant_marine>"
+	# Human Empire
+}
+
+
+
+#More Megacorp United Colonies/Manipulated Democracy
+empire_name_parts_list = {
+	key = "megacorp_UC_Adj"
+	parts = {
+		"United" = 1
+		"Democratic" = 1
+		"Free" = 1
+		"Market" = 1
+		"Capitalistic" = 1
+		"Independent" = 1
+		"Federated" = 1
+		"Constitutional" = 1
+	}
+}
+
+empire_name_parts_list = {
+	key = "megacorp_UC_Noun"
+	parts = {
+		"States" = 1
+		"Colonies" = 1
+		"Republic" = 1
+		"Government" = 1
+		"Provinces" = 1
+		"Dominions" = 1
+		"Commonwealth" = 1
+	}
+}
+
+empire_name_parts_list = {
+	key = "megacorp_UC_standalone"
+	parts = {
+		"Federation" = 1
+		"Confederation" = 1
+		"Commonwealth" = 1
+		"Colonial Alliance" = 1
+		"Colonial Assembly" = 1
+	}
+}
+
+# Colonial Contractor 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			OR = {
+				has_government = "gov_manipulated_dem"
+				has_government = "gov_united_colonies"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.GetName] <megacorp_UC_Adj> <megacorp_UC_Noun>"
+	prefix_format = "[This.Capital.GetName] <megacorp_UC_Adj> <megacorp_UC_Noun>"
+	noun = "[This.Capital.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			OR = {
+				has_government = "gov_manipulated_dem"
+				has_government = "gov_united_colonies"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_UC_Adj> <megacorp_UC_Noun> of [This.GetSpeciesName] "
+	prefix_format = "<megacorp_UC_Adj> <megacorp_UC_Noun> of [This.GetSpeciesName] "
+	noun = "[This.GetSpeciesName]"
+	# Empire of Sol
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			OR = {
+				has_government = "gov_manipulated_dem"
+				has_government = "gov_united_colonies"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_UC_Adj> <megacorp_UC_Noun>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_UC_Adj> <megacorp_UC_Noun>"
+	# Human Empire
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "gov_manipulated_dem"
+				has_government = "gov_united_colonies"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.GetName] <megacorp_UC_standalone>"
+	prefix_format = "[This.Capital.GetName] <megacorp_UC_standalone>"
+	noun = "[This.Capital.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "gov_manipulated_dem"
+				has_government = "gov_united_colonies"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_UC_standalone> of [This.GetSpeciesName] "
+	prefix_format = "<megacorp_UC_standalone> of [This.GetSpeciesName] "
+	noun = "[This.GetSpeciesName]"
+	# Empire of Sol
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "gov_manipulated_dem"
+				has_government = "gov_united_colonies"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_UC_standalone>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_UC_standalone>"
+	# Human Empire
+}
+
+
+
+#More Megacorp Tech Giant'
+empire_name_parts_list = {
+	key = "megacorp_tech"
+	parts = {
+		"Advanced Insutries" = 1
+		"Technologies" = 1
+		"Contract Advanced System Solution" = 1
+		"High-Tech Manufacturing" = 1
+		"Technological Systems" = 1
+		"Technological Solutions" = 1
+		"R&D Contractor" = 1
+		"Science Contractor" = 1
+		"Research Institute" = 1
+		"Commercial Lab" = 1
+	}
+}
+
+# Colonial Contractor 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_tech_giant"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.System.GetName] <megacorp_tech>"
+	prefix_format = "[This.Capital.System.GetName] <megacorp_tech>"
+	noun = "[This.Capital.System.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_tech_giant"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_tech> of [This.Capital.System.GetName] "
+	prefix_format = "<megacorp_tech> of [This.Capital.System.GetName] "
+	noun = "[This.Capital.GetName]"
+	# Empire of Earth
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_tech_giant"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_tech>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_tech>"
+	# Human Empire
+}
+
+#More Megacorp Slave Factory/Wage Slave System
+empire_name_parts_list = {
+	key = "megacorp_slave"
+	parts = {
+		"Labor Wholesale" = 1
+		"Sweatshop" = 1
+		"Advanced Manufactory" = 1
+		"Grand Manufactory" = 1
+		"Factory" = 1
+		"Factory Alliance" = 1
+		"Manufacturing" = 1
+		"Heavy Industries" = 1
+		"Industries"= 1
+		"Labor Contractor" = 1
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			OR = {
+				has_government = "gov_great_slaver"
+				has_government = "gov_slaver_factory"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.GetName] <megacorp_slave>"
+	prefix_format = "[This.Capital.GetName] <megacorp_slave>"
+	noun = "[This.Capital.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			OR = {
+				has_government = "gov_great_slaver"
+				has_government = "gov_slaver_factory"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_slave> of [This.GetSpeciesName] "
+	prefix_format = "<megacorp_slave> of [This.GetSpeciesName] "
+	noun = "[This.GetSpeciesName]"
+	# Empire of Sol
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			OR = {
+				has_government = "gov_great_slaver"
+				has_government = "gov_slaver_factory"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_slave>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_slave>"
+	# Human Empire
+}
+
+#More Megacorp Accelerationism
+empire_name_parts_list = {
+	key = "megacorp_acce"
+	parts = {
+		"Vanguard Republic" = 1
+		"Technocracy" = 1
+		"Progressive Guidance" = 1
+		"Accelerationist State" = 1
+		"Scientific Dictatorship" = 1
+		"Experimental Domain" = 1
+		"Experimental Republic" = 1
+		"Scientific Guidance" = 1
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_productivity_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.Capital.GetName] <megacorp_acce>"
+	prefix_format = "[This.Capital.GetName] <megacorp_acce>"
+	noun = "[This.Capital.GetName]"
+	# Empire of Sol
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_productivity_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "<megacorp_acce> of [This.GetSpeciesName] "
+	prefix_format = "<megacorp_acce> of [This.GetSpeciesName] "
+	noun = "[This.GetSpeciesName]"
+	# Empire of Sol
+}
+
+# Imperial Militarist 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			has_government = "gov_productivity_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "[This.GetSpeciesName] <megacorp_acce>"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <megacorp_acce>"
+	# Human Empire
+}

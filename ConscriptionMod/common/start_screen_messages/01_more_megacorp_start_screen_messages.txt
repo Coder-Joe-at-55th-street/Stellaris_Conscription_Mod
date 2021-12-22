@@ -1,0 +1,17 @@
+part = {
+	location = 0
+	localization = "START_SCREEN_SOCIALIST_REVOLUTION"
+
+	trigger = {
+		has_origin = origin_socialist_revolution
+	}
+}
+
+part = {
+	location = 0
+	localization = "START_SCREEN_COMMON_MARKET"
+
+	trigger = {
+		has_origin = origin_common_market
+	}
+}

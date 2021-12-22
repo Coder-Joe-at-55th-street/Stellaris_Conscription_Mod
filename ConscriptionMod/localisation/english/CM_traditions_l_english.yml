@@ -1,0 +1,38 @@
+﻿l_english:
+
+################################################################
+# Total War Doctrine
+################################################################
+
+ tradition_unyielding:0 "Total War Doctrine"
+ tradition_unyielding_desc:0 "The next war must be a Total War and a Galactic War. We must win the war."
+ tr_unyielding_adopt:0 "Total War Doctrine"
+ tr_unyielding_finish:0 "Total War Doctrine Adopted"
+ #tr_unyielding_finish_desc:0 "You will gain access to a set of §Y Military Makeup Policies§! that allows you to lean towards either mass conscription or fully professional military. \n In addition, Ascension Perks Unlocked: §G+1§!"
+
+ tr_unyielding_resistance_is_frugal:0 "Technician Drafting Scheme"
+ tr_unyielding_resistance_is_frugal_delayed:0 "How much is a planetary reactor different from a naval one? Generator technicians are born sailors."
+ tr_unyielding_resistance_is_frugal_desc:0 "Technicians now provide §Y +0.75§! Naval Capacity"
+# tr_TWD_Indentured_Rifle_Regiments:0 "Indentured Rifle Regiments"
+# tr_TWD_Indentured_Rifle_Regiments_delayed:0 "We now offer a way to get away #from poverty and bankruptcy: join the Indentured Rifle Regiments! Travel the galaxy #and pay your debt in navy. Register Today! Insurance not included."
+# tr_TWD_Indentured_Rifle_Regiments_desc:0 "Each Worker Strata Pop provides §Y #+0.1§! Naval Capacity. In addition, unemployed worker provides 1 naval capacity."
+
+ tr_unyielding_never_surrender:0 "Industrial Readiness Act"
+ tr_unyielding_never_surrender_delayed:0 "We cannot wait for our factory to finish conversion when moving to war economy. We must prepare for war while still in peace!"
+ tr_unyielding_never_surrender_desc:0 "Artisans now provides §G 1§! alloys but requires §R 2§! more minerals to maintain."
+ 
+ tr_TWD_Prepare_For_Great_War:0 "Prepare for the Great War"
+ tr_TWD_Prepare_For_Great_War_delayed:0 "You can never have too much fleet when inevitable Great War comes."
+
+ tr_unyielding_bulwark_of_harmony:0 "Mobilization Timetables"
+ tr_unyielding_bulwark_of_harmony_delayed:0 "Mobilization of a galactic empire is never an easy thing. By setting up detailed timetables and keeping good record of our populations, we can always flood our enemy with our conscripts in the first week of the war."
+ tr_unyielding_bulwark_of_harmony_desc:0 "Maximum Mobilization Size is increased by §G 2%§! "
+ 
+
+ tr_unyielding_defensive_zeal:0 "Total Destruction Doctrine"
+ tr_unyielding_defensive_zeal_delayed:0 "There's no division between civilian or military asset in total wars. Thus we must kill, burn, bombard, scortch, and torture everything and everyone in enemy land. We'll make hostile planets a wasteland and make all enemy weep for their assets and families. Only in this way can we stop enemy from reinforcing their troops and win the war. Long live [Root.GetName]!"
+# tr_unyielding_defensive_zeal_desc:0 "Collateral Damage increased by §G 200%§! #and Orbital Bombardment damage increased by §G 20%§!"
+
+ tr_unyielding_fortress_doctrine:0 "Attritional Warfare Doctrine"
+ tr_unyielding_fortress_doctrine_delayed:0 "Our enemy must be thinking the same thing as we are, burning down our last settlement and kill every last of us. Thus we must fight them as long, as brutal, and as strong as we can in each and every planet. Remember, no sacrifice is too great for victory."
+# tr_unyielding_fortress_doctrine_desc:0 "Army Recruitment speed increased by §G #20%§!"

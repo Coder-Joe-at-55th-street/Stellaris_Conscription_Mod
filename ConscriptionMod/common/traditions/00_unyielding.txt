@@ -1,0 +1,90 @@
+#This is actually original Unyielding tree. I have no idea how to do UI modding.
+
+tr_unyielding_adopt = {
+	modifier = {
+		country_ship_upgrade_cost_mult = -0.10
+	}
+}
+
+tr_unyielding_finish = {
+	modifier = {
+		ascension_perks_add = 1
+	}
+}
+
+tr_unyielding_resistance_is_frugal = {
+	#Technicians Provide .75 Naval Capacity.
+
+
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_unyielding_never_surrender = {
+	#Artisans now produce alloys
+	modifier = {
+		planet_artisans_alloys_produces_add = 1
+		planet_artisans_minerals_upkeep_add = 2
+	}
+
+	tradition_swap = {
+		name = tr_TWD_Prepare_For_Great_War
+		inherit_effects = no
+		inherit_icon = yes
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		
+		modifier = {
+			country_alloys_produces_mult = 0.1
+		}
+
+		weight = {
+			factor = 1
+		}
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_unyielding_bulwark_of_harmony = {
+	possible = {
+		has_tradition = tr_unyielding_never_surrender
+		has_tradition = tr_unyielding_resistance_is_frugal
+	}
+	
+	#Max Mobilization Size +2
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_unyielding_defensive_zeal = {
+	modifier = {
+		ship_orbital_bombardment_mult = 0.20
+		army_collateral_damage_mult = 2.00
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_unyielding_fortress_doctrine = {
+	possible = {
+		has_tradition = tr_unyielding_defensive_zeal
+	}
+
+	modifier = {
+		planet_army_build_speed_mult = 0.2
+		#Still Deciding
+	}
+
+	ai_weight = {
+		factor = 1000
+	}
+}

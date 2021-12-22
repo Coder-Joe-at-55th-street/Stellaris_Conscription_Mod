@@ -1,0 +1,19 @@
+
+	NGameplay = {
+# Bombardment damage to planets from ships
+		ORBITAL_BOMBARDMENT_DAMAGE_MAX_SCALE			= 200
+		ORBITAL_BOMBARDMENT_COLONY_DMG_SCALE			= 0.02
+		ORBITAL_BOMBARDMENT_PLANET_DMG_SCALE			= 0.005
+		ORBITAL_BOMBARDMENT_ARMY_DMG_SCALE				= 0.03
+		ORBITAL_BOMBARDMENT_ASSAULT_ARMY_DAMAGE_MULT	= 2.00	# Assault armies take this much more damage from orbital bombardment
+		ORBITAL_BOMBARDMENT_KILL_POP_CHANCE				= 0.4	# Multiplied by stance & damage dealt
+		ORBITAL_BOMBARDMENT_KILL_POP_COOLDOWN			= 15	# Min days between killing pops from bombardment
+
+		# Collateral damage to planet from armies
+		COLLATERAL_DAMAGE_CHANCE						= 0.25	# Chance that an army causes collateral damage while dealing damage to an enemy army
+		COLLATERAL_DAMAGE_BASE_SCALE					= 0.05	# Base amount of planetary damage inflicted from collateral damage
+		COLLATERAL_DAMAGE_DEFENDER_MULT					= 1.00	# Collateral damage from defending units is multiplied by this
+		COLLATERAL_DAMAGE_MAX_PER_DAY					= 0.40	# Per combat side
+		COLLATERAL_DAMAGE_KILL_POP_CHANCE				= 0.15	# Multiplied by damage dealt
+
+	}

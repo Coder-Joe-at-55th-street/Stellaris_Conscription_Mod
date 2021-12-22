@@ -1,0 +1,20 @@
+# Triggers when the game starts
+
+# No scope, like on_game_start
+on_game_start = {
+	events = {
+		cmm.2 #Common  Market Origin
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		mobilize.100 # Mobilization Event
+	}
+}
+
+on_colonized = {
+	events = {
+		civicevent.1 #Primitive Terraformer
+	}
+}

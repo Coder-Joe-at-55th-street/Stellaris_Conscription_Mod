@@ -1,0 +1,237 @@
+﻿l_english:
+
+
+#############CONSCRIPTION############
+# Event Chain. To show the variable.
+
+ mobilization_chain_title:0 "Wartime Administration Authority"
+ mobilization_chain_desc:0 "As a modern civilized nation, our people are willing to die for the country, and we will draft them even if they don't. We currently have §Y[root.current_mob_size]§! percent of people serving in military. We can put at most §Y[root.max_mob_size]§! percent of our total population into military. Now, §Y[root.mobilizable_percentage]§! percent of population remains able to be drafted.\n\n Factors influencing max mobilize rate includes: \n\nTechnology 'Categorized reserve personnel', 'Logistic Preparations', and tradition 'mobilization timetable' adds §G2%§!. \nBeing fallen empire or gestalt conscious gives additional §G5%§! \n Certain Policies have their own effects\n\n We currently have drafted §Y[root.mobilized]§! million people in our military, and among these people §Y[root.in_the_field]§! million still survives. \n Mobilization can be initiated at war with edicts. It will spawn armies and navies at cost of §YSlave, Worker, and Specialist§! population. Each Mobilized pop would be converted to §Y200 million§! military personnel, and would serve in §Y4§! local defense army , §Y4§! assault army, and ships worth §Y24§! naval capacity, where §Y17.5§! million serves in each army and §Y2.5§! each naval capacity. \nWhile you demobilize, you will get a debuff of specific length. The length of debuff, in days, is calculated as: §YMobilization Percentage * 360 *(1 - Portion of conscripts survived) + 360(Base time of 1 year)§!. Currently, your debuff will vanish in §Y[root.time_to_expire]§! days."
+
+# Decision: National Mobilization Law
+
+edict_begin_mobilization_process:0 "Prepare for Mobilization"
+edict_begin_mobilization_process_desc:0 "We are facing a total war, and we must have every one on board. The Department of War has drafted a plan for conscriptions to be enacted in all our people"
+
+#decision_mobilization_law:0 "Prepare for Mobilization"
+#decision_mobilization_law_desc:0 "We are facing a total war, and we must have every one on board. The Department of War has drafted a plan for conscriptions to be enacted in all our people"
+
+edict_draft_1_percent:0 "Conscript §Y1%§! of total population"
+edict_draft_1_percent_desc:0 "The department of war has descided to draft §Y1%§! from all our population."
+
+edict_draft_2_percent:0 "Conscript §Y2%§! of total population"
+edict_draft_2_percent_desc:0 "The department of war has descided to draft §Y2%§! from all our population."
+
+edict_draft_5_percent:0 "Conscript §Y5%§! of total population"
+edict_draft_5_percent_desc:0 "The department of war has descided to draft §Y5%§! from all our population."
+
+edict_draft_10_percent:0 "Conscript §Y10%§! of total population"
+edict_draft_10_percent_desc:0 "The department of war has descided to draft §Y10%§! from all our population."
+
+edict_demobilize:0 "Demobilization"
+edict_demobilize_desc:0 "The Great War has finally ended, and it is time to let our soldiers go home for their loved ones."
+
+# Mobilized State Modifier
+mobilized_state:0 "National Mobilization"
+mobilized_state_desc:0 "We have issued a national mobilization law. All productions are regulated by the state to serve our war economy. Our army and navy would soon receive many poorly trained civilians so as to quickly expand size of our fleet. This is considered a necessary price to defeat our enemy."
+
+recently_mobilized:0 "Recently Mobilized"
+recently_mobilized_desc:0 "We have recently conscripted part of our population. We need time to prepare for another conscription"
+
+#Events
+ mobilize.1.name:0 "Revival of Conscription System"
+ mobilize.1.desc:0 "Three hundred years ago, our ancestor fought wars violently, throwing the life of a whole generation into the trenches as reluctant conscripts. We thought conscription is no longer possible in space age, but fortunately we are wrong. \nRecent studies have shown that mass conscription is still possible. With a bit help in nationalism propaganda, we can easily prepare thousands of mechanized and light infantry division by drafting our people. \nMoreover, experience from war showed that converted merchant marines and outdated cruisers are tougher than we initially anticipated. New means of organizations also made it possible to let civilians serve in less important positions on battleships. \nAs a result, we now can pick up the conscription system, and draft about §Y13%§! of our total population into our military. We have created the 'Wartime Administration Authority' to deal with conscription issue. \nNote that conscription is only possible in war, and you must let conscript go home as war ends. Also remember that, mobilizing a numerous army is same as exhausting the country’s future to fight a concurrent war, and such decisions shall only be enacted only when the nation has come to her darkest hours."
+mobilize.1.a:0 "Dulce et decorum est pro patria mori."
+
+ mobilize.200.name:0 "The Congress decided to enact drafting!"
+ mobilize.200.desc:0 "Ever since the beginning of this war, our people has been concerned about the draft. Today, they finally get the result. The congress has decided to draft the people for war. \nFollowing this decision, all able-bodied men and women must register in local conscription offices, and must report to the government if they are called upon. \nPhD application and baptize has skyrocketed as a result of educational and religious exemption. Police forces, both civillian and military, has been mobilized to deal with desertion with any means possible. \nConscription will work as the following, using a 2% draft as example. 2% refers to drafted citizen amongst our total population, thus in game 2% of population will vanish. Each population will contribute 200 million of troop, with 60 million serving in navy of 24 naval capacity, and 140 million serving in four assault and defense army, with 17.5 million people each. \n §RNote that, this population only contains people who are not ruling class, because they almost always have their own way to escape from conscriptions§!."
+ mobilize.200.a:0 "To arms!"
+
+ mobilize.201.name:0 "[from.GetName] Mobilizes!"
+ mobilize.201.desc:0 "In facing a total war, the [from.GetName] military has enacted a drafting. A Great Power in the Galactic Community, [from.GetName]'s mobilization surely indicated the extent of war. In one year billions of recruits will be fighting in a theater of thousands of lightyears. It seems that goodwill of peace has once again failed this galaxy."
+ mobilize.201.a:0 "Stay alert, countrymen!"
+
+ mobilize.210.name:0 "A light draft of 1%"
+ mobilize.210.desc:0 "The congress have decided to draft 1% of our total population. While the news is expected by the public, many are still reluctant to serve. Military police has reported tens of refusal, all of which has been dealt properly through fine and assignment to most poorly equipped light infantry battalions. \nWe expect 1% among our manpower pool to be drafted. In game, this 1% of population will disappear. This population will not include population in ruling class, though all robots are to be drafted."
+ mobilize.210.a:0 "Do it."
+ mobilize.210.b:0 "On a second thought, maybe no."
+
+ mobilize.220.name:0 "A Draft of 2%"
+ mobilize.220.desc:0 "The congress have decided to draft 2% of our total population. This will be done through extending the service term of existing conscripts and drafting of more citizens. \nWe expect 2% among our manpower pool to be drafted. In game, this 2% of population will disappear. This population will not include population in ruling class, though all robots are to be drafted."
+#All mobilize event after 210 uses same option name.
+
+ mobilize.250.name:0 "One in Twenty Draft"
+ mobilize.250.desc:0 "The congress have decided to draft 5% of our total population. We expected a protest from our citizens, but surprisingly our nationalist propaganda and controlled media has controlled the situation, with millions of fools accepting their fate as cannon fodders with pride and happiness. \nMilitary police are now in alert for desertion. Meanwhile, we have restricted application towards science and engineering in our universities to avoid educational exemption. Further legislations would soon be passed to ensure a stable supply of men into our army and navy. \nWe expect 5% among our manpower pool to be drafted. In game, this 5% of population will disappear. This population will not include population in ruling class, though all robots are to be drafted."
+
+ mobilize.280.name:0 "One Soldier from Ten Citizens!"
+ mobilize.280.desc:0 "The congress have decided to draft 10% of our total population. \nWe are losing this war, and now each and every man must serve to protect the fatherland. \nWe have almost depleted our manpower pool, and are mobilizing militias like the Volkssturm or high school students. Sickness and religious exemption is no longer allowed, deserters would be assigned to suicidal battalions, along with every one who oppose our policy and rule. \nWe expect 10% among our manpower pool to be drafted. In game, this 10% of population will disappear. This population will not include population in ruling class, though all robots are to be drafted. \nWe have enough cannon fodders almost every year in our history, but such a chance to wage a war on our enemy and earn land and fame is rare. We don't care how historians judge us. We need victory, even at cost of two generations of good men and women."
+
+ mobilize.400.name:0 "Demobilized"
+ mobilize.400.desc:0 "The war is over. \n It was hard to imagine how the world for many can change just in a single day, but it happened. The last terms of peace treaty were fixed, and the war that raged our glorious nation is finally over. Humble infantryman climbed out of the trenches one last time, exchanging their happiness with their previous enemies. In the space, fleets fired empty shells into the stars to glorify the souls lost in the war. \nSpaceports were filled by anxious men and women waiting for their husbands, parents, or children. Many of them eventually just got a letter titled ‘I’m sorry to inform you…’. But still people are happy, for today the order from the government has come. Conscripts are finally allowed to go home, to go and meet their loved ones."
+ mobilize.400.a:0 "When Johnny comes marchin' home again, hurrah, hurrah...."
+
+ mobilize.402.name:0 "Manpower Level Recovers"
+ mobilize.402.desc:0 "It has been many years since the last mobilization. A brand new generation has been born and raised since the last war ended. No longer do the people remember the railgun shells that shatter infantry into pieces, the burning battleships that illuminated the dark space, the gunner of a destroyer reduces to atoms in a beam of lazer, the remaining of a tank crew scrapped off a burning tank, the bodies of humble infantryman between no man's zone between trenches. \n A proud generation has been raised in stories of the last war, wishing to establish their own glory and legend. And with these fools growing up, we finally have enough manpower to rage another war."
+ mobilize.402.a:0 "Excellent!"
+ mobilize.402.b:0 "Peace is the single most precious thing in the galaxy..."
+ mobilize.402.c:0 "The nation rises, and the commoner suffers. The nation falls, the commoner suffers"
+ mobilize.402.d:0 "People are like leeds. The most you harvest them, the better they grow."
+
+ mobilize.403.name:0 "[from.GetName] Demobilizes!"
+ mobilize.403.desc:0 "As the war has ended, [from.GetName] have de-mobilized their troops."
+ mobilize.403.a:0 "Peace hath prevailed!"
+
+#Buffs
+mobilization_1:0 "Limited Conscription"
+mobilization_1_desc:0 "While millions have been drafted into the military, the drafting is still limited with mobilization rate less than 5%, and many suitable young men and women are yet mobilized"
+
+ mobilization_2:0 "Mass Conscription"
+ mobilization_2_desc:0 "The country is now in mass conscription, with less than 9% drafted into the military. Almost every young men and women are mobilized for war."
+
+ mobilization_3:0 "Service by requirement"
+ mobilization_3_desc:0 "This country is in brink of losing the war, so now it has mobilized less than 13% into the military. All able-bodied young and mid-aged men and young women have been drafted, and men over 50 are becoming more frequently seen in the army."
+
+ mobilization_4:0 "Scrapping the Barrel"
+ mobilization_4_desc:0 "Manpower is like the water in a sponge, the harder you squeeze it the more you can get it. This country is drafting less than 17% of its people into the battlefield. This means that high school students, old men, and many other previously thought unsuitable to serve is now in the ranks."
+
+ mobilization_5:0 "Overdrafting the Future"
+ mobilization_5_desc:0 "[Root.GetName] requires that every man, woman, and child will do their DUTY."
+
+ mobilized_state:0 "Mobilized State"
+ mobilized_state_desc:0 "The Industry of our state is now fully mobilized to support war effort. Let us melt every steel pot, donate every piece of metal, register every small boat we can ever found, send every able bodied man and woman to the battlefield, and may our great nation be the last one standing in this madness that only kills a generation in trenches."
+
+ aftermath_of_great_war:0 "A Lost Generation"
+ aftermath_of_great_war_desc:0 "Just a few years ago, our mighty nation lost a whole generation of young men and women in the battlefield. Millions died meaninglessly in a rediculous war in trenchs lightyears from home. The survived are lost, angry, dispair, and cannot afford being drafted into another war--even if that is exactly what we are planning to do twenty years later."
+ 
+#Techs
+tech_militarized_high_school:0 "Militarized High Schools"
+tech_militarized_high_school_desc:0 "How old could a boy be able to hold a gun and fight for his country? The answer is, as young as possible. High school students, though not yet mature, are still suitable to be humble infantrymen. By militarizing the high schools, organizing our young men and women into battalions and regiments, we can easily draft more personnel into our army. \n This tech allows us to draft an additional §G 1%§! from our population."
+
+tech_volkssturm:0 "Expand the Militia"
+tech_volkssturm_desc:0 "It is a common sense that the war is always won by a country who can mobilize more people and fleet. While we cannot rapidly expand our population base, we can expand range of conscription. By organizing the old, the disabled, and the ex-criminals into semi-regular militias, we can easily expand our army and navy alike. Many of those drafted are even experienced technicians or fighters, making them even more suitable to serve. \n  This tech allows us to draft an additional §G 2%§! from our population."
+
+#Army Description
+conscript_defense_army:0 "Conscript Defensive Army"
+conscript_defense_army_desc:0 "This army is made of civilian conscripts and volunteers, assigned to local regiments to defend their home planet. They deploy mass-scaled armored and mechanized infantry warfare, and win the battle with their organization and sheer numbers, without much fancy tactics."
+
+conscript_assault_army:0 "Conscript Assault Army"
+conscript_assault_army_desc:0 "This army is made of civilian conscripts and volunteers, assigned to expeditionary regiments. They deploy mass-scaled armored and mechanized infantry warfare, and win the battle with their organization, courage, and [Root.Species.GetName] wave offensive. Due to their traditional ways of fighting, the casualty is usually very large. Millions may die in a single battle, though the dead would always be replenished by new reluctant conscripts."
+
+#Navy Description
+conscript_corvette:0 "Converted Cutter"
+conscript_destroyer:0 "Conscripted Merchantman"
+conscript_cruiser:0 "Makeshift Cruiser"
+#conscript_galleon:0 "Armed Tanker"
+
+########################Civil War Events Descriptions.############
+civicevent.1.name:0 "Conquering of Nature"
+civicevent.1.desc:0 "Recent colonial effort in [Root.GetName] has bear fruit. By nuking a few mountains we have tamed the environment and made it a better place to live in and develop industries on."
+
+####################Wierd Civics#############
+origin_common_market:0 "Common Market"
+ origin_common_market_desc:0 "This megacorp has formed close trade relationship with neighboring civilizations. Now, they decided to form a trade league to reinforce these ties."
+ START_SCREEN_COMMON_MARKET:0 "From the first sailing Carrack ship that goes to the other end of the world, to the state-of-the-art tanker fleet of [Root.GetName], [Root.Species.GetName] has never forgone the pursuit towards trade and prosperity. Many years ago, it was the sailing ships that carried the world market on their back. After that, mega-tankers brought [Root.Capital.GetName] into one, and brought prosperity to all. \n When we marched proudly into space, we found, to our surprise, civilizations at our boarders. We have long formed ties of trading, because it was inter-stellar trade that filled their lack with our excess, and our lack with their excess. Like in ancient times, ships brought prosperity on their deck. \n In a historical moment, leader of these civilizations formed the [Root.GetAllianceName]. We shall, from now on, unite under the same flag, and become the largest retailer of prosperity of the galaxy, the beacon of wealth and profit."
+ origin_tooltip_common_market_effects:1 "- You begin as leader of a trade league, and you are the only mega-corp in the federation, which means that you have two market to be exploited."
+
+
+ civic_involution_society:0 "Involution Society"
+ civic_involution_society_desc:0 "How cheap could a man be? ten dollars an hour? Five? One? No. If there are enough people and not enough work, the wages of man can be even lower than basic subsistance. In this society, the elite class keeps an excessive amount of population and inadequate amount of job opportunity. As a result, fierce and useless competition drove productivity to shocking level at cost of flesh. Anyway, what could possibly go wrong when, amongst ten people, three people receives wages of five and do the job of ten while the seven was left there without any income? \n\n Effect: \nevery unemployed pop adds §G 10%§! job production to the planet they are residing in. "
+
+
+civic_real_estate_megacorp:0 "Real Estate Megacorp"
+civic_real_estate_megacorp_desc:0 "This society's economy is largely built on the overheat housing market. Due to deliberatedly limited land supply, the housing price is high and under manipulation of major corporations. As a result, people are exploited cruely as they are forced to buy a poor lodging with their life's wealth."
+
+civic_primitive_terraformer:0 "Primitive Terraformer"
+civic_primitive_terraformer_desc:0 "'Make the environment to fit our industries, not the opposite way.' \n\n This species has shown great resolution in sculpturing the land to fit their need. They are skillful in small-scale terraform project like nuking mountains to divert moists to enter inland area, or building huge dams to change climate of a gulf. While their colony ships are more expensive, its equipment allows the colonists to turn harsh environment to less hostile ones, and make homeworld-alike planets more suitable for industrial development. \n\n Effect: \nUpon colonization being finished, planets with less than §Y60%§! habitability gains §Ymodifier§! that improves habitability and amenities. Planets with more than §Y60%§! habitability gains §Rsome penalty in habitability§! in exchange for §Ghigher job production§!."
+
+civic_deindustrialized:0 "Deindustrialized"
+civic_deindustrialized_desc:0 "It is quite a wonder, but this society developed their FTL engine and related industries under a rapidly de-industrializing environment, when this society focused very much on number games of finance rather than actually building something. This governing-corporate are more skillful in buying companies and selling products than buidling manufactories and producing commodities. "
+
+civic_what_is_environment:0 "H.I.E.A."
+civic_what_is_environment_desc:0 "The H.I.E.A., or Heavy Industry Exemption Act, was issued by the senate early twentieth century to remove environmental regulations to promote development of high-end heavy industries. Today, this society has developed a unique pro-industrial culture. These people would trade everything--most prominently furtile land and environment--for larger factories, higher productivities, and better spacecrafts."
+
+civic_agricultural_syndicate:0 "Agricultural Syndicate"
+civic_agricultural_syndicate_desc:0 "This Megacorp started as a major agricultural syndicate. They excelled in agricultural production and monopolized it, thus ensured their power over their people. They continue to be top-notch food producer of the galaxy."
+
+civic_drug_dealer:0 "Drug Dealers"
+civic_drug_dealer_desc:0 "Following legalization of marijuana and many previously-considered illegal drugs, the drug-trading corporates grew stronger and stronger until they finally controlled the whole planet, ready to explore alien markets. Though this gave negative effect on their job production, it is very profitable."
+
+civic_university_league:0 "University League"
+civic_university_league_desc:0 "This megacorp first born out of an innovative cartel that combines high-end industry with universities. The university would provide a steady supply of specialists to the industries. However, as time goes, the university part of the cartel expanded almost tenfold as they now tend to have more people in the college, giving them useless degrees and receiving useful tuition fees"
+
+civic_gene_experiments:0 "Gene Experiments"
+civic_gene_experiments_desc:0 "This megacorp was born out of an illegal attempt of modifying gene that secretly polluted their species gene pool, and quickly expanded its size by providing GMO cattles and illegal gene modification and utilization alike. They have mastered the skills of gene manipulation and would willingly alter the gene of their people or foreigner alike, at a price of course. \n Begin with additional biological techs."
+
+civic_tourism_syndicate:0 "Tourism Syndicate"
+civic_tourism_syndicate_desc:0 "The homeworld of this species has rich natural and cultural heritage, making it perfect spot for vacation. This megacorp tend to use toursim and related service industries as her main source of income."
+
+civic_merchant_marines:0 "Merchant Marines"
+civic_merchant_marines_desc:0 "Due to the nature of this station-based society, space trade has become the single most important thing to keep the three stations thrive. As a result, this country keeps an enormous amont of merchant marines and have gained much more experience in space travel and reinforcing ship hulls than any other civilizations in the galaxy."
+
+civic_mining_megacorp:0 "Mining Megacorp"
+civic_mining_megacorp_desc:0 "This Megacorp born out of a coalition of major mining and oil-drilling businesses. They can see and extract wealth beneath the depth in a brutal yet effective manner. This Megacorp should be your first choice when looking for basic goods from Sillicon Wafers to Raw Titanium Ore."
+
+civic_board_of_admirals:0 "Board of Admirals"
+civic_board_of_admirals_desc:0 "Flourishing commerce in this society led to growth of private naval contractors who, as naval mercenaries, privateered or protected local trading routes since time immemorial. As a result, admirals and naval commanders enjoy great privilege in this society. As an old saying goes, it takes three months to build a tanker, but it take three thousand years for a seafaring and spacefaring society."
+
+civic_bureau_of_pop_planning:0 "Bureau of Population Planning"
+civic_bureau_of_pop_planning_desc:0 "Economists in this society excels in the art of local-level intervention--that is, deliberately gentrifying a region so its people can be brought to far-away frontiers at very low cost."
+
+civic_flexible_tenets:0 "Flexible Tenents"
+civic_flexible_tenets_desc:0 "The Board decides tenents and inquisitions, not the other way around."
+
+civic_legacy:0 "Consolidation of Social Strata"
+civic_legacy_desc:0 "Since highborn enjoys better heritage, education, and experience, it is only right to ensure they do not toil in the fields and mines so they can best spend their time moving our corporation forward. This highly stratified society have seen few inter-class movement for many centuries"
+
+civic_weapon_dealers:0 "Chartered Weapon Dealers"
+civic_weapon_dealers_desc:0 "For centuries this Megacorp has been known for their excellent weaponary. Their chartered weapon traders distributed state-of-the-art weaponaries and firmly promoted development of warfare in the galaxy. \n\n Effect: \n Foundry now provides additional §Y 2 trade value§!"
+
+############
+# Terraforming Buff
+
+
+primitive_terraformer_1:0 "Conquering of Nature"
+primitive_terraformer_1_desc:0 "With help of handy tools like fifty-million-ton nukes and mile-long concrete forge, we have tamed this planet, making it a suitable industrial base."
+
+
+primitive_terraformer_2:0 "Transformation of Nature"
+primitive_terraformer_2_desc:0 "We made it! After digging out complicated river system with nuclear weapons and burning a few million square mile of hostile local eco-system, we have tamed this planet, making it more suitable to live in."
+
+primitive_terraformer_3:0 "Augmentation of Nature"
+primitive_terraformer_3_desc:0 "By building mega-infrastructures like great dams and ice-melting reactor array we have successfully made this planet a better place for us to live in and for our industries to operate on."
+
+
+########################################
+#  Policies
+########################################
+
+policy_Military_Makeup:0 "Military Makeup Policy"
+ policy_Military_Makeup_desc:1 "In facing a total war, we must decide the amount of conscripted civilians in our militaries. We can never have a drilled professional army and a Grande Armee at the same time---we must choose one."
+ Elite_Regiments:0 "Elite Professional Army"
+ Elite_Regiments_name:0 "Elite Professional Army"
+ Elite_Regiments_desc:0 "To defend and extend one's fatherland is a noble yet dangerous cause. Thus, we shall only require the most determined and devoted to join the military and drill them ruthlessly to the most formidable force in the galaxy. It is immoral and impractical to press civilians into service, because you can--and should--never force one to give their heart for the country. \n\n §RConscription is Disabled when this policy is active!§!"
+
+ Volunteer_Only:0 "Volunteer Regiments"
+ Volunteer_Only_name:0 "Volunteer Regiments"
+ Volunteer_Only_desc:0 "Enlisting innocent civilians into army service is simply unacceptable for modern galactic civilizations. But consequently, we have no right denying people volunteering to defend their fatherland. We are not forcing people to serve--we are just making sure more people volunteer to join the military. \n\n Maximum Mobilization Size §R Decreased§! by §Y 3%! §!"
+
+ Regular_Army:0 "Regular Army"
+ Regular_Army_name:0 "Regular Army"
+ Regular_Army_desc:0 "To defend the country against the enemy is a duty for all citizens. While hard to accept, pressing civilians into military service is a necessacity for our nation at danger. \n\n No effect on Maximum Mobilization Size"
+
+
+ Extensive_Conscription:0 "Extensive Conscription"
+ Extensive_Conscription_name:0 "Extensive Conscription"
+ Extensive_Conscription_desc:0 "We shall never rely only on standing army when facing a mobilized enemy determined to exterminate us. When facing an existential crisis, we must draft every able-bodied citizens in defense of the nation. Do your duty and give your heart to the fatherland! \n\n Maximum Mobilization Size §G Increased§! by §Y 3%! §!"
+
+ Levee_en_Masse:0 "Levee en Masse"
+ Levee_en_Masse_name:0 "Levee en Masse"
+ Levee_en_Masse_desc:0 "We live in a dangerous galaxy where half want to burn us and the other half eat us alive. Survival is a luxury one must toil to earn for in this galaxy, so every citizen must do their duty by joining the military and fight for a living. It's a choice of death or fight. \n\n Maximum Mobilization Size §G Increased§! by §Y 6%! §!"
+
+############################
+# Technology
+############################
+tech_categorized_reserve_personnel:0 "Categorized Reserve Personnel"
+tech_categorized_reserve_personnel_desc:0 "There are many cases when great waste of manpower is caused by inproper assignment of registered reserve personnel. By regularly assessing our reserve personnels, we can minimize such waste and ensure that all citizens can maximize their value when it comes to total war. \n\n effect: \n Maximum Mobilization Size §G Increased§! by §Y 2%! §!"
+
+tech_logistic_preparations:0 "Logistic Preparations"
+tech_logistic_preparations_desc:0 "The chaos when conscriptions were first enacted provided many scenarios for waste and desertion. By minimizing such chaos, we can streamline conscription process and draft more material and biological resource into our military. The best way to do so is by constantly drilling our logistical corps in peace time so they are prepared for mobilization process. \n\n effect: \n Maximum Mobilization Size §G Increased§! by §Y 2%! §!"

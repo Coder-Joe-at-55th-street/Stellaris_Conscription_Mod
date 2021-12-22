@@ -1,0 +1,1434 @@
+############################
+#
+# Great Revolution War and misery Events
+#
+# Written by Xianbin Xu
+#
+############################
+
+namespace = mobilize
+# Innitializing Mobilization value for all countries.
+country_event = {
+	id = mobilize.1
+	title = mobilize.1.name
+	desc = mobilize.1.desc
+	picture = GFX_evt_outpost
+
+	is_triggered_only = yes
+
+	trigger = {
+		#is_country_type = default
+		#NOT = { has_ethic = ethic_gestalt_consciousness }
+		years_passed >= 10
+	}
+
+	immediate = {
+		set_variable = { which = max_mob_size value = 13 } #Maximum Mobilization Size
+		set_variable = { which = current_mob_size value = 1 } #Current mobilization in army
+		set_variable = { which = mobilizable_percentage value = 12 } #Percent that can still be mobilized.
+		set_variable = { which = in_the_field value = 0 } #Current personnel in the field
+		set_variable = { which = mobilized value = 0} #Total people mobilized
+		set_variable = { which = time_to_expire value = 0} #Time it takes to make the "aftermath of Great War" expire.
+		begin_event_chain = {
+			event_chain = mobilization_chain
+		}
+
+	}
+
+	option = {
+		name = mobilize.1.a
+	}
+}
+
+# Monthly Check, modifying misery
+event = {
+	id = mobilize.100
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		years_passed >= 40
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				has_event_chain = mobilization_chain
+				years_passed >= 10
+			}
+			country_event = {
+				id = mobilize.101 #Check for standing sh
+				days = 2
+			}
+		}
+		every_playable_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				NOT = {has_event_chain = mobilization_chain}
+				years_passed >= 10
+			}
+			country_event = {
+				id = mobilize.1
+			}
+		}
+	}
+}
+
+#101, monthly check for mobilization in each nation
+country_event = {
+	id = mobilize.101
+	title = mobilize.101.name
+	desc = mobilize.101.desc
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_event_chain = mobilization_chain
+		
+	}
+
+	immediate = {
+		set_variable = { which = max_mob_size value = 13 }
+		#Add 2 for each level of tech in mobilization
+		if = {
+			limit = {has_technology = tech_categorized_reserve_personnel}
+			change_variable = { which = max_mob_size value = 2 }
+		}
+		if = {
+			limit = {has_technology = tech_logistic_preparations}
+			change_variable = { which = max_mob_size value = 2 }
+		}
+		
+
+		if = {
+			limit = {has_tradition = tr_unyielding_bulwark_of_harmony}
+			change_variable = { which = max_mob_size value = 2 }
+		}
+		if = {
+			limit = {
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+			change_variable = { which = max_mob_size value = 5 }
+		}
+		#Policy Stuff
+		if = {
+			limit = {
+				has_policy_flag = Conscription_Outlawed
+			}
+			set_variable = { which = max_mob_size value = 12 }
+		}	
+		else_if = {
+			limit = {
+				has_policy_flag = Conscription_Volunteer_Only
+			}
+			subtract_variable = { which = max_mob_size value = 3 }
+		}
+		else_if = {
+			limit = {
+				has_policy_flag = Conscription_Extensive_Conscription
+			}
+			change_variable = { which = max_mob_size value = 3 }
+		}
+		else_if = {
+			limit = {
+				has_policy_flag = Conscription_Levee_en_Masse
+			}
+			change_variable = { which = max_mob_size value = 6 }
+		}
+
+
+		#At most 25% Mobilization size
+		if = {
+			limit = {check_variable = { which = max_mob_size value >= 25} }
+			change_variable = { which = max_mob_size value = 25 }
+		}
+		
+		#Changes mobilizable size accordingly
+		set_variable = { which = mobilizable_percentage value = max_mob_size}
+		subtract_variable = { which = mobilizable_percentage value = current_mob_size}
+		if = {
+			limit = {
+				check_variable = { which = current_mob_size value >= 21}
+			}
+			add_modifier = {
+				modifier = mobilization_5
+				days = 30
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = current_mob_size value >= 17 }
+			}
+			add_modifier = {
+				modifier = mobilization_4
+				days = 30
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = current_mob_size value >= 13  }
+			}
+			add_modifier = {
+				modifier = mobilization_3
+				days = 30
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = current_mob_size value >= 9 }
+			}
+			add_modifier = {
+				modifier = mobilization_2
+				days = 30
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = current_mob_size value > 5 }
+			}
+			add_modifier = {
+				modifier = mobilization_1
+				days = 30
+			}
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = mobilized
+				#has_event_chain = mobilization_chain
+				has_policy_flag = Conscription_Outlawed
+			}
+			country_event = {
+				id = mobilize.400
+				days = 1
+				#If you outlawed conscription, you lose all your mobilized troop immediately!
+			}
+		}
+
+		if = {
+			limit = {
+				has_country_flag = mobilized
+				#has_event_chain = mobilization_chain
+			}
+			set_variable = { which = mobilizable_percentage value = max_mob_size}
+			subtract_variable = { which = mobilizable_percentage value = current_mob_size}
+			set_variable = { which = in_the_field value = 0 }
+			every_owned_ship = {
+				limit = {
+					#has_ship_flag = conscripted_vessel
+					is_ship_size = conscript_corvette
+				}
+				root = {change_variable = { which = in_the_field value = 2.5 }}				
+			}
+			every_owned_ship = {
+				limit = {
+					#has_ship_flag = conscripted_vessel
+					is_ship_size = conscript_destroyer
+				}
+				root = {change_variable = { which = in_the_field value = 5 }}
+			}
+			every_owned_ship = {
+				limit = {
+					#has_ship_flag = conscripted_vessel
+					is_ship_size = conscript_cruiser
+				}
+				root = {change_variable = { which = in_the_field value = 10 }}
+			}
+			every_owned_ship = {
+				limit = {
+					#has_ship_flag = conscripted_vessel
+					is_ship_size = conscript_galleon
+				}
+				root = {change_variable = { which = in_the_field value = 20 }}
+			}
+			every_owned_army = {
+				limit = {
+					OR = {
+						army_type = conscript_assault_army 
+						army_type = conscript_defense_army 
+					}
+				}
+				root = {change_variable = { which = in_the_field value = 17.5 }}
+			}
+		}
+	}
+
+}
+
+#200. Country event called by decision. Begin mobilization process
+country_event = {
+	id = mobilize.200
+	title = mobilize.200.name
+	desc = mobilize.200.desc
+	is_triggered_only = yes
+
+	trigger = {
+		has_event_chain = mobilization_chain
+		NOT = {has_country_flag = mobilized}
+		NOT = {has_modifier = recently_mobilized}
+	}
+
+	immediate = {
+		set_country_flag = mobilized
+		if = {
+			limit = {
+				#galactic_community_rank <=5
+				always = yes
+			}
+			every_playable_country={
+				country_event = {
+					id = mobilize.201
+					days = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = mobilize.200.a
+		add_modifier = {
+			modifier = mobilized_state
+			days = -1
+		}
+	}
+}
+
+country_event = {
+	id = mobilize.201
+	title = mobilize.201.name
+	desc = mobilize.201.desc
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = mobilize.201.a
+	}
+}
+
+#210, which is mobilizing 1 percent of population.
+country_event = {
+	id = mobilize.210
+	title = mobilize.210.name
+	desc = mobilize.210.desc
+	picture = GFX_evt_outpost
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = mobilized
+		check_variable = {which = mobilizable_percentage value >= 1}
+		NOT = {has_modifier = recently_mobilized}
+	}
+
+	option = {
+		name = mobilize.210.a
+		change_variable = { which = current_mob_size value = 1 }
+		subtract_variable = { which = mobilizable_percentage value = 1 }
+		change_variable = { which = misery value = 40 } #Each percentage of mobilization creates 40 points of misery.
+		add_modifier = {
+			modifier = recently_mobilized
+			days = 30 #1 percent of population mobilized is converted to 1 month of preparation time, represented by this 'recently mobilized' modifier.
+		}
+		every_owned_planet = {
+			limit = {is_controlled_by = root}
+			planet_event = {
+				id = mobilize.211
+			}
+		}
+	}
+
+	option = {
+		name = mobilize.210.b
+		trigger = {is_ai = no}
+	}
+}
+
+planet_event = {
+	id = mobilize.211
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		#has_flag = mobilized
+		always = yes
+	}
+
+	immediate = {
+		set_variable = { which = temp value = 99 }
+		subtract_variable = { which = temp value = current_mob_size }
+		divide_variable = {which = temp value = 1}
+		divide_variable = {which = temp value = 2}
+		create_fleet = {
+			name = "[Root.GetName] Conscript fleet"
+			effect = {
+				set_owner = root.owner
+				set_location = root
+				save_event_target_as = conscript@root
+			}			
+		}
+		while = {
+   			count = 10
+    			while{
+				count = temp
+				random_owned_pop = {
+					limit = {
+						NOT = {has_pop_flag = survived}
+						is_being_purged = no
+						#Okay, So I'm absolutely not sure about what to do with this mobilization here
+						#Maybe a system of mobilization policy would work.
+						#But for now we just use "not being purged"
+						NOT = {is_pop_category = ruler}
+					}
+					set_pop_flag = survived
+				}
+			}
+			random_owned_pop = { 
+				limit = {
+					NOT = {has_pop_flag = survived}
+					is_same_species = root.owner
+					NOT = {is_pop_category = ruler}
+				}
+				kill_pop = yes
+				if = {
+					limit = {
+						root.owner = {
+							#Has All fallen empire technology
+							has_technology = tech_dark_matter_deflector
+							has_technology = tech_dark_matter_power_core
+							has_technology = tech_dark_matter_propulsion
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.304}
+					}
+				}
+				else_if = {
+					limit = {
+						root.owner = {
+							#Has a few tier 5 tech(1 of weapon tech, 1 of shield tech, 1 of reactor/jump drive
+							OR = {
+								has_technology = tech_mass_drivers_5
+								has_technology = tech_kinetic_artillery_1
+								has_technology = tech_lasers_5
+								has_technology = tech_energy_lance_1
+							}
+							OR = {
+								has_technology = tech_shields_5
+								has_technology = tech_ship_armor_5
+							}
+							OR = {
+								has_technology = tech_thrusters_4
+								has_technology = tech_zero_point_power
+							}
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.303}
+					}
+				}
+				else_if = {
+					limit = {
+						root.owner = {
+							#Has a few tier 4 tech(1 of weapon tech, 1 of shield tech, 1 of reactor/jump drive
+							OR = {
+								has_technology = tech_mass_drivers_4
+								has_technology = tech_lasers_4
+							}
+							OR = {
+								has_technology = tech_shields_4
+								has_technology = tech_ship_armor_4
+							}
+							OR = {
+								has_technology = tech_thrusters_3
+								has_technology = tech_antimatter_power
+								has_technology = tech_hyper_drive_3
+							}
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.302}
+					}
+				}
+				else = {
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.301}
+					}
+				}
+				root = {
+					while = {
+						count = 4
+						create_army = {
+							owner = root.owner
+							type = conscript_assault_army
+						}
+						create_army = {
+							owner = root.owner
+							type = conscript_defense_army
+						}
+					}
+				}
+				root.owner = {
+					change_variable = { which = in_the_field value = 200 }
+					change_variable = { which = mobilized value = 200 }
+				}				
+			}
+			while{
+				count = temp
+				random_owned_pop = {
+					limit = {
+						NOT = {has_pop_flag = survived}
+						is_being_purged = no
+						#Okay, So I'm absolutely not sure about what to do with this mobilization here
+						#Maybe a system of mobilization policy would work.
+						#But for now we just use "not being purged"
+						NOT = {is_pop_category = ruler}
+					}
+					set_pop_flag = survived
+				}
+			}
+		}
+		every_owned_pop = {
+			remove_pop_flag = survived
+		}
+	}
+
+}
+
+
+
+#220, which is mobilizing 2 percent of population.
+country_event = {
+	id = mobilize.220
+	title = mobilize.220.name
+	desc = mobilize.220.desc
+	picture = GFX_evt_outpost
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = mobilized
+		check_variable = {which = mobilizable_percentage value >= 2}
+		NOT = {has_modifier = recently_mobilized}
+	}
+
+	option = {
+		name = mobilize.210.a
+		change_variable = { which = current_mob_size value = 2 }
+		subtract_variable = { which = mobilizable_percentage value = 2 }
+		change_variable = { which = misery value = 80 } #Each percentage of mobilization creates 40 points of misery.
+		add_modifier = {
+			modifier = recently_mobilized
+			days = 60 #1 percent of population mobilized is converted to 1 month of preparation time, represented by this 'recently mobilized' modifier.
+		}
+		every_owned_planet = {
+			limit = {is_controlled_by = root}
+			planet_event = {
+				id = mobilize.222
+			}
+		}
+	}
+
+	option = {
+		name = mobilize.210.b
+		trigger = {is_ai = no}
+	}
+}
+
+planet_event = {
+	id = mobilize.222
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		#has_flag = mobilized
+		always = yes
+	}
+
+	immediate = {
+		set_variable = { which = temp value = 98 }
+		subtract_variable = { which = temp value = current_mob_size }
+		divide_variable = {which = temp value = 2} #Since we are conscripting 2% of population. We want to make it into 1 in 50 instead of 2 in 100 while looping
+		divide_variable = {which = temp value = 1} 
+		divide_variable = {which = temp value = 2} 
+		create_fleet = {
+			name = "[Root.GetName] Conscript fleet"
+			effect = {
+				set_owner = root.owner
+				set_location = root
+				save_event_target_as = conscript@root
+			}			
+		}
+		while = {
+   			count = 20
+    			while{
+				count = temp
+				random_owned_pop = {
+					limit = {
+						NOT = {has_pop_flag = survived}
+						is_being_purged = no
+						NOT = {is_pop_category = ruler}
+					}
+					set_pop_flag = survived
+				}
+			}
+			random_owned_pop = { 
+				limit = {
+					NOT = {has_pop_flag = survived}
+					is_same_species = root.owner
+					NOT = {is_pop_category = ruler}
+				}
+				kill_pop = yes
+				if = {
+					limit = {
+						root.owner = {
+							#Has All fallen empire technology
+							has_technology = tech_dark_matter_deflector
+							has_technology = tech_dark_matter_power_core
+							has_technology = tech_dark_matter_propulsion
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.304}
+					}
+				}
+				else_if = {
+					limit = {
+						root.owner = {
+							#Has a few tier 5 tech(1 of weapon tech, 1 of shield tech, 1 of reactor/jump drive
+							OR = {
+								has_technology = tech_mass_drivers_5
+								has_technology = tech_kinetic_artillery_1
+								has_technology = tech_lasers_5
+								has_technology = tech_energy_lance_1
+							}
+							OR = {
+								has_technology = tech_shields_5
+								has_technology = tech_ship_armor_5
+							}
+							OR = {
+								has_technology = tech_thrusters_4
+								has_technology = tech_zero_point_power
+							}
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.303}
+					}
+				}
+				else_if = {
+					limit = {
+						root.owner = {
+							#Has a few tier 4 tech(1 of weapon tech, 1 of shield tech, 1 of reactor/jump drive
+							OR = {
+								has_technology = tech_mass_drivers_4
+								has_technology = tech_lasers_4
+							}
+							OR = {
+								has_technology = tech_shields_4
+								has_technology = tech_ship_armor_4
+							}
+							OR = {
+								has_technology = tech_thrusters_3
+								has_technology = tech_antimatter_power
+								has_technology = tech_hyper_drive_3
+							}
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.302}
+					}
+				}
+				else = {
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.301}
+					}
+				}
+				root = {
+					while = {
+						count = 4
+						create_army = {
+							owner = root.owner
+							type = conscript_assault_army
+						}
+						create_army = {
+							owner = root.owner
+							type = conscript_defense_army
+						}
+					}
+				}
+				root.owner = {
+					change_variable = { which = in_the_field value = 200 }
+					change_variable = { which = mobilized value = 200 }
+				}				
+			}
+			
+			while{
+				count = temp
+				random_owned_pop = {
+					limit = {
+						NOT = {has_pop_flag = survived}
+						is_being_purged = no
+						NOT = {is_pop_category = ruler}
+					}
+					set_pop_flag = survived
+				}
+			}
+		}
+		every_owned_pop = {
+			remove_pop_flag = survived
+		}
+	}
+
+}
+
+
+#250, which is mobilizing 5 percent of population.
+country_event = {
+	id = mobilize.250
+	title = mobilize.250.name
+	desc = mobilize.250.desc
+	picture = GFX_evt_outpost
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = mobilized
+		check_variable = {which = mobilizable_percentage value >= 5}
+		NOT = {has_modifier = recently_mobilized}
+	}
+
+	option = {
+		name = mobilize.210.a
+		
+		change_variable = { which = current_mob_size value = 5 }
+		subtract_variable = { which = mobilizable_percentage value = 5 }
+		change_variable = { which = misery value = 200 } #Each percentage of mobilization creates 40 points of misery.
+		add_modifier = {
+			modifier = recently_mobilized
+			days = 150 #1 percent of population mobilized is converted to 1 month of preparation time, represented by this 'recently mobilized' modifier.
+		}
+		every_owned_planet = {
+			limit = {is_controlled_by = root}
+			planet_event = {
+				id = mobilize.255
+			}
+		}
+	}
+
+	option = {
+		name = mobilize.210.b
+		trigger = {is_ai = no}
+	}
+}
+
+planet_event = {
+	id = mobilize.255
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		#has_flag = mobilized
+		always = yes
+	}
+
+	immediate = {
+		set_variable = { which = temp value = 95 }
+		subtract_variable = { which = temp value = current_mob_size }
+		divide_variable = {which = temp value = 5} #Since we are conscripting 5% of population. We want to make it into 1 in 20 instead of 5 in 100 while looping
+		divide_variable = {which = temp value = 1}
+		divide_variable = {which = temp value = 2}
+		create_fleet = {
+			name = "[Root.GetName] Conscript fleet"
+			effect = {
+				set_owner = root.owner
+				set_location = root
+				save_event_target_as = conscript@root
+			}			
+		}
+		while = {
+   			count = 50
+    			while{
+				count = temp
+				random_owned_pop = {
+					limit = {
+						NOT = {has_pop_flag = survived}
+						is_being_purged = no
+						NOT = {is_pop_category = ruler}
+					}
+					set_pop_flag = survived
+				}
+			}
+			random_owned_pop = { 
+				limit = {
+					NOT = {has_pop_flag = survived}
+					is_same_species = root.owner
+					NOT = {is_pop_category = ruler}
+				}
+				kill_pop = yes
+				if = {
+					limit = {
+						root.owner = {
+							#Has All fallen empire technology
+							has_technology = tech_dark_matter_deflector
+							has_technology = tech_dark_matter_power_core
+							has_technology = tech_dark_matter_propulsion
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.304}
+					}
+				}
+				else_if = {
+					limit = {
+						root.owner = {
+							#Has a few tier 5 tech(1 of weapon tech, 1 of shield tech, 1 of reactor/jump drive
+							OR = {
+								has_technology = tech_mass_drivers_5
+								has_technology = tech_kinetic_artillery_1
+								has_technology = tech_lasers_5
+								has_technology = tech_energy_lance_1
+							}
+							OR = {
+								has_technology = tech_shields_5
+								has_technology = tech_ship_armor_5
+							}
+							OR = {
+								has_technology = tech_thrusters_4
+								has_technology = tech_zero_point_power
+							}
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.303}
+					}
+				}
+				else_if = {
+					limit = {
+						root.owner = {
+							#Has a few tier 4 tech(1 of weapon tech, 1 of shield tech, 1 of reactor/jump drive
+							OR = {
+								has_technology = tech_mass_drivers_4
+								has_technology = tech_lasers_4
+							}
+							OR = {
+								has_technology = tech_shields_4
+								has_technology = tech_ship_armor_4
+							}
+							OR = {
+								has_technology = tech_thrusters_3
+								has_technology = tech_antimatter_power
+								has_technology = tech_hyper_drive_3
+							}
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.302}
+					}
+				}
+				else = {
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.301}
+					}
+				}
+				root = {
+					while = {
+						count = 4
+						create_army = {
+							owner = root.owner
+							type = conscript_assault_army
+						}
+						create_army = {
+							owner = root.owner
+							type = conscript_defense_army
+						}
+					}
+				}
+				root.owner = {
+					change_variable = { which = in_the_field value = 200 }
+					change_variable = { which = mobilized value = 200 }
+				}				
+			}
+			while{
+				count = temp
+				random_owned_pop = {
+					limit = {
+						NOT = {has_pop_flag = survived}
+						is_being_purged = no
+						NOT = {is_pop_category = ruler}
+					}
+					set_pop_flag = survived
+				}
+			}
+		}
+		every_owned_pop = {
+			remove_pop_flag = survived
+		}
+	}
+
+}
+
+
+#280, which is mobilizing 10 percent of population.
+country_event = {
+	id = mobilize.280
+	title = mobilize.280.name
+	desc = mobilize.280.desc
+	picture = GFX_evt_outpost
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = mobilized
+		check_variable = {which = mobilizable_percentage value >= 10}
+		NOT = {has_modifier = recently_mobilized}
+	}
+
+	option = {
+		name = mobilize.210.a
+
+		change_variable = { which = current_mob_size value = 10 }
+		subtract_variable = { which = mobilizable_percentage value = 10 }
+		change_variable = { which = misery value = 400 } #Each percentage of mobilization creates 40 points of misery.
+		add_modifier = {
+			modifier = recently_mobilized
+			days = 300 #1 percent of population mobilized is converted to 1 month of preparation time, represented by this 'recently mobilized' modifier.
+		}
+		every_owned_planet = {
+			limit = {is_controlled_by = root}
+			planet_event = {
+				id = mobilize.288
+			}
+		}
+	}
+
+	option = {
+		name = mobilize.210.b
+		trigger = {is_ai = no}
+	}
+}
+
+planet_event = {
+	id = mobilize.288
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		#has_flag = mobilized
+		always = yes
+	}
+
+	immediate = {
+		set_variable = { which = temp value = 90 }
+		subtract_variable = { which = temp value = current_mob_size }
+		divide_variable = {which = temp value = 10} #Since we are conscripting 10% of population. We want to make it into 1 in 10 instead of 10 in 100 while looping
+		divide_variable = {which = temp value = 1} #
+		divide_variable = {which = temp value = 2} #
+		create_fleet = {
+			name = "[Root.GetName] Conscript fleet"
+			effect = {
+				set_owner = root.owner
+				set_location = root
+				save_event_target_as = conscript@root
+			}			
+		}
+		while = {
+   			count = 100
+    			while{
+				count = temp
+				random_owned_pop = {
+					limit = {
+						NOT = {has_pop_flag = survived}
+						is_being_purged = no
+						NOT = {is_pop_category = ruler}
+					}
+					set_pop_flag = survived
+				}
+			}
+			random_owned_pop = { 
+				limit = {
+					NOT = {has_pop_flag = survived}
+					is_same_species = root.owner
+					NOT = {is_pop_category = ruler}
+				}
+				kill_pop = yes
+				if = {
+					limit = {
+						root.owner = {
+							#Has All fallen empire technology
+							has_technology = tech_dark_matter_deflector
+							has_technology = tech_dark_matter_power_core
+							has_technology = tech_dark_matter_propulsion
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.304}
+					}
+				}
+				else_if = {
+					limit = {
+						root.owner = {
+							#Has a few tier 5 tech(1 of weapon tech, 1 of shield tech, 1 of reactor/jump drive
+							OR = {
+								has_technology = tech_mass_drivers_5
+								has_technology = tech_kinetic_artillery_1
+								has_technology = tech_lasers_5
+								has_technology = tech_energy_lance_1
+							}
+							OR = {
+								has_technology = tech_shields_5
+								has_technology = tech_ship_armor_5
+							}
+							OR = {
+								has_technology = tech_thrusters_4
+								has_technology = tech_zero_point_power
+							}
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.303}
+					}
+				}
+				else_if = {
+					limit = {
+						root.owner = {
+							#Has a few tier 4 tech(1 of weapon tech, 1 of shield tech, 1 of reactor/jump drive
+							OR = {
+								has_technology = tech_mass_drivers_4
+								has_technology = tech_lasers_4
+							}
+							OR = {
+								has_technology = tech_shields_4
+								has_technology = tech_ship_armor_4
+							}
+							OR = {
+								has_technology = tech_thrusters_3
+								has_technology = tech_antimatter_power
+								has_technology = tech_hyper_drive_3
+							}
+						}
+					}
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.302}
+					}
+				}
+				else = {
+					event_target:conscript@root = {
+						fleet_event = {id = mobilize.301}
+					}
+				}
+				root = {
+					while = {
+						count = 4
+						create_army = {
+							owner = root.owner
+							type = conscript_assault_army
+						}
+						create_army = {
+							owner = root.owner
+							type = conscript_defense_army
+						}
+					}
+				}
+				root.owner = {
+					change_variable = { which = in_the_field value = 200 }
+					change_variable = { which = mobilized value = 200 }
+				}				
+			}
+			while{
+				count = temp
+				random_owned_pop = {
+					limit = {
+						NOT = {has_pop_flag = survived}
+						is_being_purged = no
+						NOT = {is_pop_category = ruler}
+					}
+					set_pop_flag = survived
+				}
+			}
+		}
+		every_owned_pop = {
+			remove_pop_flag = survived
+		}
+	}
+
+}
+
+
+#301, a fleet event, add tier 1 ships to the fleet.
+fleet_event = {
+	id = mobilize.301
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		#has_flag = mobilized
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			30 = {
+				while = {
+					count = 24
+					create_ship = {
+						name = "converted yacht"
+						design = NAME_conscript_corvette_1
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+			30 = {
+				while = {
+					count = 12
+					create_ship = {
+						name = "converted freight ship"
+						design = NAME_conscript_Lancer_1
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+			30 = {
+				modifier = {
+					factor = 0
+					owner = {NOT = {has_technology = tech_cruisers}}
+				}
+				while = {
+					count = 6
+					create_ship = {
+						name = "converted merchant ship"
+						design = NAME_conscript_CA_1
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+
+
+		}
+	}
+}
+
+#302, a fleet event, add tier 2 ships to the fleet.
+fleet_event = {
+	id = mobilize.302
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		#has_flag = mobilized
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			30 = {
+				while = {
+					count = 24
+					create_ship = {
+						name = "outdated corvette"
+						design = NAME_conscript_corvette_2
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+			30 = {
+				while = {
+					count = 12
+					create_ship = {
+						name = "outdated destroyer"
+						design = NAME_conscript_Lancer_2
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+			30 = {
+				while = {
+					count = 6
+					create_ship = {
+						name = "armed merchant ship"
+						design = NAME_conscript_CA_2
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+
+
+		}
+	}
+}
+
+#Event 303. Add a bunch of top-notch ships to the fleet
+fleet_event = {
+	id = mobilize.303
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		#has_flag = mobilized
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			30 = {
+				while = {
+					count = 24
+					create_ship = {
+						name = "coast guard corvette"
+						design = NAME_conscript_corvette_3
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+			30 = {
+				while = {
+					count = 12
+					create_ship = {
+						name = "coast guard destroyer"
+						design = NAME_conscript_Lancer_3
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+			30 = {
+				while = {
+					count = 6
+					create_ship = {
+						name = "outdated cruisers"
+						design = NAME_conscript_CA_3
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+
+
+		}
+	}
+}
+
+#304. Create a bunch of top-notch ship
+fleet_event = {
+	id = mobilize.304
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		#has_flag = mobilized
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			30 = {
+				while = {
+					count = 24
+					create_ship = {
+						name = "converted coast guard corvette"
+						design = NAME_conscript_corvette_4
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+			30 = {
+				while = {
+					count = 12
+					create_ship = {
+						name = "converted coast guard destroyer"
+						design = NAME_conscript_Lancer_4
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+			30 = {
+				while = {
+					count = 6
+					create_ship = {
+						name = "converted old cruisers"
+						design = NAME_conscript_CA_4
+						graphical_culture = "pirate_01"
+						effect = {set_ship_flag = conscripted_vessel}
+					}
+				}
+			}
+
+
+		}
+	}
+}
+
+
+#Test event, destroy all ship with flag conscripted_vessel
+country_event = {
+	id = mobilize.99
+	title = mobilize.99.name
+	desc = mobilize.99.desc
+	picture = GFX_evt_outpost
+	is_triggered_only = yes
+
+	trigger = {
+		always = no
+	}
+
+	option = {
+		name = "Do it."
+		set_variable = { which = mobilizable_percentage value = max_mob_size}
+		subtract_variable = { which = mobilizable_percentage value = current_mob_size}
+	}
+
+}
+
+#1,000. End the mobilization
+country_event = {
+	id = mobilize.400
+	title = mobilize.400.name
+	desc = mobilize.400.desc
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = mobilized
+	}
+
+	immediate = {
+		remove_country_flag = mobilized
+		remove_modifier = mobilized_state
+		
+		
+		#Calculation for length of Aftermath of War modifier:
+		#Each percent of mobilization would add 1 year to the length.
+		#This is further modified by percent of living troop
+		#Result would be a variable in days.
+		
+		set_variable = { which = time_to_expire value = mobilized }
+		subtract_variable = { which = time_to_expire value = in_the_field }
+		divide_variable = {which = time_to_expire value = mobilized }
+		multiply_variable = { which = time_to_expire value = 360 }
+		multiply_variable = { which = time_to_expire value = current_mob_size }
+		change_variable = { which = time_to_expire value = 360 } #Base is 1 year
+		add_modifier = {
+			modifier = aftermath_of_great_war
+		}
+
+		country_event = {
+			id = mobilize.401
+			days = 1
+		}
+
+		every_owned_ship = {
+			limit = {has_ship_flag = conscripted_vessel}
+			delete_ship = this
+		}
+		every_owned_army = {
+			limit = {
+				OR = {
+					army_type = conscript_assault_army 
+					army_type = conscript_defense_army 
+				}
+			}
+			remove_army = yes
+		}
+
+		set_variable = { which = max_mob_size value = 13 }
+		set_variable = { which = current_mob_size value = 1 }
+		set_variable = { which = mobilizable_percentage value = 12 }
+		while = {
+			count = 10000
+			if = {
+				limit = {check_variable = { which = in_the_field value >= 200}}
+				subtract_variable = { which = in_the_field value >= 200}
+				random_owned_planet = {
+					create_pop = {species = root}
+				}
+			}
+		}
+
+		set_variable = { which = in_the_field value = 0 }
+		set_variable = { which = mobilized value = 0}
+	}
+
+	option = {
+		name = mobilize.400.a
+		
+	}
+}
+
+country_event = {
+	id = mobilize.401
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_modifier = aftermath_of_great_war
+	}
+
+	immediate = {
+		subtract_variable = { which = time_to_expire value = 1 }
+		if = {
+			limit = {
+				check_variable = {	which = time_to_expire value <= 0 }
+			}
+			country_event = {id = mobilize.402}
+		}
+		else = {
+			country_event = {
+				id = mobilize.401
+				days = 1
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = mobilize.402
+	name = mobilize.402.name
+	desc = mobilize.402.desc
+	is_triggered_only = yes
+
+	trigger = {
+		has_modifier = aftermath_of_great_war
+	}
+
+	option = {
+		name = mobilize.402.a
+	}
+
+	option = {
+		name = mobilize.402.b
+	}
+
+	option = {
+		name = mobilize.402.c
+	}
+
+	option = {
+		name = mobilize.402.d
+	}
+
+	after = {
+		set_variable = { which = time_to_expire value = 0}
+		remove_modifier = aftermath_of_great_war
+	}
+
+}

@@ -1,0 +1,65 @@
+############################
+#
+# Colony Events
+#
+# Written by Henrik Thyrwall
+#
+############################
+
+namespace = civicevent
+
+planet_event = {
+	id = civicevent.1
+	title = civicevent.1.name
+	desc = civicevent.1.desc
+	picture = GFX_evt_outpost
+
+	is_triggered_only = yes
+	
+	trigger = { 
+		owner = { has_valid_civic = civic_primitive_terraformer }
+		NOR = {
+			is_planet_class = pc_ring
+			is_planet_class = pc_relic
+			is_planet_class = pc_habitat
+		} 
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				habitability = {
+					who = root.owner.owner_species
+					value >= 0.8
+				}
+			}
+			add_modifier = {
+ 				modifier = primitive_terraformer_1
+ 				days = -1
+ 			}
+		}
+		else_if = {
+			limit = {
+				habitability = {
+					who = root.owner.owner_species
+					value < 0.6
+				}
+			}
+			add_modifier = {
+ 				modifier = primitive_terraformer_2
+ 				days = -1
+ 			}
+		}
+		else = {
+			add_modifier = {
+ 				modifier = primitive_terraformer_3
+ 				days = -1
+ 			}
+		}
+	}
+
+	option = {
+		name = OK
+	}
+
+}
