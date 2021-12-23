@@ -126,11 +126,19 @@ conscript_cruiser:0 "Makeshift Cruiser"
 civicevent.1.name:0 "Conquering of Nature"
 civicevent.1.desc:0 "Recent colonial effort in [Root.GetName] has bear fruit. By nuking a few mountains we have tamed the environment and made it a better place to live in and develop industries on."
 
-####################Wierd Civics#############
+####################New Origins#############
 origin_common_market:0 "Common Market"
  origin_common_market_desc:0 "This megacorp has formed close trade relationship with neighboring civilizations. Now, they decided to form a trade league to reinforce these ties."
  START_SCREEN_COMMON_MARKET:0 "From the first sailing Carrack ship that goes to the other end of the world, to the state-of-the-art tanker fleet of [Root.GetName], [Root.Species.GetName] has never forgone the pursuit towards trade and prosperity. Many years ago, it was the sailing ships that carried the world market on their back. After that, mega-tankers brought [Root.Capital.GetName] into one, and brought prosperity to all. \n When we marched proudly into space, we found, to our surprise, civilizations at our boarders. We have long formed ties of trading, because it was inter-stellar trade that filled their lack with our excess, and our lack with their excess. Like in ancient times, ships brought prosperity on their deck. \n In a historical moment, leader of these civilizations formed the [Root.GetAllianceName]. We shall, from now on, unite under the same flag, and become the largest retailer of prosperity of the galaxy, the beacon of wealth and profit."
  origin_tooltip_common_market_effects:1 "- You begin as leader of a trade league, and you are the only mega-corp in the federation, which means that you have two market to be exploited."
+
+ origin_lost_traders:0 "Lost Traders"
+ origin_lost_traders_desc:0 "Ancestor of this Megacorp was once chartered with the right to run Galactic Stock and Mercantile Exchange in time immemorial by a galactic emperor whose name was lost in solar winds. The old empire was gone, but its legacy remained."
+ START_SCREEN_LOST_TRADERS:0 "From the first sailing Carrack ship that goes to the other end of the world, to the state-of-the-art tanker fleet of [Root.GetName], [Root.Species.GetName] has never forgone the pursuit towards trade and prosperity. The tradition of commerce is never forgotten. \n It was said that our people has achieved greatness in the past. We were once the ONLY chartered runner of a Galactic Stock and Mercantile Exchange, whose location was proudly appropriated by us as our headquarters. But the empire was gone, our people suffered millenia of dark ages and chaos, and barely managed to restore some technology from the age of gunpowders and sails.\n But [Root.Species.GetName] never submits. We have no interest in the old empire, but we shall restore our position as holder of the most prosperous market in the galaxy. Hurrah, countrymen, go forth and reclaim our wealth! \n Long Live Commerce!  \n Long Live Prosperity! \n Long Live the proud [Root.GetName]! "
+ origin_tooltip_lost_traders_effects:1 "- You can gradually restore the Galactic Stock and Mercantile Exchange in your capital. Go forth and reclaim your wealth!"
+
+
+####################Wierd Civics#############
 
 
  civic_involution_society:0 "Involution Society"
@@ -245,6 +253,24 @@ tech_categorized_reserve_personnel_desc:0 "There are many cases when great waste
 tech_logistic_preparations:0 "Logistic Preparations"
 tech_logistic_preparations_desc:0 "The chaos when conscriptions were first enacted provided many scenarios for waste and desertion. By minimizing such chaos, we can streamline conscription process and draft more material and biological resource into our military. The best way to do so is by constantly drilling our logistical corps in peace time so they are prepared for mobilization process. \n\n effect: \n Maximum Mobilization Size §G Increased§! by §Y 2%! §!"
 
+tech_repeatable_civilian_economy_innovations:0 "Civilian Economy Innovations"
+tech_repeatable_civilian_economy_innovations_desc:0 "The whole empire benefited from innovations in economic sector. Let wealth of our people grow from day to day so our empire is made strong!"
+
+tech_civilian_economy_2:0 "Frontier Merchants"
+tech_civilian_economy_2_desc:0 "Colonization of new planets revolutionized the way of trading. New innovations continues to fuel prosperity of frontiers and core worlds alike. One such innovation is mobile frontier merchants, whose gigantic cruise ships travels reguarly in frontier towns of new colonies, building custome-made goods from onboard machines and ensuring prolonged prosperity of frontier colonies, while also promoting domestic trade."
+
+tech_civilian_economy_3:0 "All-you-can-take"
+tech_civilian_economy_3_desc:0 "Abundance of industrial goods brought an innovative way of selling: all-you-can-buy. For a reasonable price citizens are allowed to take whatever they want from the market in a limited time. Such showcase of affluence has put living standard of our citizens to a brand new level and our society to an era of prosperity."
+
+tech_civilian_economy_4:0 "Hyperspace Highways"
+tech_civilian_economy_4_desc:0 "Prediction algorithms and development of hyperdrive allowed for hyperspace highways. These lanes were reserved for merchant marines so our frieght ships can travel in unforseen swiftness. Already this initiative has facilitated commerce and productivity throughout our planet."
+
+tech_branch_office_value_1:0 "Corporate Shipment Channel"
+tech_branch_office_value_1_desc:0 "One important setback of our corporate branch offices are logistics: it's usually hard to deliver our goods in-time to remote branch offices. However, with help of our diplomatic department, we are granted special shipment channel for our corporate goods, which greatly facilitated sells in our branch office--as long as we pay tariff and bribes to their customs."
+
+tech_branch_office_value_2:0 "Local R&D Department"
+tech_branch_office_value_2_desc:0 "We cannot always depend on our core worlds to provide research and developments for far-flung branch offices due to lack of in-the-field experience. While sounds risky, more autonomy must be given to branch offices so their local research team can maximize their profit."
+
 ###################################
 # Terraformer Contractor
 ###################################
@@ -289,6 +315,15 @@ civicevent.111.name:0 "Contract Failed!"
 civicevent.111.desc:0 "Provider of our contract, §Y[from.GetName]§!, refused to accept our deal. We are forced to go along original contract."
 civicevent.111.a:0 "Blast! May they lose all their profit!"
 
+#For lost trader origin
+civicevent.201.name:0 "G.S.M.E Partly Restored!"
+civicevent.201.desc:0 "With diligence of our people, the old §Y Galactic Stock and Merchantile Exchange§! was partly restored in its location, low §Y[root.GetName]§! orbit. While not yet as glorious as it was many millenia ago, venturers and brokers from all corners of the galaxy are already setting up their branch offices. Soon, we shall be trusted with trade of all bulk goods, derivatives, and stocks of the whole galaxy, right here in §Y[root.GetName]!§!"
+civicevent.201.a:0 "Long Live Prosperity! Long live §Y[root.Owner.GetName]!§!"
+
+civicevent.202.name:0 "G.S.M.E Completely Restored!"
+civicevent.202.desc:0 "Great News! The §Y Galactic Stock and Merchantile Exchange§! has been completely restored in low §Y[root.GetName]§! orbit! It has became the largest--and perhaps the only--all-encompassing trading place of the galaxy, trading everything from Megacorp stocks to mercenary contractors, and we, here on the high thrones, oversees all operations, trusted as true guardian of free market. We have truely restored our past glory as chartered trader of the galaxy. \n Long Live Prosperity \n Long Live the proud [root.Owner.GetName]!"
+civicevent.202.a:0 "All the way to golden age of §Y[root.GetName]!§!"
+
 ###############################
 # Blockers and Deposits
 ###############################
@@ -307,3 +342,33 @@ civicevent.111.a:0 "Blast! May they lose all their profit!"
 
  d_makeshift_cargo_port:0 "Makeshift Cargo Port"
  d_makeshift_cargo_port_desc:0 "Terraforming Contractors used gigantic gauss cannons for cheap delivery of bulk materials. We decided to buy their equipment so we can utilize their cargo port. It was too late when we realized its sight, noise, and environmental hazard--but transactions were already made."
+
+ d_ruins_of_galactic_market:0 "Ruined Galactic Market"
+ d_ruins_of_galactic_market_desc:0 "We once held the glorious Galactic Stock and Mercentile Exchanage where we oversee all trades in the galaxy. Now, only these debris of space-elevators and stations tells our past glory."
+
+ d_rudimentary_galactic_market:0 "Regional Market"
+ d_rudimentary_galactic_market_desc:0 "We managed to restore the space elevators and some cargo ports of the old deceased Galactic Stock and Mercentile Exchanage. Traders from all sides flocked in for wealth, but we still have a long way to go."
+
+ d_peak_galactic_market:0 "Trading Torus"
+ d_peak_galactic_market_desc:0 "Just as recorded in history, the restored Galactic Stock and Mercentile Exchanage formed a space torus completely surrounding equator of this planet. The most reliable and all-encompassing market of the galaxy, this Trading Torus is the best monument to dilligence and greatness of our people. \n Long Live Prosperity!"
+
+##############################
+# Decisions
+##############################
+
+decision_upgrade_LT_market_1:0 "Partly Restore the G.S.M.E."
+decision_upgrade_LT_market_1_desc:0 "The Galactic Stock and Mercentile Exchanage--or what's left of it--can now be partly fixed to fit the need of traders. It's the first small steps to become the greatest trader of the galaxy."
+
+decision_upgrade_LT_market_2:0 "Restore the G.S.M.E."
+decision_upgrade_LT_market_2_desc:0 "Current status of the Galactic Stock and Mercentile Exchanage hardly fits its name: there are still many trading going through external markets. Let us built a great marketplace and live as true guardian of a pan-galaxy free market!"
+
+#############################
+# Corporate Buildings
+#############################
+
+building_sweatshop:0 "Sweatshop"
+building_sweatshop_desc:0 "It is a sad fact that many aspects of our abundant life came from toiling of semi-legal cheap laborers, sometimes illegal immigrants and sometimes chattel slavery. This sweatshop is such a place. It uses illegal populations to build cheap consumer goods. Excellent for start-up Megacorps."
+
+building_private_university:0 "Private University"
+building_private_university_desc:0 "This for-profit institution provides education on a monetary basis. Still, it has a team of researchers dedicated to technological advancement."
+

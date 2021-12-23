@@ -1,9 +1,9 @@
 part = {
 	location = 0
-	localization = "START_SCREEN_SOCIALIST_REVOLUTION"
+	localization = "START_SCREEN_LOST_TRADERS"
 
 	trigger = {
-		has_origin = origin_socialist_revolution
+		has_origin = origin_lost_traders
 	}
 }
 

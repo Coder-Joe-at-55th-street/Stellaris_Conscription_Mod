@@ -1,0 +1,82 @@
+##########################################################################
+# Federation Decisions
+##########################################################################
+
+decision_upgrade_LT_market_1 = {
+	owned_planets_only = yes
+	sound = event_laboratory_sound
+	icon = decision_resources
+
+	#enactment_time = 240
+	enactment_time = 1
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			energy = 500
+			minerals = 600
+		}
+	}
+
+	potential = {
+		has_deposit = d_ruins_of_galactic_market
+	}
+
+	allow = {
+		owner = { has_technology = tech_civilian_economy_2 }
+	}
+
+	effect = {
+		add_deposit = d_rudimentary_galactic_market
+		remove_deposit = d_ruins_of_galactic_market
+		planet_event = {id = civicevent.201}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+decision_upgrade_LT_market_2 = {
+	owned_planets_only = yes
+	sound = event_laboratory_sound
+	icon = decision_resources
+
+	#enactment_time = 240
+	enactment_time = 1
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 50
+			energy = 1000
+			minerals = 1200
+			alloys = 200
+		}
+	}
+
+	potential = {
+		has_deposit = d_rudimentary_galactic_market
+	}
+
+	allow = {
+		owner = { 
+			has_technology = tech_civilian_economy_3
+			OR = {
+				is_part_of_galactic_council = yes
+				galactic_community_rank <= 3
+			}
+		}
+	}
+
+	effect = {
+		add_deposit = d_peak_galactic_market 
+		remove_deposit = d_rudimentary_galactic_market
+		planet_event = {id = civicevent.202}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}

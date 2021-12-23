@@ -1,0 +1,218 @@
+#Technology of increase trading
+
+#Trade Level 2
+tech_civilian_economy_2 = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	category = { statecraft }
+	prerequisites = { "tech_interplanetary_commerce" }
+	weight = @tier1weight1
+
+	potential = {
+		is_gestalt = no
+	}
+
+	modifier = {
+		trade_value_mult = 0.2
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_mercantile_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 3	#power plants are good
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+#Trade Level 3
+tech_civilian_economy_3 = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { statecraft }
+	prerequisites = { "tech_civilian_economy_2" }
+	weight = @tier2weight1
+
+	potential = {
+		is_gestalt = no
+	}
+
+	modifier = {
+		trade_value_mult = 0.2
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_mercantile_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 3	#power plants are good
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+#Trade Level 4
+tech_civilian_economy_4 = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { statecraft }
+	prerequisites = { "tech_civilian_economy_3" }
+	weight = @tier3weight1
+
+	potential = {
+		is_gestalt = no
+	}
+
+	modifier = {
+		trade_value_mult = 0.2
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_mercantile_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 3	#power plants are good
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+
+tech_branch_office_value_1 = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { statecraft }
+	prerequisites = { "tech_civilian_economy_2" }
+	weight = @tier2weight1
+
+	potential = {
+		has_authority = auth_corporate
+	}
+
+	modifier = {
+		branch_office_value_mult = 0.10
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_mercantile_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 1	#Not so much for branch office
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+#Trade Level 4
+tech_branch_office_value_2 = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	is_rare = yes
+	category = { statecraft }
+	prerequisites = { "tech_branch_office_value_1" }
+	weight = @tier3weight2
+
+	potential = {
+		has_authority = auth_corporate
+	}
+
+	modifier = {
+		branch_office_value_mult = 0.10
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_mercantile_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 1	#Not so much for branch office
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+

@@ -407,3 +407,56 @@ country_event = {
 	
 }
 
+####################Lost Traders Event#############
+
+event = {
+	id = civicevent.200
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_playable_country = {
+			limit = {
+				has_origin = origin_lost_traders
+			}
+			random_owned_planet={
+				limit = {is_capital = yes}
+				add_deposit = d_ruins_of_galactic_market
+			}
+		}
+
+	}
+}
+
+planet_event = {
+	id = civicevent.201
+	title = civicevent.201.name
+	desc = civicevent.201.desc	
+	picture = GFX_evt_relic_shipyard
+	is_triggered_only = yes
+
+	option = {
+		name = civicevent.201.a
+		owner = {
+			add_resource = {unity = 300}
+		}
+	}
+
+}
+
+planet_event = {
+	id = civicevent.202
+	title = civicevent.202.name
+	desc = civicevent.202.desc	
+	picture = GFX_evt_busy_spaceport
+	is_triggered_only = yes
+
+	option = {
+		name = civicevent.202.a
+		owner = {
+			add_resource = {unity = 600}
+		}
+	}
+
+}
+

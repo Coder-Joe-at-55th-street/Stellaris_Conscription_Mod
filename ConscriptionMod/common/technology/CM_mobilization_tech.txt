@@ -1,0 +1,82 @@
+#Tech for MoreMegacorp mod. Mainly techs useful for mobilization
+tech_categorized_reserve_personnel = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { military_theory }
+	prerequisites = { "tech_ground_defense_planning" }
+	weight = @tier2weight1
+
+	# Unlocks 2% more mobilizable population
+
+	weight_modifier = {
+		factor = 8
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+}
+
+tech_logistic_preparations = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { military_theory }
+	prerequisites = { "tech_categorized_reserve_personnel" }
+	weight = @tier2weight1
+
+	# Unlocks 2% more mobilizable population
+
+	weight_modifier = {
+		factor = 2
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 2
+			is_militarist = yes
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}
+	}
+}

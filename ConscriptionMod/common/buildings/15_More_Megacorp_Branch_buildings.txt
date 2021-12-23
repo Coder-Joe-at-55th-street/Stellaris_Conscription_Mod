@@ -60,9 +60,9 @@ building_private_university = {
 			minerals = @b3_minerals
 		}
 		produces = {
-			physics_research = 3
-			engineering_research = 3
-			society_research = 3
+			physics_research = 4
+			engineering_research = 4
+			society_research = 4
 			energy = 3
 		}
 	}

@@ -106,3 +106,53 @@ d_makeshift_cargo_port = {
 		weight = 0
 	}
 }
+
+d_ruins_of_galactic_market = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		job_merchant_add = 1
+		trade_value_add = 5
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_rudimentary_galactic_market = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		job_merchant_add = 2
+		trade_value_add = 10
+		trade_value_mult = 0.10
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_peak_galactic_market = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		job_merchant_add = 4
+		trade_value_add = 20
+		trade_value_mult = 0.20
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
