@@ -1,0 +1,108 @@
+## Possible Deposit Variables ##
+# resources, resource and amount
+# potential trigger (planet scope)
+# planet_modifier - applied to planet only when deposit blocker has been cleared
+# constant_modifier - applied to planet always
+# station = station class in orbit to gather
+
+#Additional---Added in Mod
+
+@district_add = 1
+@job_add = 2
+@hab_decrease = -0.05
+
+d_terraform_junkheap = {
+	time = 180
+
+	is_for_colonizable = yes
+	category = deposit_cat_blockers
+
+	all_blocker_swap_types = yes
+
+	planet_modifier = {
+		planet_max_districts_add = -1
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 400
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_cracker_mines = {
+
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		district_mining_max = @district_add
+		job_miner_add = @job_add
+		pop_environment_tolerance = @hab_decrease
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_equitorial_solar_belt = {
+
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		district_generator_max = @district_add
+		job_technician_add = @job_add
+		pop_environment_tolerance = @hab_decrease
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_great_stinky_lake = {
+
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		district_farming_max = @district_add
+		job_farmer_add = @job_add
+		pop_environment_tolerance = @hab_decrease
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_makeshift_cargo_port = {
+
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		job_merchant_add = @district_add
+		job_clerk_add = @job_add
+		pop_environment_tolerance = @hab_decrease
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

@@ -305,3 +305,44 @@ civic_weapon_dealers = {
 		planet_metallurgists_minerals_upkeep_add = 1
 	}
 }
+
+
+civic_administrative_contractor = {
+	
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		ethics = {
+			NOR = {
+				text = civic_tooltip_egalitarian
+				value = ethic_egalitarian
+				value = ethic_fanatic_egalitarian
+			}
+		}
+	}
+
+	modifier = {
+		country_admin_cap_mult = 0.20
+	}
+}
+
+civic_corporate_espionage = {
+	
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+
+	modifier = {
+		add_base_country_intel = 5
+		intel_decryption_add = 2
+	}
+}
+
+civic_terraformer_contractor = {
+	
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+
+	modifier = {
+		terraforming_cost_mult = -0.10
+	}
+}

@@ -18,3 +18,10 @@ on_colonized = {
 		civicevent.1 #Primitive Terraformer
 	}
 }
+
+on_terraforming_complete = {
+	events = {
+		civicevent.100
+		civicevent.120
+	}
+}

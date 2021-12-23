@@ -63,3 +63,347 @@ planet_event = {
 	}
 
 }
+
+#terraformer contractor event
+planet_event = {
+	id = civicevent.100
+	is_triggered_only = yes
+	hide_window = yes
+		
+
+	trigger = {
+		owner = {
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_inwards_perfection
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_terraformer_contractor
+			}
+		}
+	}
+
+	immediate = {
+		random_list = {
+			30 = {
+				#
+			}
+			30 = {
+				random_playable_country = {
+					limit = {
+						has_valid_civic = civic_terraformer_contractor	
+					}
+					country_event = {
+						id = civicevent.101
+						days = 1
+					}
+				}
+			}
+		}
+	}
+
+}
+
+#
+planet_event = {
+	id = civicevent.120
+	title = civicevent.120.name
+	desc = civicevent.120.desc
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_valid_civic = civic_terraformer_contractor
+		}
+	}
+
+	option = {
+		name = civicevent.120.a
+		owner = {add_resource = {energy = -200}}
+		random_list = {
+			30 = {
+				add_deposit = d_cracker_mines
+			}
+			30 = {
+				add_deposit = d_equitorial_solar_belt
+			}
+			30 = {
+				add_deposit = d_great_stinky_lake
+			}
+			30 = {
+				add_deposit = d_makeshift_cargo_port
+			}
+		}
+	}
+
+	option = {
+		name = civicevent.120.b
+	}
+}
+
+
+
+country_event = {
+
+	id = civicevent.101
+	title = civicevent.101.name
+	desc = civicevent.101.desc
+	picture = GFX_evt_city_planet
+	#Gain $250-300 for terraforming cost
+
+	is_triggered_only = yes
+
+
+	trigger = {
+		#has_authoity = auth_corporate
+		has_valid_civic = civic_terraformer_contractor			
+	}
+
+	option = {
+		name = civicevent.101.a
+		add_resource = {energy = 300}
+	}
+
+	option = {
+		name = civicevent.101.b
+		add_resource = {minerals = 300}
+	}
+
+
+	option = {
+		name = civicevent.101.c
+		add_resource = {energy = 500}
+		trigger = {
+			is_ai = no
+			has_authority = auth_corporate
+		}
+		from = {
+			planet_event = {
+				id = civicevent.106
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = civicevent.101.d
+		add_resource = {energy = 300}
+		from = {
+			planet_event = {
+				id = civicevent.102
+				days = 1
+			}
+		}
+		#Adding "Cracker Mines"
+	}
+
+	option = {
+		name = civicevent.101.e
+		add_resource = {energy = 300}
+		from = {
+			planet_event = {
+				id = civicevent.103
+				days = 1
+			}
+		}
+		#Adding "Equitorial Energy Belt"
+	}
+
+	option = {
+		name = civicevent.101.f
+		add_resource = {energy = 300}
+		from = {
+			planet_event = {
+				id = civicevent.104
+				days = 1
+			}
+		}
+		#Adding "Great Resovior" (for food)
+	}
+
+	
+	option = {
+		name = civicevent.101.g
+		add_resource = {energy = 300}
+		from = {
+			planet_event = {
+				id = civicevent.105
+				days = 1
+			}
+		}
+		#Adding "Makeshift Cargo Port"
+	}
+
+}
+
+planet_event = {
+	id = civicevent.106
+	title = civicevent.106.name
+	desc = civicevent.106.desc
+
+	picture = GFX_evt_junkheap	
+	is_triggered_only = yes
+
+	option = {
+		name = civicevent.106.a
+		add_deposit = d_terraform_junkheap
+	}
+}
+
+planet_event = {
+	id = civicevent.102
+	title = civicevent.102.name
+	desc = civicevent.102.desc	
+
+	picture = GFX_evt_drilling_for_gas	
+	is_triggered_only = yes
+
+	option = {
+		name = civicevent.102.a
+		add_deposit = d_cracker_mines
+		owner = {
+			add_resource = {energy = -500}
+		}
+		from = {
+			country_event = {
+				id = civicevent.110
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = civicevent.102.b
+	}
+}
+
+planet_event = {
+	id = civicevent.103
+	title = civicevent.103.name
+	desc = civicevent.103.desc	
+	picture = GFX_evt_desert_planet
+	is_triggered_only = yes
+
+	option = {
+		name = civicevent.102.a
+		add_deposit = d_equitorial_solar_belt
+		owner = {
+			add_resource = {energy = -500}
+		}
+		from = {
+			country_event = {
+				id = civicevent.110
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = civicevent.102.b
+	}
+}
+
+planet_event = {
+	id = civicevent.104
+	title = civicevent.104.name
+	desc = civicevent.104.desc	
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	option = {
+		name = civicevent.102.a
+		add_deposit = d_great_stinky_lake
+		owner = {
+			add_resource = {energy = -500}
+		}
+		from = {
+			country_event = {
+				id = civicevent.110
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = civicevent.102.b
+	}
+}
+
+planet_event = {
+	id = civicevent.105
+	title = civicevent.105.name
+	desc = civicevent.105.desc	
+	picture = GFX_evt_atmospheric_entry
+	is_triggered_only = yes
+
+	option = {
+		name = civicevent.102.a
+		add_deposit = d_makeshift_cargo_port
+		owner = {
+			add_resource = {energy = -500}
+		}
+		from = {
+			country_event = {
+				id = civicevent.110
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = civicevent.102.b
+		from = {
+			country_event = {
+				id = civicevent.111
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = {
+
+	id = civicevent.110
+	title = civicevent.110.name
+	desc = civicevent.110.desc
+	picture = GFX_evt_financial_instruments
+	#Gain $250-300 for terraforming cost
+
+	is_triggered_only = yes
+
+
+	trigger = {
+		#has_authoity = auth_corporate
+		has_valid_civic = civic_terraformer_contractor			
+	}
+
+	option = {
+		name = civicevent.110.a
+		add_resource = {energy = 250}
+	}
+
+	
+}
+
+country_event = {
+
+	id = civicevent.111
+	title = civicevent.111.name
+	desc = civicevent.111.desc
+	picture = GFX_evt_assembly_fight
+	#Gain $250-300 for terraforming cost
+
+	is_triggered_only = yes
+
+
+	trigger = {
+		#has_authoity = auth_corporate
+		has_valid_civic = civic_terraformer_contractor			
+	}
+
+	option = {
+		name = civicevent.111.a
+	}
+
+	
+}
+
