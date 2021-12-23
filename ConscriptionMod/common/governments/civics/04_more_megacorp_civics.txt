@@ -123,7 +123,7 @@ civic_gene_experiments = {
 	potential = { authority = { value = auth_corporate } }
 	random_weight = { base = 5 }
 	modifier = {
-		modify_species_cost_mult = -0.10
+		modify_species_cost_mult = -0.15
 	}
 }
 

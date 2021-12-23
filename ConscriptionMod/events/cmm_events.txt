@@ -278,11 +278,13 @@ country_event = {
 			set_name = random # Fixes some naming issues
 			country_event = {id = cmm.10}
 		}
-		random_federation_ally = {
-			random_owned_planet = {
-				establish_branch_office = root
-			}
-		}
+
+		#Free branch office since the beginning is simply way too OP
+#		random_federation_ally = {
+#			random_owned_planet = {
+#				establish_branch_office = root
+#			}
+#		}
 		if = {
 			limit = { has_origin = origin_common_market }
 			event_target:fed_member_1 = {
