@@ -14,7 +14,7 @@ tech_civilian_economy_2 = {
 	}
 
 	modifier = {
-		trade_value_mult = 0.2
+		trade_value_mult = 0.16
 	}
 
 	weight_modifier = {
@@ -57,7 +57,7 @@ tech_civilian_economy_3 = {
 	}
 
 	modifier = {
-		trade_value_mult = 0.2
+		trade_value_mult = 0.16
 	}
 
 	weight_modifier = {
@@ -100,7 +100,7 @@ tech_civilian_economy_4 = {
 	}
 
 	modifier = {
-		trade_value_mult = 0.2
+		trade_value_mult = 0.16
 	}
 
 	weight_modifier = {

@@ -263,6 +263,9 @@ planet_event = {
 		owner = {
 			add_resource = {energy = -500}
 		}
+		ai_chance = {
+			factor = 100
+		}
 		from = {
 			country_event = {
 				id = civicevent.110
@@ -273,6 +276,15 @@ planet_event = {
 
 	option = {
 		name = civicevent.102.b
+		ai_chance = {
+			factor = 25
+		}
+		from = {
+			country_event = {
+				id = civicevent.111
+				days = 1
+			}
+		}
 	}
 }
 
@@ -289,6 +301,9 @@ planet_event = {
 		owner = {
 			add_resource = {energy = -500}
 		}
+		ai_chance = {
+			factor = 100
+		}
 		from = {
 			country_event = {
 				id = civicevent.110
@@ -299,6 +314,15 @@ planet_event = {
 
 	option = {
 		name = civicevent.102.b
+		ai_chance = {
+			factor = 25
+		}
+		from = {
+			country_event = {
+				id = civicevent.111
+				days = 1
+			}
+		}
 	}
 }
 
@@ -315,6 +339,9 @@ planet_event = {
 		owner = {
 			add_resource = {energy = -500}
 		}
+		ai_chance = {
+			factor = 100
+		}
 		from = {
 			country_event = {
 				id = civicevent.110
@@ -325,6 +352,15 @@ planet_event = {
 
 	option = {
 		name = civicevent.102.b
+		ai_chance = {
+			factor = 25
+		}
+		from = {
+			country_event = {
+				id = civicevent.111
+				days = 1
+			}
+		}
 	}
 }
 
@@ -341,6 +377,9 @@ planet_event = {
 		owner = {
 			add_resource = {energy = -500}
 		}
+		ai_chance = {
+			factor = 100
+		}
 		from = {
 			country_event = {
 				id = civicevent.110
@@ -351,6 +390,9 @@ planet_event = {
 
 	option = {
 		name = civicevent.102.b
+		ai_chance = {
+			factor = 25
+		}
 		from = {
 			country_event = {
 				id = civicevent.111
