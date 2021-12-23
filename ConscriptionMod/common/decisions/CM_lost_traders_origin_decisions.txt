@@ -7,8 +7,8 @@ decision_upgrade_LT_market_1 = {
 	sound = event_laboratory_sound
 	icon = decision_resources
 
-	#enactment_time = 240
-	enactment_time = 1
+	enactment_time = 240
+	#enactment_time = 1
 
 	resources = {
 		category = decisions
@@ -43,8 +43,8 @@ decision_upgrade_LT_market_2 = {
 	sound = event_laboratory_sound
 	icon = decision_resources
 
-	#enactment_time = 240
-	enactment_time = 1
+	enactment_time = 240
+	#enactment_time = 1
 
 	resources = {
 		category = decisions
