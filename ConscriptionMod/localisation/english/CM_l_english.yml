@@ -200,7 +200,7 @@ civic_corporate_espionage:0 "Corporate Intelligence Service"
 civic_administrative_contractor_desc:0 "This megacorp has a wide network of underground assets to achieve its goal. To make things worse, they have mastered the skill of gaining intelligence while pretending to be harmless merchants."
 
 civic_terraformer_contractor:0 "Terraforming Contractor"
-civic_terraformer_contractor_desc:0 "This megacorp has a huge army of civil engineers who can shape a planet as if it's only mud. As a result, they have earned many foreign contract of terraforming, thus earning huge benefits. \n\n Effect: \nGain random extra benefits upon terraforming owned planets. \nWhenever any empire (excluding gestalt consciousness, genocidal, inward perfection, or terraform contractors), there are §Y 50%§! chance §YOne Random Terraformer Contractor§! receives the contract, earning §G 300 energy§! as profit, and possibly providing §Y Some Benefits§! to terraformed planet for extra §G profits§!!. Requires consent of contract provider(owner of the planet).\n"
+civic_terraformer_contractor_desc:0 "This megacorp has a huge army of civil engineers who can shape a planet as if it's only mud. As a result, they have earned many foreign contract of terraforming, thus earning huge benefits. \n\n Effect: \nGain random extra benefits upon terraforming owned planets. \nWhenever any empire (excluding gestalt consciousness, genocidal, inward perfection, or terraform contractors), §YOne Random Terraformer Contractor§! receives the contract, earning §G 300 energy§! as profit, and possibly providing §Y Some Benefits§! to terraformed planet for extra §G profits§!!. Requires consent of contract provider(owner of the planet).\n"
 
 ############
 # Terraforming Buff
@@ -275,7 +275,7 @@ tech_branch_office_value_2_desc:0 "We cannot always depend on our core worlds to
 # Terraformer Contractor
 ###################################
 civicevent.101.name:0 "Contractor of §Y[from.GetName]§! terraforming project!"
-civicevent.101.desc:0 "We were chosen by §Y[from.Owner.GetName]§! as contractor of their terraforming project, due to our reputation as a professional terraforming company. Near the end of the project, we have reviewed our project management and find a few things noticable. The most noticable achievement of our employees was..."
+civicevent.101.desc:0 "We were chosen by §Y[from.spaceowner.GetName]§! as contractor of their terraforming project, due to our reputation as a professional terraforming company. Near the end of the project, we have reviewed our project management and find a few things noticable. The most noticable achievement of our employees was..."
 civicevent.101.a:0 "The bright profit they made!"
 civicevent.101.b:0 "Being paid with right to exploit local mines!"
 civicevent.101.c:0 "The way they asked our client for more budget!"
@@ -285,27 +285,27 @@ civicevent.101.f:0 "A huge stinky farm-lake full of rich organic resources!"
 civicevent.101.g:0 "The innovative bulk-good logistic system they built!"
 
 civicevent.120.name:0 "Legacy of Terraforming Project"
-civicevent.120.desc:0 "We are the best terraforming company in the whole known universe, and our employees excel in shaping world after world to a paradise. We have some equipment left in our recent terraform project in §Y[root.GetName]§!. Shall we utilize them to build a better world and venture for greatness?"
+civicevent.120.desc:0 "We are the best terraforming company in the whole known universe, and our employees excel in shaping world after world to a paradise. We have some equipment left in our recent terraform project in §Y[from.GetName]§!. Shall we utilize them to build a better world and venture for greatness?"
 civicevent.120.a:0 "An excellent initiative! Allocate some budget."
 civicevent.120.b:0 "That may not be a good idea."
 
 civicevent.106.name:0 "Junkheap of terraforming waste!"
-civicevent.106.desc:0 "The terraforming project of  §Y[root.GetName]§! proved harder than estimated. Due to our lack of funding, our contractor,  §Y[from.GetName]§!, cannot remove the junkheap of terraforming waste they left. We are forced to pay more to remove the waste."
+civicevent.106.desc:0 "The terraforming project of  §Y[from.GetName]§! proved harder than estimated. Due to our lack of funding, our contractor,  §Y[fromfrom.GetName]§!, cannot remove the junkheap of terraforming waste they left. We are forced to pay more to remove the waste."
 civicevent.106.a:0 "Is it REALLY budget issues?"
 
 civicevent.102.name:0 "Cracker-Mines"
-civicevent.102.desc:0 "We were contacted by §Y[from.GetName]§!, contract receiver of the terraforming project of §Y[root.GetName]§!. They made a huge crack on planet surface with their terraforming nuclear weaponaries, and they are asking us for a call. They can either fill it--for no extra cost since it's part of contract--or leave it as a mine pit. In fact, they offered to fit it with all set of mining and scanning equipment so it can be utilized in a few weeks---at a price of course."
+civicevent.102.desc:0 "We were contacted by §Y[fromfrom.GetName]§!, contract receiver of the terraforming project of §Y[from.GetName]§!. They made a huge crack on planet surface with their terraforming nuclear weaponaries, and they are asking us for a call. They can either fill it--for no extra cost since it's part of contract--or leave it as a mine pit. In fact, they offered to fit it with all set of mining and scanning equipment so it can be utilized in a few weeks---at a price of course."
 civicevent.102.a:0 "Sounds like a good deal for me."
 civicevent.102.b:0 "No. We don't need stuff outside the contract."
 
 civicevent.103.name:0 "Equitorial Solar Panel Belt"
-civicevent.103.desc:0 "We were contacted by §Y[from.GetName]§!, contract receiver of the terraforming project of §Y[root.GetName]§!. They managed to made an equitorial belt of desert that, with their solar-panel fabricators, would be easily processed into millions of sqare-miles of solar panels. Since we paid the price they are asking us for a call. With an extra cost we can get ridiculous amount of solar panels--or we can stick with the contract."
+civicevent.103.desc:0 "We were contacted by §Y[fromfrom.GetName]§!, contract receiver of the terraforming project of §Y[from.GetName]§!. They managed to made an equitorial belt of desert that, with their solar-panel fabricators, would be easily processed into millions of sqare-miles of solar panels. Since we paid the price they are asking us for a call. With an extra cost we can get ridiculous amount of solar panels--or we can stick with the contract."
 
 civicevent.104.name:0 "Organic Lake Farm"
-civicevent.104.desc:0 "We were contacted by §Y[from.GetName]§!, contract receiver of the terraforming project of §Y[root.GetName]§!. During the whole contract they dammed a lake, dumped ridiculous amount of organic waste into it and used it as a farm to feed millions of their illegal immigrant slave-laborers. They offered to refit its equipment so it fits §Y[root.owner.GetName]§! standard of food production and can be utilized to produce food in unforseen level. Still, they promised to blast the dam and go with the contract for absolutely no extra cost"
+civicevent.104.desc:0 "We were contacted by §Y[fromfrom.GetName]§!, contract receiver of the terraforming project of §Y[from.GetName]§!. During the whole contract they dammed a lake, dumped ridiculous amount of organic waste into it and used it as a farm to feed millions of their illegal immigrant slave-laborers. They offered to refit its equipment so it fits §Y[root.GetName]§! standard of food production and can be utilized to produce food in unforseen level. Still, they promised to blast the dam and go with the contract for absolutely no extra cost"
 
 civicevent.105.name:0 "Makeshift Cargo Port"
-civicevent.105.desc:0 "We were contacted by §Y[from.GetName]§!, contract receiver of the terraforming project of §Y[root.GetName]§!. They are asking if we are willing to buy their gaussian cannon frieght system--they fired their bulk-goods to and from space with gauss cannons to save a huge portion of frieghting cost. With very low price we can utilize it as a makeshift cargo port. We can, however, ask them to remove their noisy cannons and follow the contract."
+civicevent.105.desc:0 "We were contacted by §Y[fromfrom.GetName]§!, contract receiver of the terraforming project of §Y[from.GetName]§!. They are asking if we are willing to buy their gaussian cannon frieght system--they fired their bulk-goods to and from space with gauss cannons to save a huge portion of frieghting cost. With very low price we can utilize it as a makeshift cargo port. We can, however, ask them to remove their noisy cannons and follow the contract."
 
 civicevent.110.name:0 "The Sale was successful!"
 civicevent.110.desc:0 "We managed to sell our excessive equipment and resources at a reasonable price to §Y[from.GetName]§!. They gained some really good addition onto their planet and we gained energy credits--and a lot of them."

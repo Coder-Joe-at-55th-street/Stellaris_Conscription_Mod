@@ -72,7 +72,7 @@ planet_event = {
 		
 
 	trigger = {
-		owner = {
+		space_owner = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_inwards_perfection
@@ -83,37 +83,48 @@ planet_event = {
 	}
 
 	immediate = {
-		random_list = {
-			30 = {
-				#
+		random_playable_country = {
+			limit = {
+				has_valid_civic = civic_terraformer_contractor	
 			}
-			30 = {
-				random_playable_country = {
-					limit = {
-						has_valid_civic = civic_terraformer_contractor	
-					}
-					country_event = {
-						id = civicevent.101
-						days = 1
-					}
-				}
+			country_event = {
+				id = civicevent.101
+				days = 1
 			}
 		}
 	}
 
 }
 
-#
+
 planet_event = {
+	id = civicevent.119
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		space_owner = {
+			has_valid_civic = civic_terraformer_contractor
+		}
+	}
+
+	immediate = {
+		space_owner = {
+			country_event = {
+				id = civicevent.120
+			}
+		}
+	}
+}
+
+country_event = {
 	id = civicevent.120
 	title = civicevent.120.name
 	desc = civicevent.120.desc
 	is_triggered_only = yes
 
 	trigger = {
-		owner = {
-			has_valid_civic = civic_terraformer_contractor
-		}
+		has_valid_civic = civic_terraformer_contractor
 	}
 
 	option = {
@@ -121,16 +132,16 @@ planet_event = {
 		owner = {add_resource = {energy = -200}}
 		random_list = {
 			30 = {
-				add_deposit = d_cracker_mines
+				from = {add_deposit = d_cracker_mines}
 			}
 			30 = {
-				add_deposit = d_equitorial_solar_belt
+				from = {add_deposit = d_equitorial_solar_belt}
 			}
 			30 = {
-				add_deposit = d_great_stinky_lake
+				from = {add_deposit = d_great_stinky_lake}
 			}
 			30 = {
-				add_deposit = d_makeshift_cargo_port
+				from = {add_deposit = d_makeshift_cargo_port}
 			}
 		}
 	}
@@ -178,7 +189,7 @@ country_event = {
 		}
 		from = {
 			planet_event = {
-				id = civicevent.106
+				id = civicevent.116
 				days = 1
 			}
 		}
@@ -189,7 +200,7 @@ country_event = {
 		add_resource = {energy = 300}
 		from = {
 			planet_event = {
-				id = civicevent.102
+				id = civicevent.112
 				days = 1
 			}
 		}
@@ -201,7 +212,7 @@ country_event = {
 		add_resource = {energy = 300}
 		from = {
 			planet_event = {
-				id = civicevent.103
+				id = civicevent.113
 				days = 1
 			}
 		}
@@ -213,7 +224,7 @@ country_event = {
 		add_resource = {energy = 300}
 		from = {
 			planet_event = {
-				id = civicevent.104
+				id = civicevent.114
 				days = 1
 			}
 		}
@@ -226,7 +237,7 @@ country_event = {
 		add_resource = {energy = 300}
 		from = {
 			planet_event = {
-				id = civicevent.105
+				id = civicevent.115
 				days = 1
 			}
 		}
@@ -236,6 +247,82 @@ country_event = {
 }
 
 planet_event = {
+	id = civicevent.112
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		space_owner = {
+			country_event = {
+				id = civicevent.102
+			}
+		}
+	}
+
+}
+
+planet_event = {
+	id = civicevent.113
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		space_owner = {
+			country_event = {
+				id = civicevent.103
+			}
+		}
+	}
+
+}
+
+planet_event = {
+	id = civicevent.114
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		space_owner = {
+			country_event = {
+				id = civicevent.104
+			}
+		}
+	}
+
+}
+
+planet_event = {
+	id = civicevent.115
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		space_owner = {
+			country_event = {
+				id = civicevent.105
+			}
+		}
+	}
+
+}
+
+planet_event = {
+	id = civicevent.116
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		space_owner = {
+			country_event = {
+				id = civicevent.106
+			}
+		}
+	}
+
+}
+
+
+country_event = {
 	id = civicevent.106
 	title = civicevent.106.name
 	desc = civicevent.106.desc
@@ -245,11 +332,12 @@ planet_event = {
 
 	option = {
 		name = civicevent.106.a
-		add_deposit = d_terraform_junkheap
+		from = {add_deposit = d_terraform_junkheap}
+		
 	}
 }
 
-planet_event = {
+country_event = {
 	id = civicevent.102
 	title = civicevent.102.name
 	desc = civicevent.102.desc	
@@ -259,14 +347,12 @@ planet_event = {
 
 	option = {
 		name = civicevent.102.a
-		add_deposit = d_cracker_mines
-		owner = {
-			add_resource = {energy = -500}
-		}
+		add_resource = {energy = -500}
+		from = {add_deposit = d_cracker_mines}
 		ai_chance = {
 			factor = 100
 		}
-		from = {
+		fromfrom = {
 			country_event = {
 				id = civicevent.110
 				days = 1
@@ -279,7 +365,7 @@ planet_event = {
 		ai_chance = {
 			factor = 25
 		}
-		from = {
+		fromfrom = {
 			country_event = {
 				id = civicevent.111
 				days = 1
@@ -288,7 +374,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+country_event = {
 	id = civicevent.103
 	title = civicevent.103.name
 	desc = civicevent.103.desc	
@@ -297,14 +383,12 @@ planet_event = {
 
 	option = {
 		name = civicevent.102.a
-		add_deposit = d_equitorial_solar_belt
-		owner = {
-			add_resource = {energy = -500}
-		}
+		from={add_deposit = d_equitorial_solar_belt}
+		add_resource = {energy = -500}
 		ai_chance = {
 			factor = 100
 		}
-		from = {
+		fromfrom = {
 			country_event = {
 				id = civicevent.110
 				days = 1
@@ -317,7 +401,7 @@ planet_event = {
 		ai_chance = {
 			factor = 25
 		}
-		from = {
+		fromfrom = {
 			country_event = {
 				id = civicevent.111
 				days = 1
@@ -326,7 +410,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+country_event = {
 	id = civicevent.104
 	title = civicevent.104.name
 	desc = civicevent.104.desc	
@@ -335,14 +419,12 @@ planet_event = {
 
 	option = {
 		name = civicevent.102.a
-		add_deposit = d_great_stinky_lake
-		owner = {
-			add_resource = {energy = -500}
-		}
+		from={add_deposit = d_great_stinky_lake}
+		add_resource = {energy = -500}
 		ai_chance = {
 			factor = 100
 		}
-		from = {
+		fromfrom = {
 			country_event = {
 				id = civicevent.110
 				days = 1
@@ -355,7 +437,7 @@ planet_event = {
 		ai_chance = {
 			factor = 25
 		}
-		from = {
+		fromfrom = {
 			country_event = {
 				id = civicevent.111
 				days = 1
@@ -373,14 +455,12 @@ planet_event = {
 
 	option = {
 		name = civicevent.102.a
-		add_deposit = d_makeshift_cargo_port
-		owner = {
-			add_resource = {energy = -500}
-		}
+		from={add_deposit = d_makeshift_cargo_port}
+		add_resource = {energy = -500}
 		ai_chance = {
 			factor = 100
 		}
-		from = {
+		fromfrom = {
 			country_event = {
 				id = civicevent.110
 				days = 1
@@ -393,7 +473,7 @@ planet_event = {
 		ai_chance = {
 			factor = 25
 		}
-		from = {
+		fromfrom = {
 			country_event = {
 				id = civicevent.111
 				days = 1

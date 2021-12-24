@@ -23,6 +23,6 @@ on_colonized = {
 on_terraforming_complete = {
 	events = {
 		civicevent.100
-		civicevent.120
+		civicevent.119
 	}
 }
