@@ -2587,9 +2587,37 @@ foundry = {
 			}
 		}
 		modifier = {
-			trade_value_add = 2
+			trade_value_add = 3
 		}
 	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				has_valid_civic = civic_weapon_dealers
+			}
+		}
+		modifier = {
+			trade_value_add = 4
+		}
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				exists = owner
+				owner = { 
+					has_valid_civic = civic_weapon_dealers
+				}
+			}
+		}
+		modifier = {
+			country_naval_cap_add = 0.5
+		}
+	}
+
 	
 	weight = {
 		weight = @specialist_job_weight # Fairly important job

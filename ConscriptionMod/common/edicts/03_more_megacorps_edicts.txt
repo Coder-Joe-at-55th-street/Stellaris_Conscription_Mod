@@ -25,7 +25,7 @@ begin_mobilization_process = {
 
 	potential = {
 		has_event_chain = mobilization_chain
-		is_at_war = yes		
+		#is_at_war = yes		
 		NOT = {has_country_flag = mobilized}
 		NOT = {has_modifier = aftermath_of_great_war}
 	}
@@ -202,5 +202,7 @@ demobilize = {
 	}
 }
 
-
+############################
+# Terraforming Sales Event
+###########################
 

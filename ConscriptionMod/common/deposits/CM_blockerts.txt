@@ -156,3 +156,41 @@ d_peak_galactic_market = {
 		weight = 0
 	}
 }
+
+
+d_market_torus = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		job_merchant_add = 6
+		trade_value_add = 25
+		trade_value_mult = 0.25
+		planet_housing_mult = 0.10
+		job_merchant_per_pop = 0.025
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_old_world_monuments = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	potential = { always = no }
+
+	planet_modifier = {
+		planet_amenities_add = 10
+		planet_amenities_mult = 0.10
+		job_death_chronicler_add = 2
+		job_death_chronicler_per_pop = 0.02
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

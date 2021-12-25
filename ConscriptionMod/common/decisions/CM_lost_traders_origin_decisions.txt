@@ -80,3 +80,78 @@ decision_upgrade_LT_market_2 = {
 		weight = 10
 	}
 }
+
+decision_arcology_project_lost_traders = {
+	owned_planets_only = yes
+	icon = decision_arcology_project
+
+	enactment_time = 3600
+	resources = {
+		category = decisions
+		cost = {
+			influence = 100
+			minerals = 25000
+			energy = 6000
+			alloys = 800
+		}
+	}
+
+	potential = {
+		is_artificial = no
+#		exists = owner
+#		owner = {
+#			has_origin = origin_lost_traders
+#		}
+		has_deposit = d_peak_galactic_market 
+	}
+
+	allow = {
+		num_uncleared_blockers < 1
+		owner = { 
+			has_technology = tech_housing_2
+			has_technology = tech_civilian_economy_4
+		}
+	}
+
+	effect = {
+		# Make city-planet
+		custom_tooltip = decision_arcology_project_effects
+		
+		hidden_effect = {
+			clear_deposits = yes
+			set_industrial_focus_flags = yes
+			change_pc = pc_city
+			relic_world_conversion_effect = {
+				DISTRICT = district_arcology_housing
+				VARIABLE = num_housing_districts
+			}
+			relic_world_conversion_effect = {
+				DISTRICT = district_arcology_arms_industry
+				VARIABLE = num_industrial_districts
+			}
+			set_ecu_industrial_districts_effect = yes
+			set_planet_entity = {
+				entity = "city_planet_entity"
+				graphical_culture = owner
+			}
+			
+			planet_event = { id = mega.200 }
+			planet_event = { id = civicevent.203 }
+			if = {
+				limit = {
+					OR = {
+						is_active_resolution = "resolution_ecology_environmental_control_board"
+						is_active_resolution = "resolution_ecology_paradise_initiative"
+					}
+				}
+				owner = {
+					set_timed_country_flag = { flag = resolution_breached_terraformed days = 3600 }
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+}

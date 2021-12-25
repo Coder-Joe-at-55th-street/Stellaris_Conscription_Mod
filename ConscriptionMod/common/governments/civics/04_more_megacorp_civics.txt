@@ -302,7 +302,8 @@ civic_weapon_dealers = {
 
 	#Foundry produce 2 trade value!
 	modifier = {
-		planet_metallurgists_minerals_upkeep_add = 1
+		planet_metallurgists_minerals_upkeep_add = 2
+		planet_metallurgists_engineering_research_produces_add = 1
 	}
 }
 
@@ -332,7 +333,7 @@ civic_corporate_espionage = {
 	random_weight = { base = 5 }
 
 	modifier = {
-		add_base_country_intel = 5
+		add_base_country_intel = 10
 		intel_decryption_add = 2
 	}
 }

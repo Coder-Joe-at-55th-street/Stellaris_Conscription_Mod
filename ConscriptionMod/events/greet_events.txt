@@ -1,0 +1,82 @@
+############################
+#
+# Greet Events
+#
+# Written by Henrik Thyrwall
+#
+############################
+
+namespace = greet
+
+event = {
+	id = greet.1
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_playable_country = {
+			country_event = {
+				id = greet.2
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = greet.2
+	title = greet.2.name
+	desc = greet.2.desc
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_variable = {which = count value = 0}
+		every_playable_country = {
+			limit = {has_authority = auth_corporate}
+			root = {change_variable = {which = count value = 1}}
+		}
+		
+		set_variable = {which = count2 value = 0}
+		every_playable_country = {
+			root = {change_variable = {which = count2 value = 1}}
+		}
+	}
+
+	option = {
+		name = greet.2.a
+		add_resource = {energy = 100}
+	}
+
+	option = {
+		name = greet.2.b
+		add_resource = {minerals = 100}
+	}
+
+	option = {
+		name = greet.2.c
+		add_resource = {food = 100}
+	}
+
+	option = {
+		name = greet.2.d
+		add_resource = {consumer_goods = 80}
+	}
+	option = {
+		name = greet.2.e
+		add_resource = {alloys = 40}
+	}
+
+	option = {
+		name = greet.2.f
+		trigger = {
+			is_ai = no
+		}
+		add_modifier = {
+			modifier = authors_whisper
+			days = -1
+		}
+	}
+}

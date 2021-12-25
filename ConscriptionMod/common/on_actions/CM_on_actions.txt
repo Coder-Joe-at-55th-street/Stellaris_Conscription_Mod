@@ -5,6 +5,7 @@ on_game_start = {
 	events = {
 		cmm.2 #Common  Market Origin
 		civicevent.200 #Lost Traders Origin
+		greet.1 #Greetings to all players
 	}
 }
 

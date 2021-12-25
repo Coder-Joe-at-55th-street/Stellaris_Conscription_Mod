@@ -85,7 +85,8 @@ planet_event = {
 	immediate = {
 		random_playable_country = {
 			limit = {
-				has_valid_civic = civic_terraformer_contractor	
+				has_valid_civic = civic_terraformer_contractor
+				has_established_contact = root.space_owner	
 			}
 			country_event = {
 				id = civicevent.101
@@ -129,25 +130,30 @@ country_event = {
 
 	option = {
 		name = civicevent.120.a
-		owner = {add_resource = {energy = -200}}
-		random_list = {
-			30 = {
-				from = {add_deposit = d_cracker_mines}
-			}
-			30 = {
-				from = {add_deposit = d_equitorial_solar_belt}
-			}
-			30 = {
-				from = {add_deposit = d_great_stinky_lake}
-			}
-			30 = {
-				from = {add_deposit = d_makeshift_cargo_port}
-			}
-		}
+		add_resource = {energy = -200}
+		from = {add_deposit = d_cracker_mines}
 	}
 
 	option = {
 		name = civicevent.120.b
+		add_resource = {energy = -200}
+		from = {add_deposit = d_equitorial_solar_belt}
+	}
+
+	option = {
+		name = civicevent.120.c
+		add_resource = {energy = -200}
+		from = {add_deposit = d_great_stinky_lake}
+	}
+
+	option = {
+		name = civicevent.120.d
+		add_resource = {energy = -200}
+		from = {add_deposit = d_makeshift_cargo_port}
+	}
+
+	option = {
+		name = civicevent.120.e
 	}
 }
 
@@ -581,4 +587,26 @@ planet_event = {
 	}
 
 }
+
+planet_event = {
+	id = civicevent.203
+	title = civicevent.203.name
+	desc = civicevent.203.desc	
+	picture = GFX_evt_city_planet
+	is_triggered_only = yes
+
+	option = {
+		name = civicevent.203.a
+		owner = {
+			add_resource = {unity = 1000}
+		}
+		add_deposit = d_market_torus
+		add_deposit = d_old_world_monuments
+	}
+
+}
+
+####################
+# Terraforming Contractor Sales Event
+####################
 

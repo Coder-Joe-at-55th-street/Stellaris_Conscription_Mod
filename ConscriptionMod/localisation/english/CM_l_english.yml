@@ -191,7 +191,7 @@ civic_legacy:0 "Consolidation of Social Strata"
 civic_legacy_desc:0 "Since highborn enjoys better heritage, education, and experience, it is only right to ensure they do not toil in the fields and mines so they can best spend their time moving our corporation forward. This highly stratified society have seen few inter-class movement for many centuries"
 
 civic_weapon_dealers:0 "Chartered Weapon Dealers"
-civic_weapon_dealers_desc:0 "For centuries this Megacorp has been known for their excellent weaponary. Their chartered weapon traders distributed state-of-the-art weaponaries and firmly promoted development of warfare in the galaxy. \n\n Effect: \n Foundry now provides additional §Y 2 trade value§!"
+civic_weapon_dealers_desc:0 "For centuries this Megacorp has been known for their excellent weaponary. Their chartered weapon traders distributed state-of-the-art weaponaries and firmly promoted development of warfare in the galaxy. \n\n Effect: \n Foundry jobs now provides additional §Y 4 trade value§! and §Y 0.5 naval capacity§!, in addition to modifiers below:"
 
 civic_administrative_contractor:0 "Administrative Contractor"
 civic_administrative_contractor_desc:0 "Few people believes it but there REALLY are--were--civil government stupid enough to outsource civil and utility service like tax or budgeting to private contractors. This megacorp was such a contractor. You'd better not go too deep into the fate of old civil government, or tax income in their last decade."
@@ -324,6 +324,11 @@ civicevent.202.name:0 "G.S.M.E Completely Restored!"
 civicevent.202.desc:0 "Great News! The §Y Galactic Stock and Merchantile Exchange§! has been completely restored in low §Y[root.GetName]§! orbit! It has became the largest--and perhaps the only--all-encompassing trading place of the galaxy, trading everything from Megacorp stocks to mercenary contractors, and we, here on the high thrones, oversees all operations, trusted as true guardian of free market. We have truely restored our past glory as chartered trader of the galaxy. \n Long Live Prosperity \n Long Live the proud [root.Owner.GetName]!"
 civicevent.202.a:0 "All the way to golden age of §Y[root.GetName]!§!"
 
+civicevent.203.name:0 "[Root.GetName] Ecumenopolis Restored!"
+civicevent.203.desc:0 "We have eventually restored the Ecumenopolis in §Y[root.GetName]§!. While it remains doubtful if our capital is indeed an Ecumenopolis when old Galactic Empire that gave us exclusive trade charter still existed, many people tend to believe it as a myth. \n\n And today, we make this myth a reality. \n\n §Y[root.GetName]§! is now restored to its old golden ages, while the Galactic Stock and Mercantile Exchange--a gigantic ring of steel over equator--continues to awe visitors and traders near or afar."
+civicevent.203.a:0 "All trade routes ends in §Y[root.GetName].§! Long Live Prosperity!"
+
+
 ###############################
 # Blockers and Deposits
 ###############################
@@ -349,8 +354,14 @@ civicevent.202.a:0 "All the way to golden age of §Y[root.GetName]!§!"
  d_rudimentary_galactic_market:0 "Regional Market"
  d_rudimentary_galactic_market_desc:0 "We managed to restore the space elevators and some cargo ports of the old deceased Galactic Stock and Mercentile Exchanage. Traders from all sides flocked in for wealth, but we still have a long way to go."
 
- d_peak_galactic_market:0 "Trading Torus"
- d_peak_galactic_market_desc:0 "Just as recorded in history, the restored Galactic Stock and Mercentile Exchanage formed a space torus completely surrounding equator of this planet. The most reliable and all-encompassing market of the galaxy, this Trading Torus is the best monument to dilligence and greatness of our people. \n Long Live Prosperity!"
+ d_peak_galactic_market:0 "Galactic Stock Exchange"
+ d_peak_galactic_market_desc:0 "The most reliable and all-encompassing market of the galaxy, this Galactic Stock Exchange is the best monument to dilligence and greatness of our people. It floats majestically above low orbit, as a symbol of a revived free galactic market. \n Long Live Prosperity!"
+
+ d_market_torus:0 "Trading Torus"
+ d_market_torus_desc:0 "Two Hundred Miles above equator this trading torus floats. This ring of steel surrounded the planet, being the largest trading market and spaceport in the whole galaxy. Modeled under the trading center of a galactic empire deceased millenia ago, this Trading Torus station is trully a monument of progress and wealth. \n Behold, you Mighty, and despair!"
+
+ d_old_world_monuments:0 "Old Imperium Monuments"
+ d_old_world_monuments_desc:0 "Our people were once chartered traders of a galactic imperium millinia ago. While not much documents were left, we still managed to save many artistic designs of the past. We thus modeled this planet after Old Imperium styles, with their great monuments and extravagent decorations, blowing the wind of a past golden age in this monument of our progress."
 
 ##############################
 # Decisions
@@ -362,6 +373,9 @@ decision_upgrade_LT_market_1_desc:0 "The Galactic Stock and Mercentile Exchanage
 decision_upgrade_LT_market_2:0 "Restore the G.S.M.E."
 decision_upgrade_LT_market_2_desc:0 "Current status of the Galactic Stock and Mercentile Exchanage hardly fits its name: there are still many trading going through external markets. Let us built a great marketplace and live as true guardian of a pan-galaxy free market!"
 
+decision_arcology_project_lost_traders:0 "Restore the Ecumenopolis!"
+decision_arcology_project_lost_traders_desc:0 "Myth or history, many people prefers to believe that millenia ago this planet was once an Ecumenopolis. Let us make it an reality--bring back the golden ages!"
+
 #############################
 # Corporate Buildings
 #############################
@@ -371,4 +385,21 @@ building_sweatshop_desc:0 "It is a sad fact that many aspects of our abundant li
 
 building_private_university:0 "Private University"
 building_private_university_desc:0 "This for-profit institution provides education on a monetary basis. Still, it has a team of researchers dedicated to technological advancement."
+
+#############################
+# Greetings
+#############################
+
+greet.2.name:0 "A mysterious letter..."
+greet.2.desc:0 "As §Y[root.Ruler.GetTitle]§! of §Y[root.GetName].§!, you arrived in your office in the first day of new year, and found this letter in your table. It reads: \n\n Dear §Y[root.Ruler.GetTitle]§!, \n Greetings! Let's waste no time. You might have noticed that your world have some certain differences from other Stellaris worlds. I'm the hyper-dimensional horror who did it. I ask not for your faith but only following information to be remembered:\n 1. There are in total §Y[Root.count] Corporate Empires§! amongst total §Y[Root.count2] Empires§!. Since excessive competition is harmful, you can choose to re-start should you want. \n 2.  §YConscription§! system will be available after year 2240. From then you can draft your population in wars for greatness. \n 3. Unyielding tradition was replaced by §YTotal War Doctrine§!, which allows you to field a larger fleet and win a total war. \n 4. Several techs were added to increase trade values. \n 5. 20 new Corporate Civics added. \n And here is all you need to know. Before you achieve greatness for your countrymen, feel free to accept the small gift beneath this letter.\n Sincerely, (Indistinguishable Signature) \n\n You removed the letter and beneath it you found....."
+greet.2.a:0 "An unregistered Crypto-Currency Account"
+greet.2.b:0 "Options for some minerals"
+greet.2.c:0 "Coupons for the largest local chain restaurants"
+greet.2.d:0 "Well-decorated artifacts that won't be considered bribery by law."
+greet.2.e:0 "Key of an advanced unregistered spaceship"
+greet.2.f:0 "A cellphone that continuously play wierd languages. Better keep it afar."
+
+authors_whisper:0 "Whisper of another dimension"
+authors_whisper_desc:0 "This piece of device just mysteriously appeared in your office in 2200. It plays some indistinct foreign languages that nobody understands. For some reason, you decide to leave it in the office. \n §YNote from another dimension: this is simply one result from the greetings or introduction event at beginning of the game. No side effect.§!"
+
 
