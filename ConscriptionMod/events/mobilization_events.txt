@@ -404,6 +404,30 @@ planet_event = {
 					NOT = {is_pop_category = ruler}
 				}
 				kill_pop = yes
+				#Implementing Corporate Stuff
+				if = {
+					limit = {
+						root.owner = {
+							NOR = {
+								has_ethic = ethic_gestalt_consciousness
+								has_valid_civic = civic_inwards_perfection
+								has_valid_civic = civic_fanatic_purifiers
+								has_valid_civic = civic_shipbuilding_contractor
+							}
+						}
+					}
+					random_playable_country = {
+						limit = {
+							has_communications = root.owner
+							has_valid_civic = civic_shipbuilding_contractor
+							NOR = {
+								is_at_war_with = root.owner
+								is_rival = root.owner
+							}
+						}
+						change_variable = {which = this_month_income value = 30}
+					}
+				}
 				if = {
 					limit = {
 						root.owner = {
@@ -592,6 +616,31 @@ planet_event = {
 					NOT = {is_pop_category = ruler}
 				}
 				kill_pop = yes
+				#Implementing Corporate Stuff
+				if = {
+					limit = {
+						root.owner = {
+							NOR = {
+								has_ethic = ethic_gestalt_consciousness
+								has_valid_civic = civic_inwards_perfection
+								has_valid_civic = civic_fanatic_purifiers
+								has_valid_civic = civic_shipbuilding_contractor
+							}
+						}
+					}
+					random_playable_country = {
+						limit = {
+							has_communications = root.owner
+							has_valid_civic = civic_shipbuilding_contractor
+							NOR = {
+								is_at_war_with = root.owner
+								is_rival = root.owner
+							}
+						}
+						change_variable = {which = this_month_income value = 30}
+					}
+				}
+				
 				if = {
 					limit = {
 						root.owner = {
@@ -778,6 +827,30 @@ planet_event = {
 					NOT = {is_pop_category = ruler}
 				}
 				kill_pop = yes
+				#Implementing Corporate Stuff
+				if = {
+					limit = {
+						root.owner = {
+							NOR = {
+								has_ethic = ethic_gestalt_consciousness
+								has_valid_civic = civic_inwards_perfection
+								has_valid_civic = civic_fanatic_purifiers
+								has_valid_civic = civic_shipbuilding_contractor
+							}
+						}
+					}
+					random_playable_country = {
+						limit = {
+							has_communications = root.owner
+							has_valid_civic = civic_shipbuilding_contractor
+							NOR = {
+								is_at_war_with = root.owner
+								is_rival = root.owner
+							}
+						}
+						change_variable = {which = this_month_income value = 30}
+					}
+				}
 				if = {
 					limit = {
 						root.owner = {
@@ -963,6 +1036,30 @@ planet_event = {
 					NOT = {is_pop_category = ruler}
 				}
 				kill_pop = yes
+				#Implementing Corporate Stuff
+				if = {
+					limit = {
+						root.owner = {
+							NOR = {
+								has_ethic = ethic_gestalt_consciousness
+								has_valid_civic = civic_inwards_perfection
+								has_valid_civic = civic_fanatic_purifiers
+								has_valid_civic = civic_shipbuilding_contractor
+							}
+						}
+					}
+					random_playable_country = {
+						limit = {
+							has_communications = root.owner
+							has_valid_civic = civic_shipbuilding_contractor
+							NOR = {
+								is_at_war_with = root.owner
+								is_rival = root.owner
+							}
+						}
+						change_variable = {which = this_month_income value = 30}
+					}
+				}
 				if = {
 					limit = {
 						root.owner = {
@@ -1369,6 +1466,12 @@ country_event = {
 
 	option = {
 		name = mobilize.400.a
+		every_playable_country = {
+			country_event = {
+				id = mobilize.403
+				days = 1
+			}
+		}
 		
 	}
 }
@@ -1429,6 +1532,20 @@ country_event = {
 	after = {
 		set_variable = { which = time_to_expire value = 0}
 		remove_modifier = aftermath_of_great_war
+	}
+
+}
+
+#News Event
+country_event = {
+	id = mobilize.403
+	name = mobilize.403.name
+	desc = mobilize.403.desc
+	is_triggered_only = yes
+
+
+	option = {
+		name = mobilize.403.a
 	}
 
 }

@@ -1,7 +1,9 @@
 
 civic_involution_society = {
 	modification = no
-	potential = { authority = { value = auth_corporate } }
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
 	random_weight = { base = 0 }
 	modifier = {
 		planet_jobs_slave_produces_mult = 0.025
@@ -53,7 +55,9 @@ civic_deindustrialized = {
 }
 
 civic_what_is_environment = {
-	potential = { authority = { value = auth_corporate } }
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
 	random_weight = { base = 5 }
 	possible = {
 		civics = {
@@ -69,7 +73,6 @@ civic_what_is_environment = {
 }
 
 civic_agricultural_syndicate = {
-	modification = no
 	potential = { 
 		authority = { value = auth_corporate } 
 		NOT = {is_lithoid_empire = yes}
@@ -83,15 +86,6 @@ civic_agricultural_syndicate = {
 
 civic_drug_dealer = {
 	potential = { authority = { value = auth_corporate } }
-	random_weight = { base = 5 }
-	possible = {
-		civic = {
-			OR = {
-				value = civic_criminal_heritage
-			}
-		}
-	}
-
 	random_weight = { base = 5 }
 	modifier = {
 		trade_value_mult = 0.10
@@ -107,6 +101,7 @@ civic_university_league = {
 	possible = {
 		ethics = {
 			OR = {
+				text = civic_tooltip_materialist
 				value = ethic_materialist
 				value = ethic_fanatic_materialist
 			}
@@ -142,6 +137,7 @@ civic_tourism_syndicate = {
 		}
 		ethics = {
 			NOR = {
+				text = civic_tooltip_not_xenophobe
 				value = ethic_xenophobe
 				value = ethic_fanatic_xenophobe
 			}
@@ -159,21 +155,20 @@ civic_tourism_syndicate = {
 
 civic_merchant_marines = {
 	modification = no
-	potential = { authority = { value = auth_corporate } }
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
 	random_weight = { base = 5 }
 	possible = {
-		OR = {
-			origin = {
-				value = origin_void_dwellers
-			}
-			civic = {value = civic_gliders}
+		origin = {
+			value = origin_void_dwellers
 		}
 		civics = {
 			NOT = {value = civic_deindustrialized}
 		}
 	}
 	modifier = {
-		country_naval_cap_mult = 0.05
+		country_naval_cap_mult = 0.10
 		ship_hull_mult = 0.15
 	}
 }
@@ -264,7 +259,9 @@ civic_flexible_tenets = {
 }
 
 civic_legacy = {
-	potential = { authority = { value = auth_corporate } }
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
 	random_weight = { base = 5 }
 	possible = {
 		ethics = {
@@ -290,7 +287,7 @@ civic_weapon_dealers = {
 	possible = {
 		ethics = {
 			NOR = {
-				text = civic_tooltip_pacifist
+				text = civic_tooltip_not_pacifist
 				value = ethic_pacifist
 				value = ethic_fanatic_pacifist
 			}
@@ -311,11 +308,11 @@ civic_weapon_dealers = {
 civic_administrative_contractor = {
 	
 	potential = { authority = { value = auth_corporate } }
-	random_weight = { base = 5 }
+	random_weight = { base = 1 }
 	possible = {
 		ethics = {
 			NOR = {
-				text = civic_tooltip_egalitarian
+				#text = civic_tooltip_not_egalitarian
 				value = ethic_egalitarian
 				value = ethic_fanatic_egalitarian
 			}
@@ -330,7 +327,7 @@ civic_administrative_contractor = {
 civic_corporate_espionage = {
 	
 	potential = { authority = { value = auth_corporate } }
-	random_weight = { base = 5 }
+	random_weight = { base = 2 }
 
 	modifier = {
 		add_base_country_intel = 10
@@ -341,9 +338,26 @@ civic_corporate_espionage = {
 civic_terraformer_contractor = {
 	
 	potential = { authority = { value = auth_corporate } }
-	random_weight = { base = 5 }
+	random_weight = { base = 0 }
 
 	modifier = {
 		terraforming_cost_mult = -0.10
+	}
+}
+
+civic_shipbuilding_contractor = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 0 }
+	possible = {
+		ethics = {
+			NOR = {
+				text = civic_tooltip_not_pacifist
+				value = ethic_pacifist
+				value = ethic_fanatic_pacifist
+			}
+		}
+	}
+	modifier = {
+		starbase_shipyard_build_cost_mult = -0.10
 	}
 }

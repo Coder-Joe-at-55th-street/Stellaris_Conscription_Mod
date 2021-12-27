@@ -5,7 +5,7 @@
 # Event Chain. To show the variable.
 
  mobilization_chain_title:0 "Wartime Administration Authority"
- mobilization_chain_desc:0 "As a modern civilized nation, our people are willing to die for the country, and we will draft them even if they don't. We currently have §Y[root.current_mob_size]§! percent of people serving in military. We can put at most §Y[root.max_mob_size]§! percent of our total population into military. Now, §Y[root.mobilizable_percentage]§! percent of population remains able to be drafted.\n\n Factors influencing max mobilize rate includes: \n\nTechnology 'Categorized reserve personnel', 'Logistic Preparations', and tradition 'mobilization timetable' adds §G2%§!. \nBeing fallen empire or gestalt conscious gives additional §G5%§! \n Certain Policies have their own effects\n\n We currently have drafted §Y[root.mobilized]§! million people in our military, and among these people §Y[root.in_the_field]§! million still survives. \n Mobilization can be initiated at war with edicts. It will spawn armies and navies at cost of §YSlave, Worker, and Specialist§! population. Each Mobilized pop would be converted to §Y200 million§! military personnel, and would serve in §Y4§! local defense army , §Y4§! assault army, and ships worth §Y24§! naval capacity, where §Y17.5§! million serves in each army and §Y2.5§! each naval capacity. \nWhile you demobilize, you will get a debuff of specific length. The length of debuff, in days, is calculated as: §YMobilization Percentage * 360 *(1 - Portion of conscripts survived) + 360(Base time of 1 year)§!. Currently, your debuff will vanish in §Y[root.time_to_expire]§! days."
+ mobilization_chain_desc:0 "As a modern civilized nation, our people are willing to die for the country, and we will draft them even if they don't. We currently have §Y[root.current_mob_size]§! percent of people serving in military. We can put at most §Y[root.max_mob_size]§! percent of our total population into military. Now, §Y[root.mobilizable_percentage]§! percent of population remains able to be drafted.\n You can begin and End Mobilization Process in §YEdicts§! for free in wars.\n\n Factors influencing max mobilize rate includes: \n\nTechnology 'Categorized reserve personnel', 'Logistic Preparations', and tradition 'mobilization timetable' adds §G2%§!. \nBeing fallen empire or gestalt conscious gives additional §G5%§! \n Certain Policies have their own effects\n\n We currently have drafted §Y[root.mobilized]§! million people in our military, and among these people §Y[root.in_the_field]§! million still survives. \n Mobilization can be initiated at war with edicts. It will spawn armies and navies at cost of §YSlave, Worker, and Specialist§! population. Each Mobilized pop would be converted to §Y200 million§! military personnel, and would serve in §Y4§! local defense army , §Y4§! assault army, and ships worth §Y24§! naval capacity, where §Y17.5§! million serves in each army and §Y2.5§! each naval capacity. \nWhile you demobilize, you will get a debuff of specific length. The length of debuff, in days, is calculated as: §YMobilization Percentage * 360 *(1 - Portion of conscripts survived) + 360(Base time of 1 year)§!. Currently, your debuff will vanish in §Y[root.time_to_expire]§! days."
 
 # Decision: National Mobilization Law
 
@@ -200,7 +200,10 @@ civic_corporate_espionage:0 "Corporate Intelligence Service"
 civic_administrative_contractor_desc:0 "This megacorp has a wide network of underground assets to achieve its goal. To make things worse, they have mastered the skill of gaining intelligence while pretending to be harmless merchants."
 
 civic_terraformer_contractor:0 "Terraforming Contractor"
-civic_terraformer_contractor_desc:0 "This megacorp has a huge army of civil engineers who can shape a planet as if it's only mud. As a result, they have earned many foreign contract of terraforming, thus earning huge benefits. \n\n Effect: \nGain random extra benefits upon terraforming owned planets. \nWhenever any empire (excluding gestalt consciousness, genocidal, inward perfection, or terraform contractors), §YOne Random Terraformer Contractor§! receives the contract, earning §G 300 energy§! as profit, and possibly providing §Y Some Benefits§! to terraformed planet for extra §G profits§!!. Requires consent of contract provider(owner of the planet).\n"
+civic_terraformer_contractor_desc:0 "This megacorp has a huge army of civil engineers who can shape a planet as if it's only mud. As a result, they have earned many foreign contract of terraforming, thus earning huge benefits. \n\n Effect: \nGain random extra benefits upon terraforming owned planets. \nWhenever any empire (excluding gestalt consciousness, genocidal, inward perfection, or terraform contractors) terraforms their planet, §YOne Random Terraformer Contractor§! receives the contract, earning §G 300 energy§! as profit, and possibly providing §Y Some Benefits§! to terraformed planet for extra §G profits§!!. Requires consent of contract provider(owner of the planet).\n"
+
+civic_shipbuilding_contractor:0 "Shipbuilding Contractor"
+civic_shipbuilding_contractor_desc:0 "This Megacorp started as a major shipbuilding contractor. They continues to provide top-notch ships for all customers in galaxy with lowest price possible. From navies to privateers, only the most xenophobe and unreasonable ones will refuse their deal. Better don't ask about labor condition in their shipyards, or their relationship with militarist parties. \n\n Whenever any empire (excluding gestalt consciousness, genocidal, inward perfection, or shipbuilding contractors) builds a battleship, §YOne Random Shipbuilding Contractor§! receives the contract and earn some alloys and cash. \n §YShipbuilding Contractor§! can also provide §YSales§! that gives discount to certain ships."
 
 ############
 # Terraforming Buff
@@ -285,9 +288,12 @@ civicevent.101.f:0 "A huge stinky farm-lake full of rich organic resources!"
 civicevent.101.g:0 "The innovative bulk-good logistic system they built!"
 
 civicevent.120.name:0 "Legacy of Terraforming Project"
-civicevent.120.desc:0 "We are the best terraforming company in the whole known universe, and our employees excel in shaping world after world to a paradise. We have some equipment left in our recent terraform project in §Y[from.GetName]§!. Shall we utilize them to build a better world and venture for greatness?"
-civicevent.120.a:0 "An excellent initiative! Allocate some budget."
-civicevent.120.b:0 "That may not be a good idea."
+civicevent.120.desc:0 "We are the best terraforming company in the whole known universe, and our employees excel in shaping world after world to a paradise. We have some equipment left in our recent terraform project in §Y[from.GetName]§!. It seems that we"
+civicevent.120.a:0 "Accidentally made a huge crack over the planet"
+civicevent.120.b:0 "Spammed Solar Panel on equator"
+civicevent.120.c:0 "Forgot to remove that organic waste dump"
+civicevent.120.d:0 "Set our cargo port too well to be easily relocated"
+civicevent.120.e:0 "Made excellent project management"
 
 civicevent.106.name:0 "Junkheap of terraforming waste!"
 civicevent.106.desc:0 "The terraforming project of  §Y[from.GetName]§! proved harder than estimated. Due to our lack of funding, our contractor,  §Y[fromfrom.GetName]§!, cannot remove the junkheap of terraforming waste they left. We are forced to pay more to remove the waste."
@@ -402,4 +408,78 @@ greet.2.f:0 "A cellphone that continuously play wierd languages. Better keep it 
 authors_whisper:0 "Whisper of another dimension"
 authors_whisper_desc:0 "This piece of device just mysteriously appeared in your office in 2200. It plays some indistinct foreign languages that nobody understands. For some reason, you decide to leave it in the office. \n §YNote from another dimension: this is simply one result from the greetings or introduction event at beginning of the game. No side effect.§!"
 
+################################
+# Shipbuilding Contractor
+################################
+ shipbuild_contractor_chain_title:0 "Shipbuilding Contractor"
+ shipbuild_contractor_chain_desc:0 "The §Y[Root.GetName]§! is the best shipbuilding contractor in the whole galaxy, and we continues to provide cheapeast ship possible for all valued customers! For any normal empire--non gestalt, non genocidal, non inward perfection--any military ships they build will be contracted to §YOne Random Shipbuilding Contractor§! at following profit: \n\n Corvette: 2 Standard Contract Units \n Destroyer: 5 Standard Contract Units \n Cruiser: 12 Standard Contract Units \n Battleship: 25 Standard Contract Units \n Titan: 60 Standard Contract Units \n Every Non-Enemy citizen mobilized: 30 Standard Contract Units \n\n Last Month we earned §Y[Root.this_month_income]§! Standard Contract Units. \n Depending on our policy, §Y One Standard Contract Unit§! gives following profit depending on our policy: \n Pay with alloys: §Y One Standard Contract Unit§! equals §Y1.625§! £alloys£ §Yalloys§! \n Balanced Payment: §Y One Standard Contract Unit§! equals §Y1§! £alloys£ §Yalloys§! and §Y2.5§! £energy£ §Yenergy§!\n Pay with cash: §Y One Standard Contract Unit§! equals §Y6.5§! £energy£ §Yenergy§! "
 
+policy_SBC_Payment:0 "Shipbuilding Contractor Payment Option"
+policy_SBC_Payment_desc:0 "Decide how foreign empires pays us for shipbuilding contracts"
+
+Alloy_Payment:0 "Pay with alloys"
+Alloy_Payment_desc:0 "They will pay with alloys. §Y One Standard Contract Unit§! equals §Y1.625§! £alloys£ §Yalloys§!"
+
+Balanced_Payment:0 "Balanced Payment"
+Balanced_Payment_desc:0 "They will pay with alloys and cash. §Y One Standard Contract Unit§! equals §Y1§! £alloys£ §Yalloys§! and §Y2.5§! £energy£ §Yenergy§!"
+
+Cash_Payment:0 "Cash Payment"
+Cash_Payment_desc:0 "They will pay with cash only. §Y One Standard Contract Unit§! equals §Y6.5§! £energy£ §Yenergy§!"
+
+contractor.79.name:0 "Shipbuilding Contractor!"
+contractor.79.desc:0 "Since we are a §YShipbuilding Contractor§!, we can profit from foreign shipbuilding contracts. Feel free to check your last month's profit in §YSituation Log§!"
+contractor.79.a:0 "May war grow more and more brutal so wealth be accumulated."
+
+#Shipbuilding Contractor Sales
+battleship_sale:0 "Dreadnought Sale"
+battleship_sale_desc:0 "The major shipbuilding contractors are now selling §YDreadnought§!, which is the commercial name for §YBattleships§!. All orders in the sale  are instantly §G 10% OFF§! with §G Prioritized Delivery!§! \n §YBuy Now, Save Now! Buy More, Save More!§! \n Terms and fees may apply."
+
+cruiser_sale:0 "Cruiser Sale"
+cruiser_sale_desc:0 "The major shipbuilding contractors are now selling §YCruisers!§! All orders in the sale  are instantly §G 10% OFF§! with §G Prioritized Delivery!§! \n §YBuy Now, Save Now! Buy More, Save More!§! \n Terms and fees may apply."
+
+destroyer_sale:0 "Lancer Sale"
+destroyer_sale_desc:0 "The major shipbuilding contractors are now selling §YLancer§!, which is the commercial name for §YDestroyers§!. All orders in the sale  are instantly §G 10% OFF§! with §G Prioritized Delivery!§! \n §YBuy Now, Save Now! Buy More, Save More!§! \n Terms and fees may apply."
+
+corvette_sale:0 "Cutter Sale"
+corvette_sale_desc:0 "The major shipbuilding contractors are now selling §YCutters§!, which is the commercial name for §YCorvettes§!. All orders in the sale  are instantly §G 10% OFF§! with §G Prioritized Delivery!§! \n §YBuy Now, Save Now! Buy More, Save More!§! \n Terms and fees may apply."
+
+SBC_general_sale:0 "Military Ship Sale"
+SBC_general_sale_desc:0 "The major shipbuilding contractors are now selling§Y ALL KINDS OF MILITARY SHIPS!§!. All orders will be processed with discount and extra credits to your §Y valued customer of shipbuilder§! account. What are you waiting for? \n §YBuy Now, Save Now! Buy More, Save More!§! \n Terms and fees may apply. "
+
+war_sale_general:0 "War Care Package Sale"
+war_sale_general_desc:0 "The famous §Y WAR CARE PACKAGES§! are now in sale! All empire at war can ask for a bundle of benefits, including lowered loan interest and discounted shipbuilding contract, by applying to §Y Shipbuilding Contractors§! with a §Y Declaration of War§! verified by the galactic community. What are you waiting for? \n §YApply Today and Claim Victory!§! "
+
+war_sale_corporate:0 "War Care Package Sale"
+war_sale_corporate_desc:0 "The major shipbuilding contractors are now selling§Y WAR CARE PACKAGE§! that benefits all aspects of war effort."
+
+contractor.120.name:0 "Shipbuilding Contractors' Sale Season!"
+contractor.120.desc:0 "We can now initiate a sale for our shipbuilding contracts. What should we sell?"
+contractor.120.a:0 "Majestic Dreadnoughts!"
+contractor.120.b:0 "Versatile Cruisers!"
+contractor.120.c:0 "Charging Lancers!"
+contractor.120.d:0 "Swift Cutters!"
+contractor.120.e:0 "All kind of ships!"
+contractor.120.f:0 "Our unique War Care Packages!"
+
+contractor.121.name:0 "[from.GetName]'s Battleship Sale!"
+contractor.121.desc:0 "Our shipbuilding contractor, §Y [from.GetName]§!, has contacted us with new discounts in their new §Y Dreadnought§! models, which is also known as§Y Battleships§!. The message reads: \n\n §Y All Dreadnoughts are now 10% off!§! X-slot weaponary is now buy 4 get 1 50% off. Specifically, for every §Y Particle Lances§! you buy, an additional §Y 200 [from.GetAdj]§! infantry assault rifle will be sent §YFor Free!§!. \n §Y Buy now, save now! Buy more, save more!§! \n We are relectant to accpet this offer but... "
+contractor.121.a:0 "That's just so much discount!!!!"
+
+contractor.122.name:0 "[from.GetName]'s Cruiser Sale!"
+contractor.122.desc:0 "Our shipbuilding contractor, §Y [from.GetName]§!, has contacted us with new discounts in their new §Y Cruiser§! models. The message reads: \n\n §Y All Cruisers are now 10% off!§! Buy any §Y L-class§! lazers and gain §Y 200%§! more points in your corporate account for later discounts! In addition, all §YUV-Lazers§! are now §Y Buy One Get One Free!§! Explore countless discount in our local branch office!  \n §Y Buy now, save now! Buy more, save more!§! \n We are relectant to accpet this offer but... "
+
+contractor.123.name:0 "[from.GetName]'s Lancer Sale!"
+contractor.123.desc:0 "Our shipbuilding contractor, §Y [from.GetName]§!, has contacted us with new discounts in their new §Y Lancer§! models, known more commonly as§Y Destroyers§!. The message reads: \n\n §Y All Lancers are now 10% off!§!\n  The famous §Y [from.capital.GetName]§! shipyard has §R Bankrupted!§!\n its asshole CEO Huang He went to Caravaneer's Casinos, were §R 9,000 Trillion Credits§! indebted, \n and fled to Enigmatic Observers' Space with his mistress!\n We are left with §YNo Choice§! but to feed ourselves with these §YLancer Destroyers§!. \n Ships originally §R 30 Million Credits§! now only cost §R One Million Credits!!!§! \n All ships now only §R One Million Credits!!!§! §R One Million Credits!!!§! \n  Huang He you asshole, give us back our wages!\n\n We are relectant to accpet this offer but...."
+contractor.123.a:0 "Huang He you asshole! Get us some destroyers!"
+
+contractor.124.name:0 "[from.GetName]'s Cutter Sale!"
+contractor.124.desc:0 "Our shipbuilding contractor, §Y [from.GetName]§!, has contacted us with new discounts in their new §Y Cutter§! models, which is also known as§Y Corvettes§!. The message reads: \n\n §Y All Corvettes are now 10% off!§! Buy any two S-class lazers and get one Point Defense §Y For Free!!§! Explore countless discount in our local branch office!  \n §Y Buy now, save now! Buy more, save more!§! \n We are relectant to accpet this offer but... "
+
+contractor.125.name:0 "[from.GetName]'s General Sale!"
+contractor.125.desc:0 "Our shipbuilding contractor, §Y [from.GetName]§!, has contacted us with new discounts. The message reads: \n\n §Y ALL  Ships are now 5% off!§! All L-sized Kinetic weaponary are  §Y 20% OFF!§!. In addition, Buy 10 L-size Kinetic weaponary and get §Y 200,000 rounds of Legendary [from.GetName] MK-7 16-inch rifled NeuronSteel (tm) For Free!!§! Explore countless discount in our local branch office!  \n §Y Buy now, save now! Buy more, save more!§! \n We are relectant to accpet this offer but... "
+
+contractor.126.name:0 "[from.GetName]'s War Package Sale!"
+contractor.126.desc:0 "Our shipbuilding contractor, §Y[from.GetName]§!, has contacted us with new discounts. The message reads: \n\n The legendary §Y [from.GetName] War Care Package are now 5% off!§! Any empire can claim their §Y Extra War Benefits§!, including §YExclusive Loans, Professional Ration Plan, Weapon Production Improvement and Countless more§!, by applying to our office in our local branch office, with a §YCertified Declaration of War§!!  \n §Y Buy now, save now! Buy more, save more!§! \n We are relectant to accpet this offer but... "
+
+edict_shipbuild_sales:0 "Warship Sales!"
+edict_shipbuild_sales_desc:0 "Time to sell some REALLY GOOD STUFF to our beloved customers! How about some discount for our newest dreadnought models?"

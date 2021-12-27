@@ -147,4 +147,72 @@ authors_whisper = {
 	all_technology_research_speed = 0.001
 }
 
+#######################
+# Shipbuilding Contractor
+#######################
+
+battleship_sale = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	ship_battleship_cost_mult = -0.10
+	shipsize_battleship_build_speed_mult = 0.10
+	ship_cruiser_cost_mult = 0.05
+	ship_destroyer_cost_mult = 0.05
+	ship_corvette_cost_mult = 0.05
+}
+
+
+cruiser_sale = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	ship_battleship_cost_mult = 0.05
+	ship_cruiser_cost_mult = -0.10
+	shipsize_cruiser_build_speed_mult = 0.10
+	ship_destroyer_cost_mult = 0.05
+	ship_corvette_cost_mult = 0.05
+}
+
+
+destroyer_sale = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	ship_battleship_cost_mult = 0.05
+	ship_cruiser_cost_mult = 0.05
+	ship_destroyer_cost_mult = -0.10
+	shipsize_destroyer_build_speed_mult = 0.10
+	ship_corvette_cost_mult = 0.05
+}
+
+corvette_sale = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	ship_battleship_cost_mult = 0.05
+	ship_cruiser_cost_mult = 0.05
+	ship_destroyer_cost_mult = 0.05
+	ship_corvette_cost_mult = -0.10
+	shipsize_corvette_build_speed_mult = 0.10
+}
+
+
+SBC_general_sale = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	starbase_shipyard_build_cost_mult = -0.05
+	starbase_shipyard_build_speed_mult = 0.05
+}
+
+war_sale_general = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	country_war_exhaustion_mult = -0.10
+	pop_ethic_militarist_attraction_mult = 0.40
+}
+
+war_sale_corporate = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	country_war_exhaustion_mult = -0.10
+	pop_government_ethic_attraction = 0.10
+}
+
 

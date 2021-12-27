@@ -12,4 +12,9 @@ mobilization_chain = {
 	picture = GFX_evt_fleet_from_surface
 }
 
+shipbuild_contractor_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_fleet_from_gunrunning
+}
+
 

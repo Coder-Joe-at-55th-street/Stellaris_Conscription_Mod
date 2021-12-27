@@ -203,6 +203,50 @@ demobilize = {
 }
 
 ############################
-# Terraforming Sales Event
+# Shipbuilding Sales Event
 ###########################
+
+
+shipbuild_sales = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		has_event_chain = shipbuild_contractor_chain	
+		NOT = {has_country_flag = mobilized}
+		NOT = {has_country_flag = no_sale_event_ban}
+		has_technology = tech_destroyers
+	}
+
+	allow = {
+		NOR = {
+			has_modifier = battleship_sale
+			has_modifier = cruiser_sale
+			has_modifier = destroyer_sale
+			has_modifier = corvette_sale
+			has_modifier = SBC_general_sale
+			has_modifier = SBC_general_sale
+			has_modifier = war_sale_corporate
+		}
+	}
+
+	effect = {
+		country_event = {
+			id = contractor.120
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
 

@@ -1,0 +1,455 @@
+############################
+#
+# Common Market Origin Events
+
+#Copied from Common Ground Origins
+#
+# Written by Henrik Thyrwall
+#
+############################
+
+namespace = contractor
+
+#For Civic: Shipbuilding Contractor
+
+ship_event = {
+	id = contractor.100
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_inwards_perfection
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_shipbuilding_contractor
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {is_ship_class = corvette }
+			random_playable_country = {
+				limit = {
+					has_valid_civic = civic_shipbuilding_contractor
+					has_established_contact = root.owner	
+				}
+				change_variable = {which = this_month_income value = 2}
+			}
+		}
+		else_if = {
+			limit = {is_ship_class = destroyer }
+			random_playable_country = {
+				limit = {
+					has_valid_civic = civic_shipbuilding_contractor
+					has_established_contact = root.owner	
+				}
+				change_variable = {which = this_month_income value = 5}
+			}
+		}
+		else_if = {
+			limit = {is_ship_class = cruiser }
+			random_playable_country = {
+				limit = {
+					has_valid_civic = civic_shipbuilding_contractor
+					has_established_contact = root.owner	
+				}
+				change_variable = {which = this_month_income value = 12}
+			}
+		}
+		else_if = {
+			limit = {is_ship_class = battleship }
+			random_playable_country = {
+				limit = {
+					has_valid_civic = civic_shipbuilding_contractor
+					has_established_contact = root.owner	
+				}
+				change_variable = {which = this_month_income value = 25}
+			}
+		}
+		else_if = {
+			limit = {is_ship_class = titan }
+			random_playable_country = {
+				limit = {
+					has_valid_civic = civic_shipbuilding_contractor
+					has_established_contact = root.owner	
+				}
+				change_variable = {which = this_month_income value = 60}
+			}
+		}
+
+		
+	}
+
+}
+
+#On Monthly Pulse....Reset variables to 0
+
+event = {
+	id = contractor.78
+	hide_window = yes
+
+
+	immediate = {
+		every_playable_country = {
+			limit = {has_valid_civic = civic_shipbuilding_contractor}
+			if = {
+				limit = {has_event_chain = shipbuild_contractor_chain}
+				country_event = {id = contractor.80}
+			}
+			else = {
+				country_event = {id = contractor.79}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = contractor.79
+	title = contractor.79.name
+	desc = contractor.79.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	trigger = {
+		has_valid_civic = civic_shipbuilding_contractor
+		NOT = {has_event_chain = shipbuild_contractor_chain}
+	}
+
+	immediate = {
+		set_variable = {which = this_month_income value = 0}
+	}
+
+	option ={
+		name = contractor.79.a
+		begin_event_chain = {
+			event_chain = shipbuild_contractor_chain
+		}
+	}
+}
+
+
+#Monthly Reset
+country_event = {
+	id = contractor.80
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_shipbuilding_contractor
+	}
+
+	immediate = {
+		set_variable = {which = this_month_income value = 0}
+		country_event = {
+			id = contractor.81
+			days = 25 #Settle down on this month's income
+		}
+	}
+}
+
+#Receives Contract. Hidden
+
+#Update Modifiers
+country_event = {
+	id = contractor.81
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_shipbuilding_contractor
+	}
+
+	immediate = {
+		if = {
+			add_resource = {
+				alloys = 1.625
+				mult = this_month_income
+			}
+		}
+		else_if = {
+			add_resource = {
+				energy = 6.5
+				mult = this_month_income
+			}
+		}
+		else = {
+			add_resource = {
+				alloys = 1
+				energy = 2.5
+				mult = this_month_income
+			}
+		}
+	}
+}
+
+
+#Sales event
+
+country_event = {
+	id = contractor.120
+	title = contractor.120.name
+	desc = contractor.120.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	trigger = {
+		has_valid_civic = civic_shipbuilding_contractor
+	}
+
+	immediate = {
+		set_country_flag = no_sale_event_ban
+	}
+
+	option = {
+		name = contractor.120.a
+		
+		trigger = {
+			has_technology = tech_battleships
+		}
+
+		add_modifier = {
+			modifier = battleship_sale
+			days = 1800
+		}
+
+		every_playable_country = {
+			limit = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_valid_civic = civic_inwards_perfection
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_shipbuilding_contractor
+					is_rival = root
+					is_at_war_with = root
+				}
+				has_established_contact = root
+			}
+			country_event = {id = contractor.121}
+		}
+	}
+
+	option = {
+		name = contractor.120.b
+		trigger = {
+			has_technology = tech_cruisers
+		}
+
+		add_modifier = {
+			modifier = cruiser_sale
+			days = 1800
+		}
+		every_playable_country = {
+			limit = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_valid_civic = civic_inwards_perfection
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_shipbuilding_contractor
+					is_rival = root
+					is_at_war_with = root
+				}
+				has_established_contact = root
+			}
+			country_event = {id = contractor.122}
+		}
+	}
+
+	option = {
+		name = contractor.120.c
+		trigger = {
+			has_technology = tech_destroyers
+		}
+
+		add_modifier = {
+			modifier = destroyer_sale
+			days = 1800
+		}
+
+		every_playable_country = {
+			limit = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_valid_civic = civic_inwards_perfection
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_shipbuilding_contractor
+					is_rival = root
+					is_at_war_with = root
+				}
+				has_established_contact = root
+			}
+			country_event = {id = contractor.123}
+		}
+	}
+	option = {
+		name = contractor.120.d
+		add_modifier = {
+			modifier = corvette_sale
+			days = 1800
+		}
+
+		every_playable_country = {
+			limit = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_valid_civic = civic_inwards_perfection
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_shipbuilding_contractor
+					is_rival = root
+					is_at_war_with = root
+				}
+				has_established_contact = root
+			}
+			country_event = {id = contractor.124}
+		}
+	}
+	option = {
+		name = contractor.120.e
+		add_modifier = {
+			modifier = SBC_general_sale
+			days = 1800
+		}
+
+		every_playable_country = {
+			limit = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_valid_civic = civic_inwards_perfection
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_shipbuilding_contractor
+					is_rival = root
+					is_at_war_with = root
+				}
+				has_established_contact = root
+			}
+			country_event = {id = contractor.125}
+		}
+	}
+	option = {
+		name = contractor.120.f
+		add_modifier = {
+			modifier = war_sale_corporate
+			days = 1800
+		}
+
+		every_playable_country = {
+			limit = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_valid_civic = civic_inwards_perfection
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_shipbuilding_contractor
+					is_rival = root
+					is_at_war_with = root
+				}
+				has_established_contact = root
+			}
+			country_event = {id = contractor.126}
+		}
+	}
+
+	after = {
+		remove_country_flag = no_sale_event_ban
+		country_event = {
+			id = contractor.120
+			days = 1800
+		}
+	}
+}
+
+country_event = {
+	id = contractor.121
+	title = contractor.121.name
+	desc = contractor.121.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	option = {
+		name = contractor.121.a
+		add_modifier = {
+			modifier = battleship_sale
+			days = 1800
+		}
+	}
+}
+
+country_event = {
+	id = contractor.122
+	title = contractor.122.name
+	desc = contractor.122.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	option = {
+		name = contractor.121.a
+		add_modifier = {
+			modifier = cruiser_sale
+			days = 1800
+		}
+	}
+}
+country_event = {
+	id = contractor.123
+	title = contractor.123.name
+	desc = contractor.123.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	option = {
+		name = contractor.123.a
+		add_modifier = {
+			modifier = destroyer_sale
+			days = 1800
+		}
+	}
+}
+country_event = {
+	id = contractor.124
+	title = contractor.124.name
+	desc = contractor.124.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	option = {
+		name = contractor.121.a
+		add_modifier = {
+			modifier = corvette_sale
+			days = 1800
+		}
+	}
+}
+
+country_event = {
+	id = contractor.125
+	title = contractor.125.name
+	desc = contractor.125.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	option = {
+		name = contractor.121.a
+		add_modifier = {
+			modifier = SBC_general_sale
+			days = 1800
+		}
+	}
+}
+
+country_event = {
+	id = contractor.126
+	title = contractor.126.name
+	desc = contractor.126.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	option = {
+		name = contractor.121.a
+		add_modifier = {
+			modifier = war_sale_general
+			days = 1800
+		}
+	}
+}

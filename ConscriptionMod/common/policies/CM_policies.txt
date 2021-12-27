@@ -166,3 +166,53 @@ Military_Makeup = {
 		}
 	}
 }
+
+
+SBC_Payment = {
+
+		
+	potential = {
+		is_country_type = default
+		has_valid_civic = civic_shipbuilding_contractor
+	}
+
+	allow = {
+		#is_at_war = no # Not allowed to change policies in this group while at war
+	}
+
+	option = {
+		name = "Alloy_Payment"
+
+		policy_flags = {
+			SBC_pay_by_alloy
+		}
+
+		AI_weight = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = "Balanced_Payment"
+
+		policy_flags = {
+			SBC_pay_balanced
+		}
+
+		AI_weight = {
+			factor = 10 #AI only choose this
+		}
+	}
+
+	option = {
+		name = "Cash_Payment"
+
+		policy_flags = {
+			SBC_pay_by_cash
+		}
+
+		AI_weight = {
+			factor = 0
+		}
+	}
+}
