@@ -312,7 +312,7 @@ civic_administrative_contractor = {
 	possible = {
 		ethics = {
 			NOR = {
-				#text = civic_tooltip_not_egalitarian
+				text = civic_tooltip_not_egalitarian
 				value = ethic_egalitarian
 				value = ethic_fanatic_egalitarian
 			}
@@ -359,5 +359,17 @@ civic_shipbuilding_contractor = {
 	}
 	modifier = {
 		starbase_shipyard_build_cost_mult = -0.10
+	}
+}
+
+civic_self_sufficiency_tradition = {
+	modification = no
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 3 }
+	possible = {
+	}
+	modifier = {
+		planet_miners_food_produces_add = 0.8
+		planet_farmers_minerals_produces_add = 0.8
 	}
 }

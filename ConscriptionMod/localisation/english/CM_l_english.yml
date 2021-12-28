@@ -240,6 +240,9 @@ civic_terraformer_contractor_desc:0 "This megacorp has a huge army of civil engi
 civic_shipbuilding_contractor:0 "Shipbuilding Contractor"
 civic_shipbuilding_contractor_desc:0 "This Megacorp started as a major shipbuilding contractor. They continues to provide top-notch ships for all customers in galaxy with lowest price possible. From navies to privateers, only the most xenophobe and unreasonable ones will refuse their deal. Better don't ask about labor condition in their shipyards, or their relationship with militarist parties. \n\n Whenever any empire (excluding gestalt consciousness, genocidal, inward perfection, or shipbuilding contractors) builds a battleship, §YOne Random Shipbuilding Contractor§! receives the contract and earn some alloys and cash. \n §YShipbuilding Contractor§! can also provide §YSales§! that gives discount to certain ships."
 
+civic_self_sufficiency_tradition:0 "Self Sufficiency Tradition"
+civic_self_sufficiency_tradition_desc:0 "While other Megacorps developed themselves through trades, this Megacorp developed by providing essential equipment so communities are less dependent on each other. Key technologies involved including Fungus farms in mines and Industrial Ecology that allowed some minerals to be produced as by-products in farms. However, such a tradition is too strong to be removed easily."
+
 ############
 # Terraforming Buff
 

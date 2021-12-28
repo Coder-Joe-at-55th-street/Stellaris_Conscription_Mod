@@ -113,6 +113,8 @@ mobilization_base = {
 	starbase_shipyard_build_cost_mult = -0.012
 	starbase_shipyard_build_sped_mult = 0.012
 	planet_jobs_produces_mult = -0.01
+	country_energy_produces_mult = 0.005
+	country_alloys_produces_mult = 0.005
 	pop_happiness = -0.008
 	pop_growth_speed = -0.032
 	ship_fire_rate_mult = -0.01
@@ -120,6 +122,7 @@ mobilization_base = {
 	shipsize_conscript_corvette_hull_mult = -0.008
 	shipsize_conscript_destroyer_hull_mult = -0.008
 	shipsize_conscript_cruiser_hull_mult = -0.008
+	ships_upkeep_mult = -0.01
 }
 
 
