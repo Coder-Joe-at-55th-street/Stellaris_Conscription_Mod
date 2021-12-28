@@ -159,11 +159,19 @@ country_event = {
 		#Changes mobilizable size accordingly
 		set_variable = { which = mobilizable_percentage value = max_mob_size}
 		subtract_variable = { which = mobilizable_percentage value = current_mob_size}
-		add_modifier = {
-			modifier = mobilization_base
-			days = 30
-			multiplier = current_mob_size
+
+		if = {
+			limit = {
+				has_country_flag = mobilized
+				has_modifier = mobilized_state
+			}
+			add_modifier = {
+				modifier = mobilization_base
+				days = 30
+				multiplier = current_mob_size
+			}
 		}
+		
 		
 		if = {
 			limit = {
