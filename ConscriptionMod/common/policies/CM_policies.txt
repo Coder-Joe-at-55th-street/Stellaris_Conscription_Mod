@@ -43,11 +43,14 @@ Military_Makeup = {
 		modifier = {
 			#Conscriptions no longer enacted
 			#Add naval capacity, happiness, ship damage, and ship upkeep.
-			country_naval_cap_mult = 0.30
-			ship_fire_rate_mult = 0.15
+			country_naval_cap_mult = 0.80
+			ship_fire_rate_mult = 0.40
+			ship_weapon_damage = 0.40
+			ship_weapon_range_mult = 0.20
 			pop_cat_specialist_happiness = 0.05 		
 			pop_cat_worker_happiness = 0.05
-			starbase_shipyard_build_speed_mult = 0.25			
+			starbase_shipyard_build_speed_mult = 0.25	
+			ships_upkeep_mult = 0.5
 		}
 
 		AI_weight = {
@@ -64,7 +67,7 @@ Military_Makeup = {
 		
 		modifier = {
 			# -3 Conscription Rate
-			country_naval_cap_mult = 0.05
+			country_naval_cap_mult = 0.15
 			ship_fire_rate_mult = 0.10
 			pop_cat_specialist_happiness = 0.05 	
 			starbase_shipyard_build_cost_mult = -0.10
@@ -95,6 +98,7 @@ Military_Makeup = {
 			#Just nothing
 			ship_weapon_range_mult = 0.05
 			starbase_defensive_war_ship_build_speed_mult = 0.10
+			ship_home_territory_fire_rate_mult = 0.10
 		}
 
 		AI_weight = {
@@ -113,10 +117,10 @@ Military_Makeup = {
 			#Add 3 Conscription Rate
 			#Lowers war exhausion and ship upkeep
 			country_naval_cap_mult = -.05
-			ships_upkeep_mult = -0.15
+			ships_upkeep_mult = -0.05
 			country_war_exhaustion_mult = -0.20
-			ship_fire_rate_mult = -0.10	
-			pop_cat_worker_happiness = 0.05
+			ship_fire_rate_mult = -0.15	
+			pop_cat_worker_happiness = -0.05
 		}
 
 		AI_weight = {
@@ -145,11 +149,11 @@ Military_Makeup = {
 		modifier = {
 			#Add 6 conscription rate
 			country_naval_cap_mult = -.10
-			ships_upkeep_mult = -0.30
+			ships_upkeep_mult = -0.10
 			country_war_exhaustion_mult = -0.40
-			ship_fire_rate_mult = -0.20
-			pop_cat_specialist_happiness = 0.05 		
-			pop_cat_worker_happiness = 0.05
+			ship_fire_rate_mult = -0.30	
+			pop_cat_specialist_happiness = -0.05 		
+			pop_cat_worker_happiness = -0.05
 		}
 
 

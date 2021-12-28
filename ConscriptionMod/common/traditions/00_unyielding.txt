@@ -1,6 +1,12 @@
 #This is actually original Unyielding tree. I have no idea how to do UI modding.
 
 tr_unyielding_adopt = {
+
+
+	possible = {
+		years_passed >= 40 
+		#Hell I know you're gonna rush Total War Doctrine and go no conscription and crush everyone.
+	}
 	modifier = {
 		country_ship_upgrade_cost_mult = -0.10
 	}

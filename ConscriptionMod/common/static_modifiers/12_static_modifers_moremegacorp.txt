@@ -53,17 +53,15 @@ primitive_terraformer_3 = {
 mobilized_state= {
 	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
 	icon_frame = 1
-	planet_jobs_produces_mult = -0.10
-	pop_happiness = -0.05
-	country_war_exhaustion_mult = -0.10
-	country_naval_cap_mult = 0.30
-	starbase_shipyard_build_cost_mult = -0.25
-	starbase_shipyard_build_speed_mult = 0.25
-	ship_fire_rate_mult = -0.10
-	country_energy_produces_mult = 0.20
-	country_alloys_produces_mult = 0.40
-	country_consumer_goods_produces_mult = -0.35
-	ships_upkeep_mult = -0.10
+	country_war_exhaustion_mult = -0.30
+	starbase_shipyard_build_cost_mult = -0.05
+	starbase_shipyard_build_speed_mult = 0.05
+	ship_fire_rate_mult = -0.05
+	planet_jobs_produces_mult = -0.05
+	country_energy_produces_mult = 0.10
+	country_alloys_produces_mult = 0.10
+	country_consumer_goods_produces_mult = -0.15
+	ships_upkeep_mult = -0.05
 }
 
 
@@ -73,21 +71,63 @@ aftermath_of_great_war = {
 	pop_growth_speed = 0.10
 	planet_jobs_unity_produces_mult = -0.30
 	country_alloys_produces_mult = -0.25
-	pop_happiness = -0.08
-	country_war_exhaustion_mult = 0.50
+	planet_stability_add = -5
+	pop_happiness = -0.10
+	pop_amenities_usage_mult = 0.10
+	country_war_exhaustion_mult = 0.40
 	country_naval_cap_mult = -0.20
 	starbase_shipyard_build_cost_mult = 0.30
 	pop_government_ethic_attraction = -0.30
 	pop_ethics_shift_speed_mult = 0.25
 }
 
+war_economy= {
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 1
+	pop_growth_speed = -0.10
+	pop_happiness = -0.05
+	country_naval_cap_mult = 1.00
+	country_war_exhaustion_mult = -0.10
+	starbase_shipyard_build_cost_mult = -0.10
+	starbase_shipyard_build_speed_mult = 0.25
+	country_energy_produces_mult = 0.10
+	country_alloys_produces_mult = 0.10
+	country_consumer_goods_produces_mult = -0.10
+}
+
+aftermath_of_war_economy= {
+	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
+	icon_frame = 1
+	country_alloys_produces_mult = -0.10
+	planet_stability_add = -5
+}
+
 
 ###############Mobilization Buffs###########################
 #How about add 100% Naval Capacity and -5% ship cost for 4% of mobilization?
+mobilization_base = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	country_war_exhaustion_mult = 0.01
+	country_naval_cap_mult = 0.04
+	starbase_shipyard_build_cost_mult = -0.012
+	starbase_shipyard_build_sped_mult = 0.012
+	planet_jobs_produces_mult = -0.01
+	pop_happiness = -0.008
+	pop_growth_speed = -0.032
+	ship_fire_rate_mult = -0.01
+	ship_weapon_damage = -0.008
+	shipsize_conscript_corvette_hull_mult = -0.008
+	shipsize_conscript_destroyer_hull_mult = -0.008
+	shipsize_conscript_cruiser_hull_mult = -0.008
+}
+
+
+
 mobilization_1 = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
 	icon_frame = 1
-	country_naval_cap_mult = 0.50
+	country_naval_cap_mult = 0.20
 	starbase_shipyard_build_cost_mult = -0.05
 	pop_growth_speed = -0.2
 #	ships_upkeep_mult = -0.50
@@ -97,7 +137,7 @@ mobilization_1 = {
 mobilization_2 = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
 	icon_frame = 1
-	country_naval_cap_mult = 1.00
+	country_naval_cap_mult = 0.40
 	starbase_shipyard_build_cost_mult = -0.05
 	pop_growth_speed = -0.3
 #	ships_upkeep_mult = -0.65
@@ -107,7 +147,7 @@ mobilization_2 = {
 mobilization_3 = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
 	icon_frame = 1
-	country_naval_cap_mult = 1.50
+	country_naval_cap_mult = 0.60
 	starbase_shipyard_build_cost_mult = -0.10
 	ship_fire_rate_mult = -0.10
 	pop_growth_speed = -0.4
@@ -119,7 +159,7 @@ mobilization_3 = {
 mobilization_4 = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
 	icon_frame = 1
-	country_naval_cap_mult = 2.00
+	country_naval_cap_mult = 0.80
 	starbase_shipyard_build_cost_mult = -0.05
 	ship_fire_rate_mult = -0.10
 	pop_growth_speed = -0.5
@@ -130,7 +170,7 @@ mobilization_4 = {
 mobilization_5 = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
 	icon_frame = 1
-	country_naval_cap_mult = 2.50
+	country_naval_cap_mult = 1.00
 	ship_fire_rate_mult = -0.15
 	pop_growth_speed = -0.6
 #	ships_upkeep_mult = -0.5

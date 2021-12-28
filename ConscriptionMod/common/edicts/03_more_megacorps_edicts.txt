@@ -46,6 +46,41 @@ begin_mobilization_process = {
 	}
 }
 
+begin_war_economy = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		has_event_chain = mobilization_chain
+		#is_at_war = yes		
+		NOT = {has_country_flag = mobilized}
+		NOT = {has_modifier = aftermath_of_great_war}
+	}
+
+	allow = {
+		is_at_war = yes
+		has_policy_flag = Conscription_Outlawed
+	}
+
+	effect = {
+		country_event = {
+			id = mobilize.500
+		}
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}
+
 
 draft_1_percent= {
 	length = 0
@@ -67,9 +102,14 @@ draft_1_percent= {
 		NOT = {has_modifier = recently_mobilized}
 	}
 
+	allow = {
+		is_at_war = yes
+		NOT = {has_policy_flag = Conscription_Outlawed}
+	}
+
 	effect = {
 		country_event = {
-			id = mobilize.210
+			id = mobilize.212
 		}
 	}
 	
@@ -89,6 +129,10 @@ draft_2_percent = {
 		cost = {
 			influence = 0
 		}
+	}
+	allow = {
+		is_at_war = yes
+		NOT = {has_policy_flag = Conscription_Outlawed}
 	}
 
 	potential = {
@@ -120,6 +164,10 @@ draft_5_percent = {
 		cost = {
 			influence = 0
 		}
+	}
+	allow = {
+		is_at_war = yes
+		NOT = {has_policy_flag = Conscription_Outlawed}
 	}
 
 	potential = {
@@ -161,6 +209,10 @@ draft_10_percent = {
 		has_country_flag = mobilized
 		NOT = {has_modifier = recently_mobilized}
 	}
+	allow = {
+		is_at_war = yes
+		NOT = {has_policy_flag = Conscription_Outlawed}
+	}
 
 	effect = {
 		country_event = {
@@ -191,9 +243,49 @@ demobilize = {
 		has_country_flag = mobilized
 	}
 
+	allow = {
+		is_at_war = no
+		NOT = {has_policy_flag = Conscription_Outlawed}
+	}
+
 	effect = {
 		country_event = {
 			id = mobilize.400
+		}
+	}
+	
+	ai_weight = {
+		weight = 8000
+	}
+}
+
+demobilize_conscription_outlawed = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		has_event_chain = mobilization_chain
+		is_at_war = no
+		has_country_flag = mobilized
+	}
+
+	allow = {
+		is_at_war = no
+		has_policy_flag = Conscription_Outlawed
+	}
+
+
+	effect = {
+		country_event = {
+			id = mobilize.510
 		}
 	}
 	

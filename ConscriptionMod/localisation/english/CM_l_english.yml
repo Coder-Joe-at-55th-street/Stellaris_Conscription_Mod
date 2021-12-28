@@ -5,7 +5,7 @@
 # Event Chain. To show the variable.
 
  mobilization_chain_title:0 "Wartime Administration Authority"
- mobilization_chain_desc:0 "As a modern civilized nation, our people are willing to die for the country, and we will draft them even if they don't. We currently have §Y[root.current_mob_size]§! percent of people serving in military. We can put at most §Y[root.max_mob_size]§! percent of our total population into military. Now, §Y[root.mobilizable_percentage]§! percent of population remains able to be drafted.\n You can begin and End Mobilization Process in §YEdicts§! for free in wars.\n\n Factors influencing max mobilize rate includes: \n\nTechnology 'Categorized reserve personnel', 'Logistic Preparations', and tradition 'mobilization timetable' adds §G2%§!. \nBeing fallen empire or gestalt conscious gives additional §G5%§! \n Certain Policies have their own effects\n\n We currently have drafted §Y[root.mobilized]§! million people in our military, and among these people §Y[root.in_the_field]§! million still survives. \n Mobilization can be initiated at war with edicts. It will spawn armies and navies at cost of §YSlave, Worker, and Specialist§! population. Each Mobilized pop would be converted to §Y200 million§! military personnel, and would serve in §Y4§! local defense army , §Y4§! assault army, and ships worth §Y24§! naval capacity, where §Y17.5§! million serves in each army and §Y2.5§! each naval capacity. \nWhile you demobilize, you will get a debuff of specific length. The length of debuff, in days, is calculated as: §YMobilization Percentage * 360 *(1 - Portion of conscripts survived) + 360(Base time of 1 year)§!. Currently, your debuff will vanish in §Y[root.time_to_expire]§! days."
+ mobilization_chain_desc:0 "As a modern civilized nation, our people are willing to die for the country, and we will draft them even if they don't. We currently have §Y[root.current_mob_size]§! percent of people serving in military. We can put at most §Y[root.max_mob_size]§! percent of our total population into military. Now, §Y[root.mobilizable_percentage]§! percent of population remains able to be drafted.\n You can begin and End Mobilization Process in §YEdicts§! for free in wars.\n\n Factors influencing max mobilize rate includes: \n\nTechnology 'Categorized reserve personnel', 'Logistic Preparations', and tradition 'mobilization timetable' adds §G2%§!. \nBeing fallen empire or gestalt conscious gives additional §G5%§! \n Certain Policies have their own effects\n\n We currently have drafted §Y[root.mobilized]§! million people in our military, and among these people §Y[root.in_the_field]§! million still survives. \n Mobilization can be initiated at war with edicts. It will spawn armies and navies at cost of §YSlave, Worker, and Specialist§! population. §YThis population will not include population in ruling class, nor population with Military Service Exempted specie rights.§! \n Each Mobilized pop would be converted to §Y200 million§! military personnel, and would serve in §Y4§! local defense army , §Y4§! assault army, and ships worth §Y24§! naval capacity, where §Y17.5§! million serves in each army and §Y2.5§! each naval capacity. \nWhile you demobilize, you will get a debuff of specific length. The length of debuff, in days, is calculated as: §YMobilization Percentage * 360 *(1 - Portion of conscripts survived) + 360(Base time of 1 year)§!."
 
 # Decision: National Mobilization Law
 
@@ -43,27 +43,27 @@ recently_mobilized_desc:0 "We have recently conscripted part of our population. 
 mobilize.1.a:0 "Dulce et decorum est pro patria mori."
 
  mobilize.200.name:0 "The Congress decided to enact drafting!"
- mobilize.200.desc:0 "Ever since the beginning of this war, our people has been concerned about the draft. Today, they finally get the result. The congress has decided to draft the people for war. \nFollowing this decision, all able-bodied men and women must register in local conscription offices, and must report to the government if they are called upon. \nPhD application and baptize has skyrocketed as a result of educational and religious exemption. Police forces, both civillian and military, has been mobilized to deal with desertion with any means possible. \nConscription will work as the following, using a 2% draft as example. 2% refers to drafted citizen amongst our total population, thus in game 2% of population will vanish. Each population will contribute 200 million of troop, with 60 million serving in navy of 24 naval capacity, and 140 million serving in four assault and defense army, with 17.5 million people each. \n §RNote that, this population only contains people who are not ruling class, because they almost always have their own way to escape from conscriptions§!."
+ mobilize.200.desc:0 "Ever since the beginning of this war, our people has been concerned about the draft. Today, they finally get the result. The congress has decided to draft the people for war. \nFollowing this decision, all able-bodied men and women must register in local conscription offices, and must report to the government if they are called upon. \nPhD application and baptize has skyrocketed as a result of educational and religious exemption. Police forces, both civillian and military, has been mobilized to deal with desertion with any means possible. \nConscription will work as the following, using a 2% draft as example. 2% refers to drafted citizen amongst our total population, thus in game 2% of population will vanish. Each population will contribute 200 million of troop, with 60 million serving in navy of 24 naval capacity, and 140 million serving in four assault and defense army, with 17.5 million people each. \n Populations with §YMilitary Service Exempted§! specie rights will not be called upon. \n §RNote that, Ruling Class will NOT be drafted, because they almost always have their own way to escape from conscriptions§!."
  mobilize.200.a:0 "To arms!"
 
- mobilize.201.name:0 "[from.GetName] Mobilizes!"
- mobilize.201.desc:0 "In facing a total war, the [from.GetName] military has enacted a drafting. A Great Power in the Galactic Community, [from.GetName]'s mobilization surely indicated the extent of war. In one year billions of recruits will be fighting in a theater of thousands of lightyears. It seems that goodwill of peace has once again failed this galaxy."
+ mobilize.201.name:0 "§Y[from.GetName]§! Mobilizes!"
+ mobilize.201.desc:0 "In facing a total war, the §Y[from.GetName]§! military has enacted a drafting. A Great Power in the Galactic Community, [from.GetName]'s mobilization surely indicated the extent of war. In one year billions of recruits will be fighting in a theater of thousands of lightyears. It seems that goodwill of peace has once again failed this galaxy."
  mobilize.201.a:0 "Stay alert, countrymen!"
 
- mobilize.210.name:0 "A light draft of 1%"
- mobilize.210.desc:0 "The congress have decided to draft 1% of our total population. While the news is expected by the public, many are still reluctant to serve. Military police has reported tens of refusal, all of which has been dealt properly through fine and assignment to most poorly equipped light infantry battalions. \nWe expect 1% among our manpower pool to be drafted. In game, this 1% of population will disappear. This population will not include population in ruling class, though all robots are to be drafted."
+ mobilize.210.name:0 "A light draft of §G 1%§!"
+ mobilize.210.desc:0 "The congress have decided to draft §G 1%§! of our total population. While the news is expected by the public, many are still reluctant to serve. It is mostly reserve regiments begin called in but there are many cases of enforced conscription to general public \nWe expect 1% among our manpower pool to be drafted. In game, this 1% of population will disappear. This population will not include population in ruling class, nor population with §YMilitary Service Exempted§! specie rights. \n In §G 1%§! draft, all conscripted troops will appear in  §Y [Root.Capital.GetName]§!, which is your  §Y Capital§!. "
  mobilize.210.a:0 "Do it."
  mobilize.210.b:0 "On a second thought, maybe no."
 
- mobilize.220.name:0 "A Draft of 2%"
- mobilize.220.desc:0 "The congress have decided to draft 2% of our total population. This will be done through extending the service term of existing conscripts and drafting of more citizens. \nWe expect 2% among our manpower pool to be drafted. In game, this 2% of population will disappear. This population will not include population in ruling class, though all robots are to be drafted."
+ mobilize.220.name:0 "A Draft of §G %§!"
+ mobilize.220.desc:0 "The congress have decided to draft 2% of our total population. This will be done through extending the service term of existing conscripts and drafting of more citizens. \nWe expect 2% among our manpower pool to be drafted. In game, this 2% of population will disappear. This population will not include population in ruling class, nor population with §YMilitary Service Exempted§! specie rights. \n In §G 2%§! draft, §Y Half of§! all conscripted troops will appear in  §Y [Root.Capital.GetName]§!, which is your  §Y Capital§!, while the rest will appear in §Y Random 2 Planets§!"
 #All mobilize event after 210 uses same option name.
 
  mobilize.250.name:0 "One in Twenty Draft"
- mobilize.250.desc:0 "The congress have decided to draft 5% of our total population. We expected a protest from our citizens, but surprisingly our nationalist propaganda and controlled media has controlled the situation, with millions of fools accepting their fate as cannon fodders with pride and happiness. \nMilitary police are now in alert for desertion. Meanwhile, we have restricted application towards science and engineering in our universities to avoid educational exemption. Further legislations would soon be passed to ensure a stable supply of men into our army and navy. \nWe expect 5% among our manpower pool to be drafted. In game, this 5% of population will disappear. This population will not include population in ruling class, though all robots are to be drafted."
+ mobilize.250.desc:0 "The congress have decided to draft 5% of our total population. We expected a protest from our citizens, but surprisingly our nationalist propaganda and controlled media has controlled the situation, with millions of fools accepting their fate as cannon fodders with pride and happiness. \nMilitary police are now in alert for desertion. Meanwhile, we have restricted application towards science and engineering in our universities to avoid educational exemption. Further legislations would soon be passed to ensure a stable supply of men into our army and navy. \nWe expect 5% among our manpower pool to be drafted. In game, this 5% of population will disappear. This population will not include population in ruling class, nor population with §YMilitary Service Exempted§! specie rights. \n This draft will create fleets upon all colonies, and all colony will have §YAt Least One Pop§! being drafted"
 
  mobilize.280.name:0 "One Soldier from Ten Citizens!"
- mobilize.280.desc:0 "The congress have decided to draft 10% of our total population. \nWe are losing this war, and now each and every man must serve to protect the fatherland. \nWe have almost depleted our manpower pool, and are mobilizing militias like the Volkssturm or high school students. Sickness and religious exemption is no longer allowed, deserters would be assigned to suicidal battalions, along with every one who oppose our policy and rule. \nWe expect 10% among our manpower pool to be drafted. In game, this 10% of population will disappear. This population will not include population in ruling class, though all robots are to be drafted. \nWe have enough cannon fodders almost every year in our history, but such a chance to wage a war on our enemy and earn land and fame is rare. We don't care how historians judge us. We need victory, even at cost of two generations of good men and women."
+ mobilize.280.desc:0 "The congress have decided to draft 10% of our total population. \nWe are losing this war, and now each and every man must serve to protect the fatherland. \nWe have almost depleted our manpower pool, and are mobilizing militias consisting of many too young or old to serve. Sickness and religious exemptions are no longer allowed, deserters would be assigned to suicidal battalions, along with every one who oppose our policy and rule. \nWe expect 10% among our manpower pool to be drafted. In game, this 10% of population will disappear. TThis population will not include population in ruling class, nor population with §YMilitary Service Exempted§! specie rights. \n This draft will create fleets upon all colonies, and all colony will have §YAt Least One Pop§! being drafted \n Remember, §YCannon Fodders§! are easily replenished, but opportunity for greatness are not. \n §R Long Live [Root.GetName]! §!"
 
  mobilize.400.name:0 "Demobilized"
  mobilize.400.desc:0 "The war is over. \n It was hard to imagine how the world for many can change just in a single day, but it happened. The last terms of peace treaty were fixed, and the war that raged our glorious nation is finally over. Humble infantryman climbed out of the trenches one last time, exchanging their happiness with their previous enemies. In the space, fleets fired empty shells into the stars to glorify the souls lost in the war. \nSpaceports were filled by anxious men and women waiting for their husbands, parents, or children. Many of them eventually just got a letter titled ‘I’m sorry to inform you…’. But still people are happy, for today the order from the government has come. Conscripts are finally allowed to go home, to go and meet their loved ones."
@@ -76,11 +76,35 @@ mobilize.1.a:0 "Dulce et decorum est pro patria mori."
  mobilize.402.c:0 "The nation rises, and the commoner suffers. The nation falls, the commoner suffers"
  mobilize.402.d:0 "People are like leeds. The most you harvest them, the better they grow."
 
- mobilize.403.name:0 "[from.GetName] Demobilizes!"
- mobilize.403.desc:0 "As the war has ended, [from.GetName] have de-mobilized their troops."
+ mobilize.403.name:0 "§Y[from.GetName]§! Demobilizes!"
+ mobilize.403.desc:0 "As the war has ended, §Y[from.GetName]§! have de-mobilized their troops."
  mobilize.403.a:0 "Peace hath prevailed!"
 
+
+#Conscription Outlawed Nations
+mobilize.500.name:0 "War Economy!"
+mobilize.500.desc:0 "While our constitution §Ydoes not allow enforced conscription§!, we are granted with the right to mobilize our economy for the war effort."
+mobilize.500.a:0 "To victory!"
+
+ mobilize.501.name:0 "§Y[from.GetName]§! Enacted War Economy!"
+ mobilize.501.desc:0 "While declared conscription unlawful and unconstitutional, §Y[from.GetName]§! still mobilized their major industry for a war"
+ mobilize.501.a:0 "Stay Alert, Countrymen!"
+
+
+ mobilize.403.name:0 "§Y[from.GetName]§! Ends War Economy!"
+ mobilize.403.desc:0 "As the war has ended, §Y[from.GetName]§! have de-mobilized their economic sector and returned to a civilian economy."
+ mobilize.403.a:0 "Peace hath prevailed!"
+
+mobilize.510.name:0 "End of War Economy!"
+mobilize.510.desc:0 "As the war ended, we can finally return to normal economic activities."
+
+
+
 #Buffs
+
+mobilization_base:0 "Price of Mobilization"
+mobilization_base_desc:0 "As we draft increasingly more people into military, the economy is increasingly suffering. Meanwhile, conscripts are usually lack of proper military skills, thus causing many problems in battlefield command and operations. This is the effect of mobilization to our military and economy, and is in scale with §YCurrent Percentage of Population Drafted§!."
+
 mobilization_1:0 "Limited Conscription"
 mobilization_1_desc:0 "While millions have been drafted into the military, the drafting is still limited with mobilization rate less than 5%, and many suitable young men and women are yet mobilized"
 
@@ -101,6 +125,8 @@ mobilization_1_desc:0 "While millions have been drafted into the military, the d
 
  aftermath_of_great_war:0 "A Lost Generation"
  aftermath_of_great_war_desc:0 "Just a few years ago, our mighty nation lost a whole generation of young men and women in the battlefield. Millions died meaninglessly in a rediculous war in trenchs lightyears from home. The survived are lost, angry, dispair, and cannot afford being drafted into another war--even if that is exactly what we are planning to do twenty years later."
+
+ war_economy
  
 #Techs
 tech_militarized_high_school:0 "Militarized High Schools"
@@ -121,6 +147,15 @@ conscript_corvette:0 "Converted Cutter"
 conscript_destroyer:0 "Conscripted Merchantman"
 conscript_cruiser:0 "Makeshift Cruiser"
 #conscript_galleon:0 "Armed Tanker"
+
+#Navies
+conscript_corvette:0 "Conscripted Corvette"
+
+conscript_corvette_1:0 "Musuem Piece Spaceship"
+conscript_corvette_5:0 "Armed Space Shuttle"
+conscript_corvette_2:0 "Converted Yacht"
+conscript_corvette_3:0 "Outdated Corvette"
+conscript_corvette_4:0 "Coast Guard Cutter"
 
 ########################Civil War Events Descriptions.############
 civicevent.1.name:0 "Conquering of Nature"
