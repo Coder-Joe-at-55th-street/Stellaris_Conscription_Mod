@@ -45,7 +45,7 @@ Military_Makeup = {
 			#Add naval capacity, happiness, ship damage, and ship upkeep.
 			country_naval_cap_mult = 0.80
 			ship_fire_rate_mult = 0.40
-			ship_weapon_damage = 0.40
+			ship_weapon_damage = 0.10
 			ship_weapon_range_mult = 0.20
 			pop_cat_specialist_happiness = 0.05 		
 			pop_cat_worker_happiness = 0.05
@@ -125,6 +125,23 @@ Military_Makeup = {
 
 		AI_weight = {
 			factor = 10
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_xenophobe
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_ethic = ethic_fanatic_militarist
+					has_ethic = ethic_fanatic_xenophobe
+					has_civic = civic_fanatic_purifiers
+				}
+			}
 		}
 	}
 
@@ -159,12 +176,29 @@ Military_Makeup = {
 
 
 		AI_weight = {
-			factor = 10
+			factor = 5
 			modifier = {
 				factor = 0
 				NOR = {
 					has_ai_personality = honorbound_warriors
 					has_ai_personality = devouring_swarm
+				}
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_xenophobe
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_ethic = ethic_fanatic_militarist
+					has_ethic = ethic_fanatic_xenophobe
+					has_civic = civic_fanatic_purifiers
 				}
 			}
 		}

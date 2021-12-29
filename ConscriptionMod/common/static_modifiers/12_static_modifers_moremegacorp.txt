@@ -16,7 +16,7 @@ primitive_terraformer_1 = {
 	icon_frame = 2
 	pop_environment_tolerance = -0.20
 	planet_jobs_produces_mult = 0.20
-	planet_structures_cost_mult = -0.25
+	planet_structures_cost_mult = -0.20
 }
 
 primitive_terraformer_2 = {
@@ -27,13 +27,12 @@ primitive_terraformer_2 = {
 	biological_pop_happiness = 0.05
 	lithoid_pop_happiness = 0.05
 	planet_structures_cost_mult = -0.10
-	planet_jobs_produces_mult = 0.05
 }
 
 primitive_terraformer_3 = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_mastery_of_nature.dds"
 	icon_frame = 2
-	pop_environment_tolerance = -0.10
+	pop_environment_tolerance = -0.05
 	planet_jobs_produces_mult = 0.10
 	planet_structures_cost_mult = -0.10
 }
@@ -86,7 +85,7 @@ war_economy= {
 	icon_frame = 1
 	pop_growth_speed = -0.10
 	pop_happiness = -0.05
-	country_naval_cap_mult = 1.00
+	country_naval_cap_mult = 0.60
 	country_war_exhaustion_mult = -0.10
 	starbase_shipyard_build_cost_mult = -0.10
 	starbase_shipyard_build_speed_mult = 0.25

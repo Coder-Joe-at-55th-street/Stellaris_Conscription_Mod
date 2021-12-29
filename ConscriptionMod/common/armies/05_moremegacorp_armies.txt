@@ -20,7 +20,7 @@ conscript_defense_army = {
 
 conscript_assault_army = {
 	damage = 0.80
-	health = 1.40
+	health = 1.50
 	morale = 1.00
 	collateral_damage = 3.00 
 	war_exhaustion = 0.05

@@ -320,7 +320,9 @@ civic_administrative_contractor = {
 	}
 
 	modifier = {
-		country_admin_cap_mult = 0.20
+		planet_bureaucrats_upkeep_mult = 0.50
+		country_admin_cap_mult = 0.30
+		pop_amenities_usage_mult = 0.05
 	}
 }
 
@@ -369,7 +371,7 @@ civic_self_sufficiency_tradition = {
 	possible = {
 	}
 	modifier = {
-		planet_miners_food_produces_add = 0.8
-		planet_farmers_minerals_produces_add = 0.8
+		planet_miners_food_produces_add = 0.75
+		planet_farmers_minerals_produces_add = 0.75
 	}
 }
