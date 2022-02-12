@@ -1,0 +1,869 @@
+############################
+#
+# More Subject Events
+#
+# Written by "Telepathing Tilapia"
+#
+############################
+
+namespace = cm_decolonization
+@Min_System_Kept_Radius = 3
+@Min_System_Kept_Radius_2 = 4 #Kept to capital land...
+@Min_System_Kept_Radius_3 = 5 #Kept to capital land...
+
+#From 800 up
+###Release country and getting subjugated
+country_event = {
+	id = cm_decolonization.800
+	title = cm_decolonization.800.name
+	desc = cm_decolonization.800.desc
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		country_event = {
+			id = cm_decolonization.801
+			days = 1
+		}
+	}
+
+	option = {
+		name = cm_decolonization.800.a
+	}
+}
+
+country_event = {
+	id = cm_decolonization.801
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		
+		if = {
+			limit = {
+				any_owned_planet = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_3
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_3
+					}
+				}
+				planet_event = {id = cm_decolonization.812}
+			}
+			country_event = {
+				id = cm_decolonization.801
+				days = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_planet = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_2
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_2
+					}
+				}
+				planet_event = {id = cm_decolonization.811}
+			}
+			country_event = {
+				id = cm_decolonization.801
+				days = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_planet = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius
+					}
+				}
+				planet_event = {id = cm_decolonization.810}
+			}
+			country_event = {
+				id = cm_decolonization.801
+				days = 1
+			}
+		}
+		else = {
+			country_event = {
+				id = cm_decolonization.820
+			}
+		}
+	}
+}
+
+#News Event
+country_event = {
+	id = cm_decolonization.820
+	title = cm_decolonization.820.name
+	desc = cm_decolonization.820.desc
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = cm_decolonization.820.a #"Shame! Shame! Here falls our empire!"
+	}
+
+	option = {
+		name = cm_decolonization.820.b #"The *** People will never be defeated!"
+	}
+
+	immediate = {
+		random_country = {
+			limit  = {
+				is_in_federation_with = root
+				is_federation_leader = yes
+			}
+			country_event = {
+				id = CMsubject.1030
+				days = 1
+			}
+		}
+	}
+
+	after = {
+		# Effects that are applied after option is chosen.
+		# Will generate a tooltip in addition the tooltip of every option, unless hidden_effect is used.
+		every_playable_country = {
+			country_event = {
+				id = cm_decolonization.821
+			}
+		}
+	}
+}
+
+#News Event
+country_event = {
+	id = cm_decolonization.821
+	title = cm_decolonization.821.name
+	desc = cm_decolonization.821.desc
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = cm_decolonization.821.a #"
+	}
+
+}
+
+planet_event = {
+	id = cm_decolonization.810
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		CM_country_creation_no_span = yes
+
+		
+
+		last_created_country = {
+			establish_communications_no_message =from
+			country_event = {
+				id = CMsubject.1010 #Initialization
+			}
+			join_alliance = { 
+				who = from 
+				override_requirements = yes 
+			}
+			federation = {add_cohesion = 200}
+			country_event = {
+				id = cm_decolonization.815
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = cm_decolonization.811
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			10 = {
+				CM_country_creation_no_span = yes
+			}
+			
+			30 = {
+				CM_country_creation_2 = {
+					New_Country_Span = 1
+				}
+			}
+		}		
+		last_created_country = {
+			establish_communications_no_message =from
+			country_event = {
+				id = CMsubject.1010 #Initialization
+			}
+			join_alliance = { 
+				who = from 
+				override_requirements = yes 
+			}
+			federation = {add_cohesion = 200}
+			country_event = {
+				id = cm_decolonization.815
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = cm_decolonization.812
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			20 = {
+				CM_country_creation_no_span = yes
+			}
+			
+			40 = {
+				CM_country_creation_2 = {
+					New_Country_Span = 1
+				}
+			}
+			40 = {
+				CM_country_creation_2 = {
+					New_Country_Span = 2
+				}
+			}
+		}
+
+		last_created_country = {
+			establish_communications_no_message =from
+			country_event = {
+				id = CMsubject.1010 #Initialization
+			}
+			join_alliance = { 
+				who = from 
+				override_requirements = yes 
+			}
+			federation = {add_cohesion = 200}
+			country_event = {
+				id = cm_decolonization.815
+			}
+		}
+	}
+}
+country_event = {
+	id = cm_decolonization.815
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				is_in_federation_with = root
+				is_federation_leader = yes
+			}
+			establish_communications_no_message = root
+			country_event = {
+				id = CMsubject.1030
+				days = 1
+			}
+		}
+	}
+
+}
+
+###
+#  900. Release country and form federation
+country_event = {
+	id = cm_decolonization.900
+	title = cm_decolonization.900.name
+	desc = cm_decolonization.900.desc
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		leave_alliance = {
+			override_requirements = yes
+			apply_opinion_penalty = no
+		}
+		country_event = {
+			id = cm_decolonization.901
+			days = 1
+		}
+	}
+
+	option = {
+		name = cm_decolonization.900.a
+	}
+}
+
+country_event = {
+	id = cm_decolonization.901
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_owned_planet = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_3
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_3
+					}
+				}
+				planet_event = {id = cm_decolonization.912}
+			}
+			country_event = {
+				id = cm_decolonization.901
+				days = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_planet = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_2
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_2
+					}
+				}
+				planet_event = {id = cm_decolonization.911}
+			}
+			country_event = {
+				id = cm_decolonization.901
+				days = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_planet = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius
+					}
+				}
+				planet_event = {id = cm_decolonization.910}
+			}
+			country_event = {
+				id = cm_decolonization.901
+				days = 1
+			}
+		}
+		else = {
+			country_event = {
+				id = cm_decolonization.920
+			}
+		}
+	}
+}
+
+#News Event
+country_event = {
+	id = cm_decolonization.920
+	title = cm_decolonization.920.name
+	desc = cm_decolonization.920.desc
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = cm_decolonization.820.a #"Shame! Shame! Here falls our empire!"
+	}
+
+	option = {
+		name = cm_decolonization.820.b #"The *** People will never be defeated!"
+	}
+
+	immediate = {
+		set_federation_leader = root
+	}
+
+	after = {
+		# Effects that are applied after option is chosen.
+		# Will generate a tooltip in addition the tooltip of every option, unless hidden_effect is used.
+		every_playable_country = {
+			country_event = {
+				id = cm_decolonization.921
+			}
+		}
+	}
+}
+
+#News Event
+country_event = {
+	id = cm_decolonization.921
+	title = cm_decolonization.921.name
+	desc = cm_decolonization.921.desc
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = cm_decolonization.921.a #"
+	}
+
+}
+
+planet_event = {
+	id = cm_decolonization.910
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		CM_country_creation_no_span = yes
+
+		
+
+		last_created_country = {
+			establish_communications_no_message =from
+			country_event = {
+				id = CMsubject.1010 #Initialization
+			}
+			join_alliance = { 
+				who = from 
+				override_requirements = yes 
+			}
+			federation = {
+				add_cohesion = 200
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = cm_decolonization.911
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			10 = {
+				CM_country_creation_no_span = yes
+			}
+			
+			30 = {
+				CM_country_creation_2 = {
+					New_Country_Span = 1
+				}
+			}
+		}
+
+		
+
+		last_created_country = {
+			establish_communications_no_message =from
+			country_event = {
+				id = CMsubject.1010 #Initialization
+			}
+			join_alliance = { 
+				who = from 
+				override_requirements = yes 
+			}
+			federation = {
+				add_cohesion = 200
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = cm_decolonization.912
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			20 = {
+				CM_country_creation_no_span = yes
+			}
+			
+			40 = {
+				CM_country_creation_2 = {
+					New_Country_Span = 1
+				}
+			}
+			40 = {
+				CM_country_creation_2 = {
+					New_Country_Span = 2
+				}
+			}
+		}
+
+		
+
+		last_created_country = {
+			establish_communications_no_message =from
+			country_event = {
+				id = CMsubject.1010 #Initialization
+			}
+			join_alliance = { 
+				who = from 
+				override_requirements = yes 
+			}
+			federation = {
+				add_cohesion = 200
+			}
+		}
+	}
+}
+
+
+#####
+# 1000. Just break the country apart.
+country_event = {
+	id = cm_decolonization.1000
+	title = cm_decolonization.1000.name
+	desc = cm_decolonization.1000.desc
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		country_event = {
+			id = cm_decolonization.1001
+			days = 1
+		}
+	}
+
+	option = {
+		name = cm_decolonization.1000.a
+	}
+}
+
+country_event = {
+	id = cm_decolonization.1001
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		
+		if = {
+			limit = {
+				any_owned_planet = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_3
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_3
+					}
+				}
+				planet_event = {id = cm_decolonization.1012}
+			}
+			country_event = {
+				id = cm_decolonization.1001
+				days = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_planet = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_2
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius_2
+					}
+				}
+				planet_event = {id = cm_decolonization.1011}
+			}
+			country_event = {
+				id = cm_decolonization.1001
+				days = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_planet = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius
+					}
+				}
+			}
+			random_owned_planet = {
+				limit = {
+					distance = {
+						source = root.capital_scope.solar_system
+						type=hyperlane
+						min_jumps = @Min_System_Kept_Radius
+					}
+				}
+				planet_event = {id = cm_decolonization.1010}
+			}
+			country_event = {
+				id = cm_decolonization.1001
+				days = 1
+			}
+		}
+		else = {
+			country_event = {
+				id = cm_decolonization.1020
+			}
+		}
+	}
+}
+
+#News Event
+country_event = {
+	id = cm_decolonization.1020
+	title = cm_decolonization.1020.name
+	desc = cm_decolonization.1020.desc
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = cm_decolonization.820.a #"Shame! Shame! Here falls our empire!"
+	}
+
+	option = {
+		name = cm_decolonization.820.b #"The *** People will never be defeated!"
+	}
+
+	immediate = {
+	}
+
+	after = {
+		# Effects that are applied after option is chosen.
+		# Will generate a tooltip in addition the tooltip of every option, unless hidden_effect is used.
+		every_playable_country = {
+			country_event = {
+				id = cm_decolonization.1021
+			}
+		}
+	}
+}
+
+#News Event
+country_event = {
+	id = cm_decolonization.1021
+	title = cm_decolonization.1021.name
+	desc = cm_decolonization.1021.desc
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = cm_decolonization.1021.a #"
+	}
+
+}
+
+planet_event = {
+	id = cm_decolonization.1010
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		CM_country_creation_no_span = yes
+		last_created_country = {
+			establish_communications_no_message =from
+			country_event = {
+				id = CMsubject.1010 #Initialization
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = cm_decolonization.1011
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			10 = {
+				CM_country_creation_no_span = yes
+			}
+			
+			30 = {
+				CM_country_creation_2 = {
+					New_Country_Span = 1
+				}
+			}
+		}
+		last_created_country = {
+			establish_communications_no_message =from
+			country_event = {
+				id = CMsubject.1010 #Initialization
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = cm_decolonization.1012
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			20 = {
+				CM_country_creation_no_span = yes
+			}
+			
+			40 = {
+				CM_country_creation_2 = {
+					New_Country_Span = 1
+				}
+			}
+			40 = {
+				CM_country_creation_2 = {
+					New_Country_Span = 2
+				}
+			}
+		}
+		last_created_country = {
+			establish_communications_no_message =from
+			country_event = {
+				id = CMsubject.1010 #Initialization
+			}
+		}
+	}
+}
+

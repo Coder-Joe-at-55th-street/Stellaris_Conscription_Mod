@@ -1,0 +1,93 @@
+
+@CM_federation_xp_to_level_2 = 800
+@CM_federation_xp_to_level_3 = 1600
+@CM_federation_xp_to_level_4 = 3200
+@CM_federation_xp_to_level_5 = 6400
+
+confederal_government_federation = {
+	base_intel = 70
+	icon = "GFX_default_federation"
+	potential = {
+		always = no
+	}
+	allow = {
+		has_ascension_perk = ap_confederal_governance
+	}
+	levels = {
+		level_1 = { # Starting rank
+			experience = @CM_federation_xp_to_level_2 # Experience until next rank
+			perks = {
+				trade_federation_passive
+			}
+		}
+
+		level_2 = {
+			experience = @CM_federation_xp_to_level_3
+			perks = {
+				central_government_envoy_trade_1 #+5% trade and +1 envoy.
+				confederal_gov_ship_speed_1 #+15% ship speed (faster than vanilla)
+				confederal_economic_unification_1 #+10% trade value and 15 local trade protection.
+			}
+		}
+
+		level_3 = {
+			experience = @CM_federation_xp_to_level_4
+			perks = {
+				central_government_influence_1 #+1 influence
+				confederal_gov_NC_buff_1  #50% higher federal naval capacity contribution.
+				confederal_economic_unification_2 #+5% job output, +10% amenities
+			}
+		}
+
+		level_4 = {
+			experience = @CM_federation_xp_to_level_5
+			perks = {
+				central_gov_confederal_power_supreme #+1 Megastructure Build Limit, +10% diplomatic weight
+				confederal_gov_research_output_1 #+10% all research output
+				confederal_gov_to_slay_the_dragon # +25% damage to crisis, and +10% unity.
+			}
+		}
+
+		level_5 = {
+			perks = {
+				central_gov_naval_bonus #-100% federal naval capacity contribution cost. +100 ship starting experience.
+				confederal_gov_NC_buff_2  #100% higher naval capacity contribution cost, but 200% higher federal naval contribution.
+				confederal_united_front #+5% unity, hell lots of damage to non-player crisis empire.
+			}
+		}
+	}
+	on_create = {
+		remove_federation_flag = enable_federation_cooldowns
+
+		#Begins Level 3
+		add_federation_experience = 1000
+
+		set_federation_law = centralization_low
+		set_federation_law = confederal_government_succession_type_none
+		set_federation_law = confederal_government_succession_term_none
+		set_federation_law = national_fleet_contribution_low
+		set_federation_law = federation_build_fleets_everyone
+		set_federation_law = confederal_war_vote_majority_vote
+		set_federation_law = confederal_invitation_vote_majority_vote
+		set_federation_law = secession_offer_vote_majority_vote
+		set_federation_law = allow_subjects_to_join_yes
+		set_federation_law = free_migration_yes
+		set_federation_law = treaties_separate_yes
+		
+		#Unique Confederal Government Law
+		set_federation_law = social_unification_low
+
+		set_federation_flag = enable_federation_cooldowns
+	}
+
+	ai_weight = {
+		base = -1000 #A unique type of federation. This is a union, but membership is NOT optional
+		modifier = {
+			desc = federation_acceptance_subject
+			add = 2000
+			from = {
+				is_overlord_to = root
+			}
+		}
+	}
+}

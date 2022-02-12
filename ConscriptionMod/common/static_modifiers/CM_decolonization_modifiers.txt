@@ -1,0 +1,55 @@
+#icon_frame = 1 # green frame
+#icon_frame = 2 # yellow frame
+#icon_frame = 3 # red frame
+
+##########################################################################
+# Resolution Modifiers
+##########################################################################
+
+resolution_decolonization_1_buff = {
+	pop_growth_from_immigration = 0.25
+	pop_amenities_usage_mult = -0.10
+}
+
+resolution_decolonization_2_buff = {
+	pop_growth_from_immigration = 0.5
+	pop_amenities_usage_mult = -0.10
+	planet_jobs_produces_mult = 0.025
+}
+
+resolution_colonization_1_buff = {
+	pop_environment_tolerance = 0.025
+	pop_growth_speed = 0.05
+}
+
+resolution_colonization_2_buff = {
+	pop_environment_tolerance = 0.05
+	pop_growth_speed = 0.10
+}
+
+resolution_decolonization_1_buff = {
+	pop_growth_from_immigration = 0.25
+	pop_amenities_usage_mult = -0.10
+}
+
+resolution_decolonization_neutral_buff = {
+	pop_government_ethic_attraction = 0.05
+}
+
+
+##########################################################################
+# Country Modifier
+##########################################################################
+
+cm_birthplace_of_counter_confederalism = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	empire_size_penalty_mult = -0.05
+}
+
+cm_home_of_confederalism = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+	country_unity_produces_mult = 0.05
+	country_unity_produces_add = 10
+}

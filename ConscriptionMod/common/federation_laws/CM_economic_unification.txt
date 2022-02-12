@@ -1,0 +1,213 @@
+@CM_cooldown = 1800
+
+
+social_unification_minimal = {
+	allow = {
+		NOT = {
+				AND = {
+					NOT = { has_federation_law =social_unification_minimal }
+					has_modifier = federation_law_category_social_unification_cooldown
+					has_any_federation_law_in_category = law_category_social_unification
+				}
+			}
+	}
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	required_centralization = {
+		base = 1
+	}
+	modifier =	{
+		federation_join_malus_mult = -0.2
+	}
+	cohesion_growth = 0.6
+	on_enact = {
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_social_unification_cooldown
+				days = @CM_cooldown
+			}
+		}
+		add_cohesion = -10
+	}
+
+	ai_weight = {
+		base = 100
+
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 11
+		}
+	}
+}
+
+social_unification_low = {
+	allow = {
+		NOT = {
+				AND = {
+					NOT = { has_federation_law =social_unification_low }
+					has_modifier = federation_law_category_social_unification_cooldown
+					has_any_federation_law_in_category = law_category_social_unification
+				}
+			}
+	}
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	required_centralization = {
+		base = 2
+	}
+	modifier =	{
+		federation_join_malus_mult = -0.4
+	}
+	cohesion_growth = 1.2
+	on_enact = {
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_social_unification_cooldown
+				days = @CM_cooldown
+			}
+		}
+		add_cohesion = -10
+	}
+
+	ai_weight = {
+		base = 100
+
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 11
+		}
+	}
+}
+
+social_unification_medium = {
+	allow = {
+		NOT = {
+				AND = {
+					NOT = { has_federation_law =social_unification_medium }
+					has_modifier = federation_law_category_social_unification_cooldown
+					has_any_federation_law_in_category = law_category_social_unification
+				}
+			}
+	}
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	required_centralization = {
+		base = 3
+	}
+	modifier =	{
+		federation_join_malus_mult = -0.6
+	}
+	cohesion_growth = 1.8
+	on_enact = {
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_social_unification_cooldown
+				days = @CM_cooldown
+			}
+		}
+		add_cohesion = -10
+	}
+
+	ai_weight = {
+		base = 100
+
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 11
+		}
+	}
+}
+
+social_unification_high = {
+	allow = {
+		NOT = {
+				AND = {
+					NOT = { has_federation_law =social_unification_high }
+					has_modifier = federation_law_category_social_unification_cooldown
+					has_any_federation_law_in_category = law_category_social_unification
+				}
+			}
+	}
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	required_centralization = {
+		base = 4
+	}
+	modifier =	{
+		federation_join_malus_mult = -0.8
+	}
+	cohesion_growth = 2.4
+	on_enact = {
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_social_unification_cooldown
+				days = @CM_cooldown
+			}
+		}
+		add_cohesion = -10
+	}
+
+	ai_weight = {
+		base = 100
+
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 11
+		}
+	}
+}
+
+social_unification_complete = {
+	allow = {
+		NOT = {
+				AND = {
+					NOT = { has_federation_law = social_unification_complete }
+					has_modifier = federation_law_category_social_unification_cooldown
+					has_any_federation_law_in_category = law_category_social_unification
+				}
+			}
+	}
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	required_centralization = {
+		base = 5
+	}
+	modifier =	{
+		federation_join_malus_mult = -1.0
+	}
+	cohesion_growth = 3
+	on_enact = {
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_social_unification_cooldown
+				days = @CM_cooldown
+			}
+		}
+		add_cohesion = -10
+	}
+
+	ai_weight = {
+		base = 100
+
+		#Default support
+		modifier = {
+			desc = federation_acceptance_generally_positive
+			add = 11
+		}
+	}
+}
+

@@ -1,0 +1,111 @@
+﻿l_english:
+
+
+#############Special War Goals############
+# Event Chain. To show the variable.
+
+cm_decolonization.921.name:0 "Federalization of §Y[from.GetName]§!"
+cm_decolonization.921.desc:0 "In a recent war against an upholder of Confederalism, who believes that self-rule is only way to rein in far-flung colonies, the §Y[from.GetName]§! suffered a catastrophic defeat. \nCompromises were forced through in chaos of defeat. In a decisive moment of §Y[from.GetAdj]§! government days earlier, a Federalization Initiative was passed. All previous provinces and colonies that were too far away was granted full autonomy, while the new §Y[from.Federation.GetName]§! took over many branches of earlier central government. \n §Y[from.GetName]§! remained being president and leader of  §Y[from.Federation.GetName]§!, considering their past rule over colonies. However, it is doubtful if it can remains in its past dominant position."
+cm_decolonization.921.a:0 "I guess Confederalism doesn't work in that land....."
+
+##################Federation Description
+confederal_government_federation:0 "Confederal Government"
+#confederal_government_federation_desc:0 "Rather a loosely organized national government than an international federation, this federation are made of a empire #and her subjects, who were granted autonomy some time in history, as the central government fully appreciated their ability to thrive. The ideology of this form of #organization is called 'Confederalism'. \nContrary to many predictions, the confederal government stayed United and strong. Devolution of overarching and #corrupt central bureaucracy to de-centralized autonomous zones brought an unforeseen era of prosperity and innovation, which quickly allowed people to unify #under the flag of Confederalism. \nWill this great experiment of self-rule and decentralization prevail, or will it be swallowed by oppressive authoritarian tyrants? #Only time shall tell."
+
+confederal_government_federation_desc:0 "Rather a loosely organized national government than an international federation, this federation are made of a empire and her subjects, who were granted autonomy some time in history, as the central government fully appreciated their ability to thrive free from corrupt central bureaucracy."
+
+##################Federation Perks
+
+##Level Two
+
+central_government_envoy_trade_1:0 "National Trade Board"
+central_government_envoy_trade_1_desc:0 "Forget not that it was inter-colony trade that fueled our expansion and prosperity. While great autonomy had been given to semi-independent autonomous republics in our confederal government, issues of trade--domestic and beyond--shall be guided by our central government, which also served as §YPresident of the confederation§!."
+
+confederal_gov_ship_speed_1:0 "Inter-Republic Highways"
+confederal_gov_ship_speed_1_desc:0 "A Nation without roads to connect its parts cannot stand. Considering our highly de-centralized nature, we will definitely need a developed transportation project. The Inter-Republics Highway is a system of navigation beacons and hyperlane registrars that allowed unprecedented level of safety and efficiency for traveling within our autonomous republics."
+
+confederal_economic_unification_1:0 "Confederal Market, One and Indivisible!"
+confederal_economic_unification_1_desc:0 "Why divide up our market when we already have legal framework, from pre-Confederalism era, for an unified national market that worked well for decades? By combining old practices with new de-centralized economic planning, we are creating an era of unforseen prosperity!"
+
+##Level Three
+central_government_influence_1:0 "True Beacon of Liberty"
+central_government_influence_1_desc:0 "Confederalism has never broke apart from the ideal of liberty and democracy. The reason is simple: if you don't like the autonomous republic you live in, just move to another one. We even have a project to fund such migrations. Citizens of our Confederation enjoys and unforseen level of civil liberty, for which we are proud. As an adherent upholder of citizens' rights, we are §Ydestined to make this galaxy great by spreading our way of life §!."
+
+confederal_gov_NC_buff_1:0 "National Fleet"
+confederal_gov_NC_buff_1_desc:0 "The Confederation Fleet is regarded as the central militia that protects all our citizens alike, however far they are within the confederation. While local militia are enough for self-defense, large-scale wars for defense of our liberty or for the good of whole nation requires a well-equipped militia. As such, all our autonomous republics are glad to contribute to our central militia."
+
+confederal_economic_unification_2:0 "Golden Era of Innovation"
+confederal_economic_unification_2_desc:0 "It appeared that de-centralization brought not chaos but a golden era of communication and innovation. As autonomous republics, for their self-interest of promoting local development, advertised their local produces and innovations through confederal-level platforms, new ideas began to spread in fast pace, many previously surpassed by corrput central bureaucracy. We are truelly in an era of innovation."
+
+##Level Four
+
+central_gov_confederal_power_supreme:0 "Confederal Wonders"
+central_gov_confederal_power_supreme_desc:0 "Many said that Confederalism is destined to fail, for it traded galactic wonders that pierces violently to shrouds of future development for contemporary local-level benefits. §RHow Wrong They Are!§! \nSay, my friend, cannot you see that Dyson Sphere that tamed the sun, the heavenly ring that cut the milky way in half? Such are wonders made en masse in our Confederation. \nSuch wonders were built not on the back of chattel slaves or illegal immigrants, but by proud free citizens, workers, and investors from all corners of the confederation, governed by one common law agreed by us all. We have shown the world that true progress is made, not through despotic regime to conscript innocent citizens, but §Ythrough a common strife for future, born from our common heritages and united freely in our Confederation.§!"
+
+confederal_gov_research_output_1:0 "Science Contractors"
+confederal_gov_research_output_1_desc:0 "It has been made increasingly clear that scientific projects, mostly those consisting of extensive experiments and testing, can be easily contracted to various autonomous republic in our Confederation who, with their unique local environment, have certain edge innovating in experiments."
+
+confederal_gov_to_slay_the_dragon:0 "To Slay the Dragon...."
+confederal_gov_to_slay_the_dragon_desc:0 "Like dragon guarding their gold, the Fallen Empires have long oppressed the people of the galaxy, restricting their progress while sitting on a pile of technology capable of bring forth a new era of civilization. It is thus only right to §YSlay Them§! for the prosperity of the whole Confederation."
+
+##Level Five
+central_gov_naval_bonus:0 "Confederal Unity"
+central_gov_naval_bonus_desc:0 "After all, we need a common representative in the Galactic Council, to guard our common interests so that we shall not be divided, conquered, and enslaved. Who can do this job better than our central government, also §YPresident of the confederation§!, who have guided us, faithfully and fearlessly, in harsh torrents of interstellar politics?"
+
+confederal_gov_NC_buff_2:0 "Integrating Local Militias"
+confederal_gov_NC_buff_2_desc:0 "Local Militias of our various Autonomous Republics have many unique ways of fighting. By integrating them in our national fleet, we can build a versatile navy capable for any challenge."
+
+###############Special Federation Perks
+enable_more_cb_effect:0 "Can wage §YConfederal Wars§! with §YSpecial Casus Belli§! against any empire with more than or equal to §Y400 Empire Sprawl§! or §Y15 Colonized Worlds§!. \n Upon defeat, the enemy will be §RPartitioned§! into smaller states. \n monthly influence: §G0.5§! "
+
+###############Federal Laws
+law_category_national_fleet_contribution:0 "National Fleet Makeup"
+law_category_national_fleet_contribution_desc:0 "Such law regulate division and duty of Confederal (National) Fleet and local militia reserved to each states in the Confederation. Confederal Fleet is always commanded by the central government, which is the president."
+
+national_fleet_contribution_minimal:0 "Local Militia Regiments"
+national_fleet_contribution_minimal_desc:0 "While central government's military has supreme power and considered fleet of the whole confederal-nation, §YNo Law §!enforces a confederal level command"
+
+national_fleet_contribution_low:0 "Central Command"
+national_fleet_contribution_low_desc:0 "By Law, a Confederal central command was set up where serving sailors are chosen randomly from militia of states. While it's a terrible idea to mix a bunch of conscripts from different corner of the confederation and call it a regiment, at least we have a §YWorking Federal Fleet§!"
+
+national_fleet_contribution_medium:0 "Confederal Regiments"
+national_fleet_contribution_medium_desc:0 "Confederal Command now commands many ships and regiments manned by conscripts from all regions. While it remains debated if soldiers of same home planet shall be in same regiment, §YFederal Fleet§! is now working properly as a force to be reconed with."
+
+national_fleet_contribution_high:0 "Professional Confederal Fleet"
+national_fleet_contribution_high_desc:0 "Confederal Fleet was previously an army filled by reluctant conscripts and widespread corruption. This has changed recently, as semi-independent states of the confederation now provides professional serviceman for combat roles in confederal military, and conscripts for auxilaries."
+
+national_fleet_contribution_extreme:0 "Federalized National Guard"
+national_fleet_contribution_extreme_desc:0 "National Guard has been reserved as military power of semi-independent states. As this branch now under Confederal Command, the confederal army is now §YEnlarged, Well-Organized, and Professional§!. Previously local national guard regiments and ships are converted to fast-response units. \n Now, only §Yminimal level§! of military remains commanded by local governments. "
+
+law_category_confederal_government_succession_type:0 "Central Government Selection"
+law_category_confederal_government_succession_type_desc:0  "How to choose which state shall serve as leader of the confederal government"
+
+confederal_government_succession_type_none:0 "President Forever"
+confederal_government_succession_type_none_desc:0 "It is a cultural tradition that the central government  §YRules Over§! semi-independent state."
+
+law_category_confederal_government_succession_term:0 "Central Government Serving Term"
+law_category_confederal_government_succession_term:0 "How long central government stays incumbent for the confederation"
+
+confederal_government_succession_term_none:0 "Serve Forever!"
+confederal_government_succession_type_none_desc:0 "It is a cultural tradition that the central government rules over semi-independent state.....for an §YIndefinitely long time§!. "
+
+law_category_confederal_war_vote:0 "Right to wage war"
+law_category_confederal_war_vote_desc:0 "Upon how much agreement in the Confederal Assembly can the confederation declare war"
+
+law_category_confederal_invitation_vote:0 "Right to incorporate new states"
+law_category_confederal_invitation_vote_desc:0 "Under what condition shall new states be incorporated"
+
+confederal_invitation_no_invite:0 "By granting autonomy"
+confederal_invitation_no_invite_desc:0 "New States are included as new confederation member semi-independent from central government only through §YDecisions to decolonize planet or through events§!."
+
+law_category_secession_offer_vote:0 "Right to commit sucession"
+law_category_secession_offer_vote_desc:0 "Under what circumstance can secession be approved"
+
+secession_offer_vote_majority_vote:0 "By Majority in Assembly"
+secession_offer_vote_majority_vote_desc:0 "States may concede sucession upon agreed by a majority in Confederal Assembly."
+
+secession_offer_vote_president_vote:0 "Decided by Central Government"
+secession_offer_vote_president_vote_desc:0 "Leader of the federation--considered our central government--decides on matter of sucession entirely. In most cases, §YMembership is not optional§!"
+
+law_category_social_unification:0 "Society Unification within the Confederation"
+law_category_social_unification_desc:0 "How unified is our confederation, and how much people take themselves as citizens of the Confederation rather than citizens of their semi-independent state"

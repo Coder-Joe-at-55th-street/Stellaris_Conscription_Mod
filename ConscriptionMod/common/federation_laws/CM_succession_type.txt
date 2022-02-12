@@ -1,0 +1,45 @@
+@CM_cooldown = 1800
+
+confederal_government_succession_type_none = {
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	allow = {
+	}
+	on_enact = {
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_succession_type_cooldown
+				days = @CM_cooldown
+			}
+		}
+		set_federation_law = succession_power_diplomatic_weight
+	}
+
+	ai_weight = {
+		base = 80
+	}
+}
+
+confederal_government_succession_term_none = {
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	allow = {
+	}
+	on_enact = {
+		set_federation_succession_term = years_40 # Should be perpetual
+		if = {
+			limit = { has_federation_flag = enable_federation_cooldowns }
+			add_modifier = {
+				modifier = federation_law_category_succession_term_cooldown
+				days = @CM_cooldown
+			}
+		}
+	}
+
+	ai_weight = {
+		base = 80
+	}
+}

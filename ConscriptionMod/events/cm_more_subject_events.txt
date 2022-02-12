@@ -1,0 +1,400 @@
+############################
+#
+# More Subject Events
+#
+# Written by "Telepathing Tilapia"
+#
+############################
+
+namespace = CMsubject
+
+planet_event = {
+	id = CMsubject.1000
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		owner = {
+			country_event = {id = CMsubject.1001}
+		}
+	}
+}
+
+
+country_event = {
+	id = CMsubject.1001
+
+
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		from = {
+			planet_event = {id = CMsubject.1002}
+		}
+	}
+}
+
+planet_event = {
+	id = CMsubject.1002
+	
+	title = CMsubject.1002.name
+	desc = CMsubject.1002.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = CMsubject.1002.a
+		CM_country_creation_2 = {
+			New_Country_Span = 1
+		}
+		last_created_country = {
+				country_event = {
+					id = CMsubject.1010 #Initialization
+				}
+				from = {
+					country_event = {
+						id = CMsubject.1020
+						days = 1
+					}
+				}
+		}
+	}
+}
+
+country_event = {
+	id = CMsubject.1010
+	hide_window = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+
+		# baseline resource stockpile
+		add_resource = {
+			energy = 2000
+			minerals = 2000
+			food = 2000
+			consumer_goods = 1200
+			influence = 200
+			alloys = 600
+		}
+
+		# Opinion Modifier
+#		add_opinion_modifier = {
+#			who = fromfrom
+#			modifier = opinion_machine_uprising_originator
+#		}
+
+		#fromfrom = {
+			#add_opinion_modifier = {
+			#	who = root
+			#	modifier = opinion_machine_uprising
+			#}
+		#}
+
+		# clear new contact opinion modifier
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = fromfrom
+					modifier = opinion_new_contact
+				}
+			}
+			remove_opinion_modifier = {
+				who = fromfrom
+				modifier = opinion_new_contact
+			}
+		}
+
+		from = {
+			# flip military stations
+			solar_system = {
+				every_fleet_in_system = {
+					limit = {
+						exists = owner
+						owner = { is_same_value = fromfrom }
+						any_owned_ship = { is_ship_class = shipclass_military_station }
+					}
+					set_owner = root
+				}
+			}
+			set_owner = root
+			set_controller = root
+			set_capital = yes
+
+			solar_system = {
+				if = {
+					limit = {
+						exists = starbase
+					}
+					starbase = { set_owner = root }
+				}
+				else = {
+					create_starbase = {
+						size = starbase_starport
+						module = trading_hub
+						module = shipyard
+						owner = root
+					}
+				}
+			}
+
+		}
+
+		#Add Intelligence, tech, etc.
+
+		# get host's technologies
+		copy_techs_from = {
+			target = fromfrom
+			except = {
+				# Horizon Signal
+				tech_akx_worm_1
+				tech_akx_worm_2
+				tech_akx_worm_3
+			}
+		}
+
+		create_fleet_from_naval_cap = 0.5
+
+		# survey host's surveyed planets
+		every_galaxy_planet = {
+			limit = {
+				is_surveyed = {
+					who = fromfrom
+					status = yes
+				}
+			}
+			set_surveyed = {
+				surveyed = yes
+				surveyor = root
+			}
+		}
+
+		#Copy Ethic
+		
+		copy_ethos_and_authority = fromfrom
+		change_government = random
+		
+	}
+
+}
+
+#Vassalization Event, called from a planet
+country_event = {
+	id = CMsubject.1020
+	title = CMsubject.1020.name
+	desc = CMsubject.1020.desc
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = CMsubject.1020.a
+		from.owner = {
+			set_subject_of = { 
+				who = root
+				subject_type = CM_Autonomous_Republic 
+			 }
+			country_event = {id = CMsubject.150 }
+		}
+	}
+
+
+	after = {
+		add_intel = {
+			who = from.owner
+			amount = 80
+		}
+		if = {
+			limit = {
+				NOT = {has_federation = yes}
+			}
+			country_event = {
+				id = CMsubject.1021
+				days = 1
+			}
+		}
+		else_if = {
+			limit = {
+				has_federation = yes
+				NOT = {
+					federation = {
+						has_federation_type = confederal_government_federation
+					}
+				}
+			}
+			leave_alliance = {
+				override_requirements = yes
+				apply_opinion_penalty = no
+			}
+			country_event = {
+				id = CMsubject.1021
+				days = 1
+			}
+		}
+		else = {
+			from.owner = {
+				join_alliance = {
+					who = root
+					override_requirements = yes
+				}
+			}
+			federation = {
+				set_federation_leader = root
+				add_cohesion = 200
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = CMsubject.1021
+	title = CMsubject.1021.name
+	desc = CMsubject.1021.desc
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	trigger = {
+		always = yes
+	}
+	
+	immediate = {
+		fromfrom.owner = {
+			set_subject_of = {
+				who = none
+			}
+		}
+		join_alliance = {
+			who = fromfrom.owner
+			override_requirements = yes
+		}
+		confederal_government_initialization_effect = yes
+		
+	}
+
+	option = {
+		name = CMsubject.1021.a
+		country_event = {
+			id = CMsubject.1022
+			days = 2
+		}
+	}
+}
+
+country_event = {
+	id = CMsubject.1022
+	title = CMsubject.1022.name
+	desc = CMsubject.1022.desc
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	trigger = {
+		always = yes
+	}
+	
+
+	option = {
+		name = CMsubject.1022.a
+		fromfromfrom.owner = {
+			set_subject_of = { 
+				who = root
+				subject_type = CM_Autonomous_Republic 
+			 }
+			country_event = {id = CMsubject.150 }
+		}
+	}
+}
+
+country_event = {
+	id = CMsubject.1030
+	title = CMsubject.1030.name
+	desc = CMsubject.1030.desc
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = CMsubject.1020.a
+		
+		add_intel = {
+			who = from
+			amount = 80
+		}
+		from = {
+			copy_ethos_and_authority = root
+			change_government = random
+			set_subject_of = { 
+				who = root
+				subject_type = CM_Autonomous_Republic 
+			 }
+			country_event = {id = CMsubject.150 }
+		}
+	}
+
+}
+
+
+#########################
+# Subject Government Changing Project
+#########################
+
+country_event = {
+	id = CMsubject.150
+	hide_window = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		if = {
+			limit = {has_authority = auth_corporate}
+			change_government = random
+			country_event = {
+				id = CMsubject.150
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					overlord = {
+						has_authority = auth_corporate
+					}
+				}
+				every_owned_planet = {
+					close_branch_office = yes
+					establish_branch_office = root.overlord
+				}
+			}
+				
+		}
+	}
+}
+
+
+

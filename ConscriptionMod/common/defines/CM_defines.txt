@@ -16,4 +16,20 @@
 		COLLATERAL_DAMAGE_MAX_PER_DAY					= 0.40	# Per combat side
 		COLLATERAL_DAMAGE_KILL_POP_CHANCE				= 0.15	# Multiplied by damage dealt
 
+		###Diplomacy Modding
+		RESOLUTION_VOTE_TIMER = 720					# number of days a resolution will be on the senate floor before being passed/failed
+		RESOLUTION_VOTE_PREMATURE_TIMER = 360			# number of days until the custodian/emperor can prematurely end the senate session
+		SENATE_RECESS_TIMER = 360						# number of days until the next proposed resolution will be put on the floor after the current vote
+		COUNCIL_DIPLOMACY_WEIGHT_MODIFIER = 1.5			# how much a countries diplomatic weight will be increased when voting if on the council
+
+		CATEGORY_VOTE_COOLDOWN = 1800					# time before another resolution in a given category can proposed again
+		TYPE_VOTE_COOLDOWN = 1800						# time before a referendum of a given type can be proposed again
+		VETO_COOLDOWN = 1800							# time before a country can enact another veto
+		EMERGENCY_MEASURES_COOLDOWN = 5400				# time before a country can propose another emergency measure
+		JOIN_COMMUNITY_INFLUENCE_COST = 50			# cost to join the community manually after its formation
+		COUNCIL_ELECTION_TIMER = 720					# time between galactic council elections
+		COUNCIL_ELECTION_SOON_CUTOFF = 30				# when there is less than this many days left until the next council we show an alert
+
+
 	}
+

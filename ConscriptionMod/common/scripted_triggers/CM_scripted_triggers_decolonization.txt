@@ -1,0 +1,52 @@
+#	Example:
+#
+#	example_trigger = {
+#		is_country_type = default
+#		num_communications > 0
+#	}
+#
+#
+#	In a script file:
+#
+#	trigger = {
+#		example_trigger = yes
+#	}
+#
+
+#Country Scope.
+#MIN_RADIUS is the minimum range.
+#MIN_NUM_COLONY is the minimum number of colonies
+#Returns true when there are >= MIN_NUM_COLONY outside MIN_RADIUS 
+# jumps from capital.
+
+count_planet_outside_range = {
+	any_planet_within_border = {
+		distance = {
+			source = root.capital_scope.solar_system
+			type=hyperlane
+			min_jumps = $MIN_RADIUS$
+		}
+		count >= $MIN_NUM_COLONY$
+	}
+}
+
+is_overextended = {
+	OR = {
+		count_planet_outside_range = {
+			MIN_RADIUS = 8
+			MIN_NUM_COLONY = 1
+		}
+		count_planet_outside_range = {
+			MIN_RADIUS = 6
+			MIN_NUM_COLONY = 3
+		}
+		count_planet_outside_range = {
+			MIN_RADIUS = 4
+			MIN_NUM_COLONY = 8
+		}
+		num_owned_planets >= 18
+		empire_sprawl >= 500
+		empire_sprawl_over_cap >= 100
+		empire_sprawl_cap_fraction >= 1.25
+	}
+}

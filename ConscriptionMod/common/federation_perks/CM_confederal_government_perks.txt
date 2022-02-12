@@ -1,0 +1,125 @@
+#Perks Example
+#<perk_name>={
+#	Modifier for federation scope
+#	federation_modifier = {}
+#	Modifier for all members (leader included)
+#	members_modifier = {}
+#	Modifier for exclusevely leader
+#	leader_modifier = {}
+#	On activate effect in federation scope
+#	on_activate = {} #note: random lists will not be random here
+#	On deactivate effect in federation scope
+#}
+
+###Unique Confederal Government Perks
+
+#Level 1 is enable trade league policy. Already implemented in vanilla
+
+###Confederal Government Level 2
+
+central_government_envoy_trade_1 = {
+	leader_modifier = {
+		trade_value_mult = 0.05
+		envoys_add = 1
+	}
+}
+
+confederal_gov_ship_speed_1 = {
+	members_modifier = {
+		ship_federation_territory_speed_mult = 0.15
+	}
+}
+
+confederal_economic_unification_1 = {
+	members_modifier = {
+		trade_value_mult = 0.10
+		local_trade_protection_add = 15
+	}
+}
+
+### Confederal Government Level 3
+central_government_influence_1 = {
+	leader_modifier = {
+		description = enable_more_cb_effect #gain CB
+		
+		federation_influence_produces_add = 0.5
+	}
+	members_modifier ={
+		
+		federation_influence_produces_add = 0.5
+	}
+}
+
+confederal_gov_NC_buff_1 = {
+	members_modifier = {
+		federation_naval_cap_contribution_mult = 0.50
+	}
+}
+
+confederal_economic_unification_2 = {
+	members_modifier = {
+		planet_jobs_produces_mult = 0.05
+		planet_amenities_mult = 0.10
+	}
+}
+
+#######Confederal Government Level 4
+
+central_gov_confederal_power_supreme = {
+	leader_modifier = {
+		country_megastructure_build_cap_add = 1
+		diplo_weight_mult = 0.1
+	}
+}
+
+confederal_gov_research_output_1 = {
+	members_modifier = {
+		country_engineering_research_produces_mult = 0.10
+		country_physics_research_produces_mult = 0.10
+		country_society_research_produces_mult = 0.10
+	}
+}
+
+confederal_gov_to_slay_the_dragon = {
+	
+	members_modifier = {
+#		description = damage_slay_the_dragon_modifier_desc
+		country_unity_produces_mult = 0.10
+		pop_government_ethic_attraction = 0.20
+		damage_vs_country_type_awakened_fallen_empire_mult = 0.25
+		damage_vs_country_type_fallen_empire_mult = 0.25
+		damage_vs_country_type_guardian_dragon_mult = 0.25
+		damage_vs_player_crisis_mult = 0.25
+	}
+}
+
+######Confederal Government Level 5
+
+central_gov_naval_bonus  = {
+	leader_modifier = {
+		#description = president_keep_navy_1_effect
+		country_federation_fleet_contribution_naval_cap_reduction_discount = 1
+		federation_leader_diplo_weight_from_members_mult = 0.10
+	}
+}
+
+confederal_gov_NC_buff_2 = {
+	members_modifier = {
+		ship_starting_experience_add = 100
+		federation_naval_cap_contribution_mult = 0.50
+	}
+}
+
+confederal_united_front = {
+
+	members_modifier = {
+#		description = damage_crisis_gov_united_front_desc
+		country_unity_produces_mult = 0.05
+		damage_vs_country_type_swarm_mult = 0.25
+		damage_vs_country_type_extradimensional_mult = 0.25
+		damage_vs_country_type_extradimensional_2_mult = 0.25
+		damage_vs_country_type_extradimensional_3_mult = 0.25
+		damage_vs_country_type_ai_empire_mult = 0.25
+		damage_vs_country_type_gray_goo_mult = 0.25
+	}
+}

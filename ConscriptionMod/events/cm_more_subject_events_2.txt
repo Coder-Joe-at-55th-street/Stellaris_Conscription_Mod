@@ -1,0 +1,117 @@
+############################
+#
+# More Subject Events
+#
+# Written by "Telepathing Tilapia"
+#
+############################
+
+namespace = CMsubject
+
+#Create a Confederal Congress! 
+country_event = {
+	id = CMsubject.2000
+	
+	title = CMsubject.2000.name
+	desc = CMsubject.2000.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = CMsubject.2000
+		random_system_within_border = {
+			limit = {
+				distance = {
+					source = root.solar_system
+					type=hyperlane
+					min_jumps = 4
+				}
+				NOT = {
+					any_system_planet = {has_owner = yes}
+				}
+
+			}
+			spawn_planet = {
+				class = class = pc_tundra
+				location = this
+				orbit_location = yes
+				orbit_distance_offset = 10
+				orbit_angle_offset = 5
+				size = 4
+				init_effect = {
+					set_surveyed = {
+						surveyed = yes
+						surveyor = root
+					}
+				}
+			}
+			random_system_planet = {
+				limit = {
+					is_planet_class = pc_habitat
+				}
+				while = {
+					count = 10
+					create_pop = {
+						species = root
+						ethos = root
+					}
+				}
+				set_owner = root
+				planet_event = {id = CMsubject.2001}
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = CMsubject.2001
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		CM_country_creation_no_span = yes
+		####Effects on this country
+		from = {
+			country_event = {
+				id  = CMsubject.2002
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = CMsubject.2002
+	
+	title = CMsubject.2002.name
+	desc = CMsubject.2002.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = CMsubject.2002
+		join_alliance = {
+			who = from.owner
+			override_requirements = yes
+		}
+		confederal_government_initialization_effect = yes
+		
+	}
+}
+
+
+
+
+

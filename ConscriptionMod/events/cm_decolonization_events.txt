@@ -1,0 +1,331 @@
+############################
+#
+# More Subject Events
+#
+# Written by "Telepathing Tilapia"
+#
+############################
+
+namespace = cm_decolonization
+
+
+country_event = {
+	id = cm_decolonization.1
+	title = cm_decolonization.1.name
+	desc = cm_decolonization.1.desc
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {has_global_flag = confederalism_enabled}
+	}
+
+	immediate = {
+		set_global_flag = confederalism_enabled
+		pass_resolution = resolution_decolonization_neutral
+	}
+
+	option = {
+		name = cm_decolonization.1.a 
+		#alea iacta est...the die has been cast
+		add_modifier = {
+			modifier = cm_home_of_confederalism
+		}
+		every_playable_country = {
+			limit = {
+				NOT = {is_same_value = root}
+			}
+			country_event = {
+				id = cm_decolonization.2
+				days = 1
+			}
+		}
+
+		#Begin a series of events
+		country_event = {
+			id = cm_decolonization.100
+			days = 1
+		}
+	}
+}
+
+country_event = {
+	id = cm_decolonization.10
+	title = cm_decolonization.10.name
+	desc = cm_decolonization.10.desc
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = confederalism_enabled
+	}
+
+	option = {
+		name = cm_decolonization.1.a
+		every_playable_country = {
+			limit = {
+				NOT = {is_same_value = root}
+			}
+			country_event = {
+				id = cm_decolonization.20
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = cm_decolonization.2
+	title = cm_decolonization.2.name
+	desc = cm_decolonization.2.desc
+
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = cm_decolonization.2.a
+		country_event = {
+			id = cm_decolonization.100
+			days = 1
+		}
+	}
+}
+
+country_event = {
+	id = cm_decolonization.20
+	title = cm_decolonization.20.name
+	desc = cm_decolonization.20.desc
+
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = cm_decolonization.20.a
+	}
+}
+
+#A series of events to initialize the confederal governance.
+country_event = {
+	id = cm_decolonization.100
+	title = cm_decolonization.100.name
+	desc = cm_decolonization.100.desc
+
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	#Choose a motto for your confederation
+	option = {
+		name = cm_decolonization.100.a
+		add_modifier = {
+			modifier = cm_E_pluribus_unum
+			#Out of many, one
+			# +5% Unity
+		}
+		
+	}
+	option = {
+		name = cm_decolonization.100.b
+		allow = {
+			NOR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		add_modifier = {
+			modifier = cm_Ad_Astra_Per_Aspera
+			# +2% research speed
+			# Not available to spiritualists
+		}
+		
+	}
+	option = {
+		name = cm_decolonization.100.c
+		allow = {
+			NOR = {
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		add_modifier = {
+			modifier = cm_si_vis_pacem_para_bellum
+			# -5% war exhausion, +5% fire rate in home territory, 
+			#Not available to fanatic pacifist
+		}
+	}
+	option = {
+		name = cm_decolonization.100.e
+		allow = {
+			has_trait = trait_aquatic 
+		}
+		add_modifier = {
+			modifier = cm_a_mari_usque_ad_mare
+			#Only for aquatic main species
+			# +5% habitability for wet world
+		}
+	}
+	option = {
+		name = cm_decolonization.100.f
+		allow = {
+			NOR = {
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+			}
+		}
+		add_modifier = {
+			modifier = cm_deus_vult
+			#Only for non-pacifist spiritualists
+			#ship build speed +5%, army morale +10%
+		}
+	}
+	option = {
+		name = cm_decolonization.100.g
+		add_modifier = {
+			modifier = cm_esto_perpetua
+			#May it be perpetual
+			# governing ethic attraction + 25%
+		}
+		
+	}
+	option = {
+		name = cm_decolonization.100.h
+		allow = {
+			OR = {
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_egalitarian
+			}
+		}
+		add_modifier = {
+			modifier = cm_salus_populi_suprema_lex_esto
+			# the welfare of the people is to be the highest law
+			# pop_citizen_happiness + 2.5%
+		}
+		
+	}
+
+	option = {
+		name = cm_decolonization.100.i
+		add_modifier = {
+			modifier = cm_semper_fidelis
+			# always faithful
+			# +2 stability
+		}
+		
+	}
+	after = {
+		
+		country_event = {
+			id = cm_decolonization.201
+			days = 1800
+		}
+	}
+}
+
+country_event = {
+	id = cm_decolonization.201
+	title = cm_decolonization.201.name
+	desc = cm_decolonization.201.desc
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_ascension_perk = ap_confederal_governance 
+	}
+
+	option = {
+		name = cm_decolonization.201.a
+	}
+	
+	after = {
+		random_owned_planet = {
+			limit = {is_capital = yes}
+			add_deposit = d_confederal_assembly
+		}		
+
+		country_event = {
+			id = cm_decolonization.202
+			days = 1
+		}
+	}
+}
+
+country_event = {
+	id = cm_decolonization.202
+	title = cm_decolonization.202.name
+	desc = cm_decolonization.202.desc
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_ascension_perk = ap_confederal_governance 
+	}
+
+	#Choose a confederal act.
+
+	option = {
+		name = cm_decolonization.201.a
+		#Confederal Anti-Trust Initiative
+
+		add_modifier = {
+			modifier = cm_confederal_anti_trust #+5% specialist and worker output, +2.5 stability
+			days = 1080 
+		}		
+		every_subject = {
+			add_modifier = {
+				modifier = cm_confederal_anti_trust #+5% specialist and worker output, +2.5 stability
+				days = 1080 
+			}	
+		}
+	}
+
+	option = {
+		name = cm_decolonization.201.b
+		#Joint Piracy Surpression
+
+		add_modifier = {
+			modifier = cm_confederal_para_bellem #Prepare for war
+			days = 1080 
+		}		
+		every_subject = {
+			add_modifier = {
+				modifier = cm_confederal_para_bellem #-10% ship building time
+				days = 1080 
+			}	
+		}
+	}	
+	
+	option = {
+		name = cm_decolonization.201.c
+		#Joint Piracy Surpression
+
+		add_modifier = {
+			modifier = cm_confederal_Medicare_grant
+			days = 1080 
+		}		
+		every_subject = {
+			add_modifier = {
+				modifier = cm_confederal_birth_grant #+10% pop growth, +10% pop assembly, +20% pop from immigration
+				days = 1080 
+			}	
+		}
+	}
+	
+	after = {	
+
+		country_event = {
+			id = cm_decolonization.203
+			days = 1
+		}
+	}
+}

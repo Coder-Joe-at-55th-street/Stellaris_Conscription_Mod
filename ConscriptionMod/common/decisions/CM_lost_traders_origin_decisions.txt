@@ -118,7 +118,14 @@ decision_arcology_project_lost_traders = {
 		custom_tooltip = decision_arcology_project_effects
 		
 		hidden_effect = {
-			clear_deposits = yes
+			if = {
+				limit = {has_deposit = d_confederal_assembly}
+				clear_deposits = yes
+				add_deposit = d_confederal_assembly
+			}
+			else = {
+				clear_deposits = yes
+			}
 			set_industrial_focus_flags = yes
 			change_pc = pc_city
 			relic_world_conversion_effect = {

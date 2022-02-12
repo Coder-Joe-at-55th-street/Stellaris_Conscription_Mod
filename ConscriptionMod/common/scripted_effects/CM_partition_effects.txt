@@ -1,0 +1,140 @@
+#############
+# Several Partition Effect
+#############
+
+#1 Release a country.
+# Requires to be called by "from", which shall be a country scope.
+# Used mainly on a planetary scope.
+
+#Requires following parameters:
+#From_Reserve_System: a non-negative integer number. Any system closer to 
+#capital system (in terms of hyperlane jump) of the original country from which this country is released
+#shall not be released.
+
+#New_Country_Span: a non-negative integer. Any system within this span will go
+#to new country.
+#Released system must fulfill both conditions simutaneously.
+
+
+
+CM_country_creation = {
+	custom_tooltip = CM_country_creation
+	create_country = {
+			name_list = random
+			species = from
+			type = default
+			origin = "origin_common_ground_npc"
+			ignore_initial_colony_error = yes
+			day_zero_contact = no
+			randomize_ethos = yes
+			effect = {
+				establish_communications_no_message = from
+				from = {
+					every_system_within_border ={
+						limit = {
+							distance = {
+								source = from.capital_scope.solar_system
+								type=hyperlane
+								min_jumps = $From_Reserve_System$
+							}
+							distance = {
+								source = root.solar_system
+								type=hyperlane
+								min_jumps = 0
+								max_jumps = $New_Country_Span$
+							}
+						}
+						starbase = { set_owner = last_created_country }
+						every_system_planet = {
+							limit = {
+								has_owner = yes
+							}
+							set_owner = last_created_country
+							set_controller = last_created_country
+						}
+					}
+				}
+			}
+		}
+}
+
+#Does not designate reserve distance....need extra caution dealing.
+
+CM_country_creation_2 = {
+	custom_tooltip = CM_country_creation_2
+	create_country = {
+			name_list = random
+			species = from
+			type = default
+			origin = "origin_common_ground_npc"
+			ignore_initial_colony_error = yes
+			day_zero_contact = no
+			randomize_ethos = yes
+			effect = {
+				establish_communications_no_message = from
+				
+				root.solar_system = {
+					starbase = { set_owner = last_created_country }
+				}
+				
+				every_system_within_border ={
+					every_system_planet = {
+						limit = {
+							has_owner = yes
+						}
+						set_owner = last_created_country
+						set_controller = last_created_country
+					}
+				}
+				from = {
+					every_system_within_border ={
+						limit = {
+							distance = {
+								source = root.solar_system
+								type=hyperlane
+								min_jumps = 0
+								max_jumps = $New_Country_Span$
+							}
+						}
+						starbase = { set_owner = last_created_country }
+						every_system_planet = {
+							limit = {
+								has_owner = yes
+							}
+							set_owner = last_created_country
+							set_controller = last_created_country
+						}
+					}
+				}
+			}
+		}
+}
+
+CM_country_creation_no_span = {
+	custom_tooltip = CM_country_creation_no_span
+	create_country = {
+			name_list = random
+			species = from
+			type = default
+			origin = "origin_common_ground_npc"
+			ignore_initial_colony_error = yes
+			day_zero_contact = no
+			randomize_ethos = yes
+			effect = {
+				establish_communications_no_message = from
+				root.solar_system = {
+					starbase = { set_owner = last_created_country }
+				}
+				
+				every_system_within_border ={
+					every_system_planet = {
+						limit = {
+							has_owner = yes
+						}
+						set_owner = last_created_country
+						set_controller = last_created_country
+					}
+				}
+			}
+		}
+}

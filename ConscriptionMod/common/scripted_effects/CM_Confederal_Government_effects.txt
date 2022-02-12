@@ -1,0 +1,36 @@
+#############
+# Federation Effect
+#############
+
+#Called, Country Scope, first forming a confederal government
+confederal_government_initialization_effect = {
+	custom_tooltip = CM_confederal_gov_initialization
+	federation = {
+		set_federation_type = confederal_government_federation
+		set_federation_leader = root
+
+		remove_federation_flag = enable_federation_cooldowns
+
+		#Begins Level 3
+		add_federation_experience = 1000
+
+		set_federation_law = centralization_low
+		set_federation_law = confederal_government_succession_type_none
+		set_federation_law = confederal_government_succession_term_none
+		set_federation_law = national_fleet_contribution_low
+		set_federation_law = federation_build_fleets_everyone
+		set_federation_law = confederal_war_vote_majority_vote
+		set_federation_law = confederal_invitation_vote_majority_vote
+		set_federation_law = secession_offer_vote_majority_vote
+		set_federation_law = allow_subjects_to_join_yes
+		set_federation_law = free_migration_yes
+		set_federation_law = treaties_separate_yes
+		
+		#Unique Confederal Government Law
+		set_federation_law = social_unification_low
+
+		set_federation_flag = enable_federation_cooldowns
+	
+		add_cohesion = 200
+	}
+}

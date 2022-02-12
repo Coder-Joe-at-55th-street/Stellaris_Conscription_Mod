@@ -1,0 +1,191 @@
+law_category_fleet_contribution = {
+	potential = {
+		NOT = {
+			has_federation_type = confederal_government_federation
+		}
+	}
+	laws = {
+		fleet_contribution_none
+		fleet_contribution_low
+		fleet_contribution_low_trade
+		fleet_contribution_low_hegemony
+		fleet_contribution_low_research
+		fleet_contribution_low_martial
+		fleet_contribution_medium
+		fleet_contribution_medium_trade
+		fleet_contribution_medium_hegemony
+		fleet_contribution_medium_research
+		fleet_contribution_medium_martial
+		fleet_contribution_high
+		fleet_contribution_high_trade
+		fleet_contribution_high_hegemony
+		fleet_contribution_high_martial
+	}
+}
+
+law_category_national_fleet_contribution = {
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	laws = {
+		national_fleet_contribution_minimal
+		national_fleet_contribution_low
+		national_fleet_contribution_medium
+		national_fleet_contribution_high
+		national_fleet_contribution_extreme
+	}
+}
+
+law_category_succession_type = {
+	potential = {
+		NOT = {
+			has_federation_type = confederal_government_federation
+		}
+	}
+	laws = {
+		succession_type_rotation
+		succession_type_random
+		succession_type_challenge
+		succession_type_strongest
+		succession_type_strongest_hegemony
+		succession_type_none # Event only
+	}
+}
+
+law_category_confederal_government_succession_type = {
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	laws = {
+		confederal_government_succession_type_none # Event only
+	}
+}
+
+law_category_succession_term = {
+	potential = {
+		NOT = {
+			has_federation_type = confederal_government_federation
+		}
+	}
+	show_succession_date = yes
+	laws = {
+		succession_term_years_10
+		succession_term_years_20
+		succession_term_years_30
+		succession_term_years_40
+		succession_term_status_change
+		succession_term_perpetual # Event only
+	}
+}
+
+law_category_confederal_government_succession_term = {
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	laws = {
+		confederal_government_succession_term_none # Event only
+	}
+}
+
+###########
+# These Vanilla Laws must be modified for our unique federation.
+###########
+
+law_category_war_declaration_vote = {
+	potential = {
+		NOT = {
+			has_federation_type = confederal_government_federation
+		}
+	}
+	laws = {
+		declare_war_unanimous_vote
+		declare_war_majority_vote
+		declare_war_majority_vote_hegemony
+		declare_war_president_vote
+		declare_war_president_vote_imperial_loyalists # Event only
+	}
+}
+
+law_category_confederal_war_vote = {
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	laws = {
+		confederal_war_vote_unanimous_vote
+		confederal_war_vote_majority_vote
+		confederal_war_vote_war_president_vote
+	}
+}
+
+law_category_invite_members_vote = {
+	potential = {
+		NOT = {
+			has_federation_type = confederal_government_federation
+		}
+	}
+	laws = {
+		invite_members_unanimous_vote
+		invite_members_majority_vote
+		invite_members_president_vote
+		invite_members_president_vote_hegemony
+		invite_members_president_vote_imperial_loyalists # Event only
+	}
+}
+
+law_category_confederal_invitation_vote = {
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	laws = {
+		confederal_invitation_no_invite
+	}
+}
+
+
+law_category_kick_members_vote = {
+	potential = {
+		NOT = {
+			has_federation_type = confederal_government_federation
+		}
+	}
+	laws = {
+		kick_members_majority_vote
+		kick_members_president_vote
+		kick_members_president_vote_hegemony
+		kick_members_president_vote_imperial_loyalists # Event only
+	}
+}
+
+law_category_secession_offer_vote = {
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	laws = {
+		secession_offer_vote_majority_vote
+		secession_offer_vote_president_vote
+	}
+}
+
+#################
+# Unique Confederal Government Laws
+#################
+
+##Adds production, trade value, trade protection. Adds up to 3 cohesion each month
+law_category_social_unification = {
+	potential = {
+		has_federation_type = confederal_government_federation
+	}
+	laws = {
+		social_unification_minimal
+		social_unification_low
+		social_unification_medium
+		social_unification_high
+		social_unification_complete
+
+	}
+}
+
+
+
+
+

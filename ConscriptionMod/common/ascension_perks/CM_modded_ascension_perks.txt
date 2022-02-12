@@ -1,0 +1,77 @@
+ap_confederal_governance = {
+	modifier = {
+		envoys_add = 2
+		subject_integration_influence_cost_mult = -0.5
+		country_subject_trust_cap_add = 200
+		country_trust_growth = 0.30
+		country_unity_produces_mult = 0.05
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
+		}
+		custom_tooltip = {
+			fail_text = "requires_independence"
+			is_subject = no
+		}
+		custom_tooltip = {
+			fail_text = "must_not_be_emperor"
+			is_galactic_emperor = no
+		}
+		NOT = {
+			AND = {
+				is_galactic_community_member = yes
+				is_active_resolution = resolution_colonization_2
+			}
+		}
+		NOT = {has_ethic = ethic_fanatic_authoritarian}
+	}
+
+	potential = {
+		NOR = {
+			has_valid_civic = civic_fanatic_purifiers
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+
+	on_enabled = {
+		custom_tooltip = ap_confederal_governance_tooltip
+		if = {
+			limit = {
+				has_global_flag = confederalism_enabled
+			}
+			country_event = {
+				id = cm_decolonization.10
+				days = 1
+			}
+		}
+		else = {
+			country_event = {
+				id = cm_decolonization.1
+				days = 1
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 5
+		modifier = {
+			factor = 2
+			empire_sprawl > 400
+		}
+		modifier = {
+			factor = 4
+			empire_sprawl > 400
+		}
+		modifier = {
+			factor = 2
+			is_egalitarian = yes
+		}
+		modifier = {
+			factor = 0.1
+			is_authoritarian = yes
+		}
+	}
+}

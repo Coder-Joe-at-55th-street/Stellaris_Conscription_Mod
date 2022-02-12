@@ -1,0 +1,43 @@
+##########################################################################
+# Federation Decisions
+##########################################################################
+
+decision_release_special_subject_span_1 = {
+	owned_planets_only = yes
+	sound = event_laboratory_sound
+	icon = decision_resources
+
+	enactment_time = 0
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 0
+		}
+	}
+
+	potential = {
+		owner = {
+			has_ascension_perk = ap_confederal_governance
+		}
+	}
+
+	allow = {
+		owner = {NOT = {is_at_war = yes}}
+		distance = {
+			source = owner.capital_scope.solar_system
+			type=hyperlane
+			min_jumps = 5
+		}
+	}
+
+	effect = {
+		planet_event = {
+			id = CMsubject.1000
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}

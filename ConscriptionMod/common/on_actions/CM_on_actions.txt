@@ -34,3 +34,9 @@ on_ship_built = {
 		contractor.100
 	}
 }
+
+on_remove_community_member = {
+	events = {
+		cm_decolonization.310 #Country Event. Remove "Decolonization Initiative for the nation."
+	}
+}

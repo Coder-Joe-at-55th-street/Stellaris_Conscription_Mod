@@ -1,0 +1,118 @@
+############################
+#
+# More Subject Events
+#
+# Written by "Telepathing Tilapia"
+#
+############################
+
+namespace = cm_test
+
+planet_event = {
+	id = cm_test.1000
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		owner = {
+			country_event = {id = cm_test.1001}
+		}
+	}
+}
+
+
+country_event = {
+	id = cm_test.1001
+
+
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		from = {
+			planet_event = {id = cm_test.1002}
+		}
+	}
+}
+
+
+
+
+planet_event = {
+	id = cm_test.1002
+	
+	title = CMsubject.1002.name
+	desc = CMsubject.1002.desc
+	picture = GFX_evt_gunrunning
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = CMsubject.1002.a
+		CM_country_creation_3 = {
+			New_Country_Span = 1
+		}
+		last_created_country = {
+				country_event = {
+					id = CMsubject.1010 #Initialization
+				}
+				from = {
+					country_event = {
+						id = CMsubject.1020
+						days = 1
+					}
+				}
+		}
+	}
+}
+
+
+planet_event = {
+	id = cm_test.1200
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		owner = {
+			country_event = {id = cm_test.1201}
+		}
+	}
+}
+
+
+country_event = {
+	id = cm_test.1201
+
+
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		from = {
+			planet_event = {id = cm_decolonization.911}
+		}
+	}
+}
+
+
+
+
+
+
